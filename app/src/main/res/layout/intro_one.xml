@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+    <LinearLayout android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    -<LinearLayout
+    android:orientation="vertical"
+    android:layout_height="0dp"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:layout_weight="1">
+
+    <ImageView
+        android:layout_height="200dp"
+        android:layout_width="200dp"
+        android:layout_gravity="center"
+        android:background="@drawable/online"/>
+
+</LinearLayout>
+
+
+    <LinearLayout
+    android:orientation="vertical"
+    android:layout_height="0dp"
+    android:layout_width="match_parent"
+    android:layout_weight="0.5">
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:fontFamily="@font/muli"
+        android:textSize="23sp"
+        android:textColor="@android:color/black"
+        android:text="Bienvenido a Trivias Medicas"/>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:fontFamily="@font/muli"
+        android:textColor="@android:color/black"
+        android:text="Resuelve las siguientes preguntas en el menor tiempo posible,tienes en total 30 segundos para hacerlo" android:layout_marginTop="15dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginStart="25dp"/>
+
+</LinearLayout>
+
+</LinearLayout>

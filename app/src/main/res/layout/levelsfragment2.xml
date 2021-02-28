@@ -1,0 +1,21 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/ThemeOverlay.AutentificationFb.FullscreenContainer"
+    tools:context="dialogos.levelsfragment2"
+    android:orientation="horizontal">
+
+    <!-- The primary full-screen view. This can be replaced with whatever view
+         is needed to present your content, e.g. VideoView, SurfaceView,
+         TextureView, etc. -->
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="396dp"
+        android:layout_height="480dp"
+        android:layout_weight="1"
+        tools:src="@tools:sample/avatars" />
+
+
+</LinearLayout>

@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/holas"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#875FC0"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+
+        android:id="@+id/linearLayout8"
+        android:layout_width="match_parent"
+        android:layout_height="578dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="7dp"
+        android:background="@drawable/shap_sharegame"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.193"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="16dp">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="15dp"
+            android:fontFamily="@font/muli"
+            android:text="HURRA !"
+            android:textAllCaps="false"
+            android:textColor="#171616"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/muli"
+            android:text="Has llegado al nivel "
+            android:textAllCaps="false"
+            android:textColor="#171616"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+
+        <LinearLayout
+            android:id="@+id/mybackground"
+            android:layout_width="match_parent"
+            android:layout_height="408dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/adriano2"
+            android:orientation="vertical">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/kkj"
+                android:layout_width="match_parent"
+                android:layout_height="420dp">
+
+                <LinearLayout
+                    android:id="@+id/linearLayout7"
+                    android:layout_width="275dp"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="24dp"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:fontFamily="@font/muli"
+                        android:text="Comparte la app con tus amigos"
+                        android:textColor="#0B0B0B"
+                        android:textSize="17dp" />
+
+
+                    <TextView
+                        android:id="@+id/textViw2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/muli"
+                        android:gravity="center_horizontal"
+                        android:text="Seguro te lo agradecerean :) "
+                        android:textColor="#1E1E1E"
+                        android:textSize="15dp" />
+
+                    <LinearLayout
+                        android:id="@+id/dff"
+                        android:layout_width="200dp"
+                        android:layout_height="120dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="18dp"
+                        android:background="@drawable/borde_share"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView12"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="7dp"
+                            android:layout_marginEnd="15dp"
+                            android:fontFamily="sans-serif-black"
+
+                            android:text="COMPARTIR" />
+
+                        <LinearLayout
+                            android:id="@+id/sdffds"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="10dp"
+                            android:orientation="horizontal">
+
+
+                            <ImageView
+                                android:id="@+id/imageView8"
+                                android:layout_width="45dp"
+                                android:layout_height="45dp"
+                                app:srcCompat="@drawable/face_icon"
+                                tools:visibility="visible" />
+
+
+                            <ImageView
+                                android:id="@+id/imageView2"
+                                android:layout_width="45dp"
+                                android:layout_height="45dp"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginLeft="8dp"
+                                app:srcCompat="@drawable/whatsp_icon" />
+
+                            <ImageView
+                                android:id="@+id/imageView6"
+                                android:layout_width="45dp"
+                                android:layout_height="45dp"
+                                android:layout_marginLeft="8dp"
+                                app:srcCompat="@drawable/twit_icon" />
+                            LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/lotiso"
+                    android:layout_width="300dp"
+                    android:layout_height="642dp"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="false"
+                    app:lottie_rawRes="@raw/confeti"
+                    app:lottie_repeatCount="0"
+                    tools:layout_editor_absoluteX="40dp"
+                    tools:layout_editor_absoluteY="-100dp" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/s48"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button7"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_marginLeft="35dp"
+                android:onClick="fragmentol2"
+                android:textColor="@color/white"
+                android:background="@drawable/shape2"
+                android:layout_marginRight="35dp"
+                android:layout_weight="1"
+                android:text="CONTINUAR" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="center_horizontal">
+
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/muli"
+            android:onClick="fragmentol"
+            android:text="Regresar al juego "
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageView5"
+            app:layout_constraintHorizontal_bias="0.34"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout8" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="8dp"
+            android:src="@android:drawable/stat_notify_sync"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout8"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="261dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

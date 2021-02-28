@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Levels">
+
+    <LinearLayout
+        android:id="@+id/linea33rLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/background"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lineafrLayout5"
+        tools:ignore="MissingConstraints">
+
+
+        <ImageView
+            android:id="@+id/imag33eView3"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            tools:srcCompat="@tools:sample/avatars" />
+
+
+        <LinearLayout
+            android:layout_width="137dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/texgf33dtView5"
+                android:layout_width="89dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Nivel 9"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/textggdfView7"
+                android:layout_width="89dp"
+                android:layout_height="wrap_content"
+                android:text="Preguntas 5/20"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/buttonff23r6"
+            android:layout_width="141dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="play" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lineafrLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/background"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5gdf"
+        tools:ignore="MissingConstraints">
+
+
+        <ImageView
+            android:id="@+id/imassffseView3"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            tools:srcCompat="@tools:sample/avatars" />
+
+
+        <LinearLayout
+            android:layout_width="137dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tessxgfdtView5"
+                android:layout_width="89dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Nivel 8"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/sftextView7"
+                android:layout_width="89dp"
+                android:layout_height="wrap_content"
+                android:text="Preguntas 5/20"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/buttjk7on6"
+            android:layout_width="141dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="play" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout5gdf"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/background"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
+        tools:ignore="MissingConstraints">
+
+
+        <ImageView
+            android:id="@+id/imageViewff3"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            tools:srcCompat="@tools:sample/avatars" />
+
+
+        <LinearLayout
+            android:layout_width="137dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/teffgfdtView5"
+                android:layout_width="89dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Nivel 7"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/textffView7"
+                android:layout_width="89dp"
+                android:layout_height="wrap_content"
+                android:text="Preguntas 5/20"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/buddtton6"
+            android:layout_width="141dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="play" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/background"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutf2"
+        tools:ignore="MissingConstraints">
+
+
+        <ImageView
+            android:id="@+id/imageVtrtiew3"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            tools:srcCompat="@tools:sample/avatars" />
+
+
+        <LinearLayout
+            android:layout_width="137dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="89dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Nivel 5"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/tdgextView7"
+                android:layout_width="89dp"
+                android:layout_height="wrap_content"
+                android:text="Preguntas 5/20"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/yuybutton6"
+            android:layout_width="141dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="play" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/background"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            tools:srcCompat="@tools:sample/avatars" />
+
+
+        <LinearLayout
+            android:layout_width="137dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textffView5"
+                android:layout_width="89dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Nivel 1"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="89dp"
+                android:layout_height="wrap_content"
+                android:text="Preguntas 5/20"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="141dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="play" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/background"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        tools:ignore="MissingConstraints">
+
+
+        <ImageView
+            android:id="@+id/imageffView3"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            tools:srcCompat="@tools:sample/avatars" />
+
+
+        <LinearLayout
+            android:layout_width="137dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/texffView5"
+                android:layout_width="89dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Nivel 2"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/tffextView7"
+                android:layout_width="89dp"
+                android:layout_height="wrap_content"
+                android:text="Preguntas 5/20"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/buttonff6"
+            android:layout_width="141dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="play" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayddout3"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/background"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        tools:ignore="MissingConstraints">
+
+
+        <ImageView
+            android:id="@+id/imageViffew3"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            tools:srcCompat="@tools:sample/avatars" />
+
+
+        <LinearLayout
+            android:layout_width="137dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViessw5"
+                android:layout_width="89dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Nivel 3"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/textViewds7"
+                android:layout_width="89dp"
+                android:layout_height="wrap_content"
+                android:text="Preguntas 5/20"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/button6ff"
+            android:layout_width="141dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="play" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutf2"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/background"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayddout3"
+        tools:ignore="MissingConstraints">
+
+
+        <ImageView
+            android:id="@+id/imageVifew"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            tools:srcCompat="@tools:sample/avatars" />
+
+
+        <LinearLayout
+            android:layout_width="137dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView54"
+                android:layout_width="89dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Nivel 4"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/textView34"
+                android:layout_width="89dp"
+                android:layout_height="wrap_content"
+                android:text="Preguntas 5/20"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/button22"
+            android:layout_width="141dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="play" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/background"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
+        tools:ignore="MissingConstraints">
+
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            tools:srcCompat="@tools:sample/avatars" />
+
+
+        <LinearLayout
+            android:layout_width="137dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/texgfdtView5"
+                android:layout_width="89dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Nivel 6"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="89dp"
+                android:layout_height="wrap_content"
+                android:text="Preguntas 5/20"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="141dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="play" />
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
