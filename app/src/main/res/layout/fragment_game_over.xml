@@ -8,11 +8,12 @@
     android:minHeight="1000dp"
     android:orientation="vertical"
     tools:context=".Game_over1">
+
     <LinearLayout
         android:id="@+id/df"
-        android:background="#8159BA"
         android:layout_width="match_parent"
         android:layout_height="55dp"
+        android:background="#7B4FC8"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -23,10 +24,11 @@
 
             <ImageView
                 android:id="@+id/imageButton4"
-                android:layout_width="67dp"
+                android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginLeft="25dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="15dp"
                 app:srcCompat="@android:drawable/ic_popup_sync" />
         </LinearLayout>
 
@@ -36,22 +38,14 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/imageButn4"
-                android:layout_width="25dp"
-                android:layout_height="23dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="13dp"
-                app:srcCompat="@mipmap/trofeos"/>
-
-            <ImageView
                 android:id="@+id/imageutton4"
                 android:layout_width="28dp"
                 android:layout_height="28dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="13dp"
                 android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
                 app:srcCompat="@android:drawable/ic_menu_share" />
-
 
 
         </LinearLayout>
@@ -63,30 +57,19 @@
         android:layout_width="match_parent"
 
         android:layout_height="470dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="55dp"
 
-        android:background="@drawable/shape_home"
+        android:background="#FAF8FD"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
-            android:text=":( Suerte la Proxima"
-            android:textColor="@color/white"
-            android:textSize="20dp">
-
-        </TextView>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="6dp"
-            android:fontFamily="sans-serif-black"
+            android:layout_marginTop="22dp"
+            android:fontFamily="@font/muli"
             android:text="JUEGO TERMINADO "
-            android:textColor="@color/white"
+            android:textColor="#4E4E4E"
             android:textSize="25dp">
 
         </TextView>
@@ -95,70 +78,43 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="2dp"
             android:text="Intentalo Nuevamente"
-            android:textColor="@color/white"
+            android:textColor="#464647"
             android:textSize="20dp">
 
         </TextView>
 
 
         <LinearLayout
-            android:id="@+id/layout1"
-            android:layout_width="262dp"
-            android:layout_height="265dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/circle5"
+            android:layout_marginTop="0dp"
+            android:orientation="horizontal">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout1"
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="17dp"
+            android:layout_marginRight="35dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/shape_fondo_tiburon"
+            android:gravity="center_horizontal"
             android:orientation="horizontal">
 
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textView7"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Puntaje"
-                    android:textSize="26dp" />
-
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-
-                    <TextView
-                        android:id="@+id/textView47"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/muli"
-                        android:gravity="center"
-                        android:text="100"
-                        android:textColor="@color/black"
-                        android:textSize="26dp" />
-
-                    <TextView
-                        android:id="@+id/textView22"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/muli"
-                        android:gravity="center"
-                        android:text="Pt"
-                        android:textColor="@color/black"
-                        android:textSize="18dp" />
-
-                </LinearLayout>
-
-
-            </LinearLayout>
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="202dp"
+                android:layout_height="265dp"
+                android:layout_gravity="center_horizontal"
+                app:srcCompat="@drawable/tiburon_mediotrizte2" />
 
 
         </LinearLayout>
@@ -169,18 +125,18 @@
     <LinearLayout
         android:id="@+id/sfr"
         android:layout_width="match_parent"
-        android:layout_marginRight="35dp"
-        android:layout_marginLeft="35dp"
-        android:background="@drawable/sombra"
         android:layout_height="70dp"
         android:layout_below="@+id/cv"
+        android:layout_marginLeft="35dp"
         android:layout_marginTop="-35dp"
+        android:layout_marginRight="35dp"
+        android:background="@drawable/sombra"
         android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-          android:gravity="center"
+            android:gravity="center"
             android:orientation="vertical">
 
             <LinearLayout
@@ -196,30 +152,30 @@
 
                     android:gravity="center"
                     android:text="@string/valor1"
-                    android:textColor="#4A148C"
+                    android:textColor="#3C3C3C"
                     android:textSize="26dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/score1" />
 
-                <ImageView
-                    android:id="@+id/imageViewe2"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="25dp"
-                    tools:src="@mipmap/coin" />
-
                 <TextView
-                    android:id="@+id/textView21"
+                    android:id="@+id/textView7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:fontFamily="@font/muli"
+                    android:layout_marginLeft="20dp"
                     android:gravity="center"
-                    android:text="0"
-                    android:textColor="#4A148C"
-                    android:textSize="28dp" />
+                    android:text="Puntaje"
+                    android:textSize="26dp" />
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center"
+                    android:text="Pts"
+                    android:textSize="26dp" />
+
             </LinearLayout>
         </LinearLayout>
 
@@ -227,18 +183,18 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/btn_empezarjuego"
         android:layout_width="match_parent"
-        android:layout_height="71dp"
-        android:layout_marginLeft="40dp"
+        android:layout_height="58dp"
+        android:layout_below="@id/sfr"
+        android:layout_marginLeft="35dp"
         android:layout_marginTop="15dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginBottom="36dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginBottom="15dp"
         android:background="@drawable/shape2"
         android:fontFamily="@font/muli"
-       android:layout_below="@id/sfr"
         android:text="INTENTARLO NUEVAMENTE"
-        android:textSize="19dp"
+        android:textSize="17dp"
         android:textStyle="bold" />
 
 

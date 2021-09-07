@@ -4,26 +4,40 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.Animator;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
+import android.view.WindowManager;
 
 import com.airbnb.lottie.LottieAnimationView;
 
 public class Countdow extends AppCompatActivity {
     LottieAnimationView anima_countdown;
 
-    MediaPlayer mp3ready_go;
+    SoundPool countdown_sound;
+    int count_down;
+
+   // MediaPlayer mp3ready_go;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_countdow);
+
+        super.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+
+
         anima_countdown=findViewById(R.id.lotiso);
-        reproducesound();
+
         anima_countdown.addAnimatorListener(new Animator.AnimatorListener() {
+
+
 
 
 
@@ -70,12 +84,14 @@ public class Countdow extends AppCompatActivity {
     }
 
 
-public void reproducesound()
+    public void   IraJuego2()
     {
-        mp3ready_go = MediaPlayer.create(this, R.raw.ready_go);
-        mp3ready_go.start(); //reproduce sonido del objeto
+        Intent inn =new Intent(this, Juego_Partida.class );
+        startActivity(inn);
 
     }
+
+
 
 
 

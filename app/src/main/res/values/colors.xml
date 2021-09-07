@@ -6,6 +6,10 @@
 
     <color name="colorPrimary">#6200EE</color>
 
+    <color name="colorblanco">#FFFFFF</color>
+
+
+
     <color name="colorPrimaryDark">#3700B3</color>
 
     <color name="colorAccent">#03DAC5</color>
@@ -48,4 +52,9 @@
     <color name="light_blue_A200">#FF40C4FF</color>
     <color name="light_blue_A400">#FF00B0FF</color>
     <color name="black_overlay">#66000000</color>
+
+    <color name="icon_tiburela_background">#F8FFF4</color>
+    <color name="iconode_app01_background">#FFAF3A</color>
+
+
 </resources>

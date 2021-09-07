@@ -4,23 +4,26 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
+    android:background="@color/white"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
 
     <LinearLayout
-    android:orientation="vertical"
-    android:layout_height="0dp"
-    android:layout_width="match_parent"
-    android:gravity="center"
-    android:layout_weight="1">
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="25dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
 
-    <ImageView
-        android:layout_height="200dp"
-        android:layout_width="200dp"
-        android:layout_gravity="center"
-        android:background="@drawable/cart"/>
+        <ImageView
+            android:layout_width="258dp"
+            android:layout_height="450dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/intro001" />
 
-</LinearLayout>
+    </LinearLayout>
 
 
     -<LinearLayout
@@ -34,10 +37,13 @@
         android:layout_width="match_parent"
         android:gravity="center"
         android:textStyle="bold"
+       android:layout_marginLeft="20dp"
+       android:layout_marginRight="20dp"
         android:textSize="25sp"
         android:fontFamily="@font/muli"
         android:textColor="@android:color/black"
-        android:text="Acumula Puntos y Aprende"/>
+        android:text="Jugar es fácil y Divertido"
+        />
 
     <TextView
         android:layout_height="wrap_content"
@@ -46,7 +52,7 @@
         android:textSize="18sp"
         android:fontFamily="@font/muli"
         android:textColor="@android:color/black"
-        android:text="Elije la opcion correcta y acumula puntos y conocimientos."
+        android:text="No te preocupes si no eliges la opción correcta, recuerda que equivocandose tambien se aprende ."
         android:layout_marginTop="15dp"
         android:layout_marginEnd="25dp"
         android:layout_marginStart="25dp"/>

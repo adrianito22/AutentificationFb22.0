@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">QUIZ</string>
+    <string name="app_name">Trivias Medicas</string>
     <string name="valor1">" / 5"</string>
     -
     <string-array name="quiz_category">
@@ -16,6 +16,21 @@
         <item>America</item>
         <item>Europe</item>
     </string-array>
+
+
+    <!-- Strings useds in menu items laterla barra -->
+    <string name="item1">Item 1</string>
+    <string name="item2">Item 2</string>
+    <string name="item3">Item 3</string>
+
+
+    <!-- labels de fragment in mobile navigation-->
+    <string name="juego">Jugar</string>
+    <string name="items">Items</string>
+    <string name="enviar">Enviar</string>
+    <string name="configuracion">Configuracion</string>
+
+
 
 
     <string name="facebook_app_id">4852271694845614</string>
@@ -39,7 +54,118 @@
     <string name="title_notifications">Notifications</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_midrawer">Midrawer</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Trivias Medicas</string>
+    <string name="nav_header_subtitle">Opciones</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Jugar</string>
+    <string name="menu_gallery">Enviar</string>
+    <string name="menu_slideshow">Configuracion</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="title_activity_ultimate__tab">Ultimate_Tab</string>
     <!-- TODO: Remove or change this placeholder text -->
+
+
+    <!--Comentario-->
+
+    <string-array name="paises_espanol">
+        <item>La laringe forma parte del aparato?. Respiratorio. Circulatorio.Boca.Digestivo</item>
+        <item>Cuantas piezas dentales tiene un adulto?.32.24.28.31</item>
+        <item>¿Cuál de los siguientes huesos no corresponden a la columna vertebral?.Tabique.Omóplatos.Atlas.Sacro</item>
+        <item>Cuál de las siguientes opciones no es parte del ojo ?.Yunque.Retina.Pupila.Cornea</item>
+        <item>Qué órgano ataca la enfermedad Cirrosis?.Hígado.Corazón.Cerebro.Pulmones</item>
+        <item>La laringe forma parte del aparato?. Respiratorio. Circulatorio.Boca.Digestivo</item>
+        <item>En que parte del cuerpo humano se encuentra la falanges.Dedos.Garganta.Codos.Piernas</item>
+        <item>Cuál de las siguientes opciones no es parte del ojo ?.Yunque.Retina.Pupila.Cornea</item>
+        <item> Qué órgano ataca la enfermedad Cirrosis?.Hígado.Corazón.Cerebro.Pulmones</item>
+        <item>Cuántos huesos hay en el cuerpo humano?.206.214.310.200</item>
+        <item>¿Cómo se llama el músculo que no podemos mover?.Musculo liso.Musculo estriado.Musculo esqueletico.Ninguna de las anteriores</item>
+        <item>El esqueleto humano tiene 206 huesos pero al nacer tiene?.270 y 350 .206 y 270.206.215</item>
+        <item>¿El músculo más fuerte del cuerpo humano es?.La lengua.Abdomen. Cuádricep .Tripses</item>
+        <item>¿Cuándo el organismo pierde el 1%de agua provoca?.Nerviosismo.Sensación de sed.Desmayos.Alucinaciones</item>
+        <item>Que parte del cuerpo mantiene su tamaño desde el nacimiento? .Ojos.Garganta.Uñas.Orejas</item>
+        <item>La laringe forma parte del aparato?. Respiratorio. Circulatorio.Boca.Digestivo</item>
+        <item>¿Qué tipo de sangre transportan las arterias no pulmonares? .Oxigenada.Sin oxígeno.De desechos.Todas las anteriores</item>
+        <item>¿Cuál de las opciones no es componente principal de la sangre?.Flora.Glóbulos blancos.Globulos rojos.Plaquetas</item>
+        <item> ¿Qué función simple cumple el páncreas?.Producir insulina.Producir Globulos.Producir Flora.Sintetizar Vitaminas</item>
+        <item> Cuál sistema es responsable del 80% del calor que genera el cuerpo humano?.Sistema circulatorio.Sistema digestivo.Sistema nervioso.Sistema muscular</item>
+        <item> Qué elemento indica que el crecimiento de la persona a terminado?.La línea epifiseal. La densidad ósea .El porte.El tamaño</item>
+        <item> ¿Qué función tienen las proteínas? .Constructivas.Energéticas. Reguladora . Anabolizantes</item>
+        <item>Qué parte del cuerpo mantiene su tamaño desde el nacimiento? .Ojos.Garganta.Uñas.Orejas</item>
+        <item> ¿Dónde podemos encontrar proteínas?.Legumbres.Agua.verdura.Fruta</item>
+        <item> ¿Cuánta sangre tiene un ser humano aproximadamente?.6 litros.2 litros.20 litros.62 litros</item>
+        <item>Cómo llamamos al latido del corazón?.Bombeo.propulsión.Latido.Impulso Cardiaco</item>
+        <item>A qué aparato pertenece la Tráquea?.Respiratorio.Digestivo.Circulatorio.Excretor</item>
+        <item>Qué aparato se encarga de recoger oxígeno?.Respiratorio.Digestivo.Circulatorio.Excretor</item>
+        <item>¿Cuál de estas es una enfermedad mental relacionada con la nutrición?. Anorexia.Escorbuto.Raquitismo.Obesidad</item>
+        <item>¿A qué aparato pertenecen las venas ?.Circulatorio.Respiratorio.Digestivo.Excretor</item>
+        <item>¿Cuál de las siguientes proteínas le brinda ala piel su impermeabilidad?.Queratina.Elastina.Fibrinógeno.Globina</item>
+        <item>¿Cuántos sistemas tiene el cuerpo humano?.10.4.14.13</item>
+        <item>¿Qué hormona esta relaciona con el ciclo diurno o reloj biológico?.Melatonina.Adrenalina.Testosterona.Serotonina</item>
+        <item>¿Cuál de los siguientes órganos posee una capa muscular capaz de contraerse?.Estomago.Esófago.Hígado.Cerebro </item>
+        <item>¿Cuál de las siguientes opciones está compuesto por tejido conectivo?.La sangre.La epidermis .Cerebro.Músculos</item>
+        <item>¿Cuál es el órgano interno más grande del cuerpo humano ?.Estómago.Hígado.Cerebro.Pulmones</item>
+        <item>¿Cuál es el peso de la piel de un adulto promedio?.3 libras.8 libras.10 libras.5 libras</item>
+        <item>¿Cuál es el músculo más grande del cuerpo humano?.Glúteo máximo .Bíceps .Cuádriceps .Dorsal ancho</item>
+        <item>¿Qué nos diferencia a los humanos del resto de especies?.Pensar y hablar.Comer.Jugar.Beber</item>
+        <item>¿Cuál es el órgano más largo del cuerpo humano?.La piel.Intestinos .Pulmón .Esófago</item>
+        <item>Cuál es el elemento que forma parte del cuerpo humano?.Fósforo .Carbón .Nitrato .Sulfato</item>
+        <item>¿Cuál es la glándula más grande del cuerpo humano?.El hígado .Glándula mamaria .Glándula pineal .Glándula sebácea </item>
+        <item>Cuáles son los grupos sanguíneos según el sistema AB0?.A,B,AB Y O.AB,BO.OB.OA</item>
+        <item>¿Cuál es el grupo sanguíneo más raro y escaso?.AB.O.A+.O+</item>
+        <item>¿Cuál es el receptor universal de sangre?.AB+.B+.A+.O</item>
+        <item>¿Cuál es el grupo sanguíneo donante universal de sangre?.O.A+.AB+.B+</item>
+        <item>¿Cuál es el peso medio de un cerebro humano?.1kg.36kg.2kg.3kg</item>
+        <item>¿Cuántas cámaras que tiene el corazón?.4.2.6.7</item>
+        <item>¿Cuál es el músculo más largo del cuerpo humano?.Sartorio.Esquelético .Fémur .Cardiaco </item>
+        <item>Cuántos músculos hay en el cuerpo humano?.640 musculos.641 musculos.400 musculos.600 musculos</item>
+        <item>De qué están compuestas nuestras uñas?.Queratina .Proteína.Fósforo .Azufre</item>
+        <item>¿Cuántos huesos hay en el cuerpo humano?.206 huesos.300 huesos.203 huesos.100 huesos</item>
+        <item>¿Cuál es el hueso más pequeño del cuerpo humano?.Estribo.Yunque.Meñique.Martillo </item>
+        <item>En qué parte del cuerpo está el mayor número de huesos?.Manos.Pies.cabeza.Oidos</item>
+        <item>Dónde está la glándula pituitaria?.Cerebro .Corazón.Estómago .Hígado</item>
+        <item>¿Qué es el estrógeno?.Hormona sexual femenina .Una glandula.Hormona masculina.Ninguna</item>
+        <item>¿Cómo se llama la capa externa de la piel que podemos ver y tocar?.Epidermis.Dermis.Nervios.Hipodermis</item>
+        <item>¿En qué parte del cuerpo está la capa más fina de piel?.Parpado.Piel.Orejas.Pestañas</item>
+        <item>A través de qué órganos filtramos la sangre?.Riñones he hígado .Estomago y esófago .Hígado y Estómago .Riñones y estomago</item>
+        <item>¿Qué órgano produce la voz?.Cuerdas vocales.Garganta .Labios .La boca </item>
+        <item>Qué función asegura la supervivencia de los seres humanos? .Reproducción .Fecundación .Extinción .Creación </item>
+        <item>¿Dónde se encuentra el hueso isquion?.Pelvis.Cráneo .Hombro.Pie </item>
+        <item>¿Dónde se encuentra el agujero mango?.Cráneo .Pelvis.Hombro.Rodilla</item>
+        <item>¿Cuantas costillas tiene el cuerpo humano?.12.24.11.26</item>
+        <item> ¿Qué es la fecundación?.Un proceso .Reproducción .Creación .Desarrollo </item>
+        <item>¿Cuál es el único órgano que puede regenerarse? .Hígado.Corazón .Páncreas .Pulmón </item>
+        <item>Si estiramos el intestino delgado, ¿Cuánto mediría?.Entre 5 y 7 metros.10 metros.4 metros.8 metros </item>
+        <item>¿Dónde está el músculo bíceps femoral?.Pierna .Brazos.Espalda.Caderas </item>
+        <item>¿Qué tipos de colores de venas tenemos?.Azul y verde.Rojo.Morada y violeta.Cafés </item>
+        <item>¿Cuál es la causa de muerte en un cuadro de picadura por escorpión?.Shock cardiogénico.Insuficiencia renal .Deshidratación severa.Insuficiencia hepática </item>
+        <item>¿Cómo se llama el aumento de temperatura en el cuerpo?.Fiebre.quemazón .Hipotermia .Calentura</item>
+        <item>¿La lengua es un músculo o músculos?.Músculos .Músculo .Todas las anteriores .órgano </item>
+        <item>¿La varicela es contagiosa?. Si es contagiosa .No.Talvez.Aveces </item>
+        <item>¿Cómo se llama la caída súbita de la temperatura del cuerpo?.Hipotermia .Frio.Escalofríos .Resfrío </item>
+        <item>¿Cómo se le llama ala reacción exagerada del sistema inmune a una sustancia exagerada?.Alergia .Malestar.Decaimiento .Picazón </item>
+        <item>¿Qué no pueden consumir los intolerantes a la lactosa?.Lácteos.Harinas.Néctar .Sumos</item>
+        <item>¿Cómo se llama al cansancio de los ojos?.Fatiga ocular.Pestañeo.somnoliento .Cansancio</item>
+        <item>¿Cómo se llama el comportamiento excesivo de comerse las uñas?.Onicofagia .Nervios.Fatiga.Ansiedad</item>
+        <item>¿Quién tiene más probabilidades de desarrollar autismo?.Niños.Niñas.Adultos.Adolescentes </item>
+        <item>¿Qué enfermedad ocurre cuando se inflaman los bronquios?.Bronquitis.Neumonía .Tos.Pulmonía </item>
+        <item>¿De lado del abdomen se encuentra la apéndice?.Derecho.Izquierdo .Lateral.Centro</item>
+        <item>¿Qué órgano del cuerpo humano produce el colesterol?.El hígado .Estómago .Todas las anteriores .Intestinos </item>
+        <item>¿Es contagiosa la meningitis?.Si.No.No creo.Talvez </item>
+        <item>¿Cuál es el nombre común de torcedura de ligamentos?.Esguince .Safe.Torcedura .Quebradura</item>
+        <item>¿Qué enfermedad hace que el cuerpo no produzca insulina?.Diabetes .Sida.Ninguna.Tuberculosis </item>
+        <item>¿La gripe puede afectar al corazón?.Si.No.Nunca.Talvez </item>
+        <item>¿Qué substancia debes consumir mucho para desarrollar Cirrosis?.Alcohol.Azúcar.Ácido .Sal</item>
+        <item>¿Cuál es la articulación central de la pierna?.Rodilla .Muslo.Pies.Peroné </item>
+        <item>¿Cuál es la célula principal del sistema nervioso?.Neurona.Glóbulos .Defensas .Células </item>
+
+    </string-array>
 
 
 </resources>

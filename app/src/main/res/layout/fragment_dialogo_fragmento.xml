@@ -1,25 +1,24 @@
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/dsd"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#875FC0"
+    android:background="#7E57C2"
     android:minHeight="1000dp"
     android:orientation="vertical">
 
 
     <LinearLayout
         android:id="@+id/df"
-        android:background="#8159BA"
         android:layout_width="match_parent"
         android:layout_height="55dp"
+        android:background="#7E57C2"
         android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="62dp"
-            android:layout_weight="1"
+            android:layout_width="358dp"
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
@@ -27,13 +26,14 @@
                 android:id="@+id/imageButton4"
                 android:layout_width="67dp"
                 android:layout_height="30dp"
-                android:layout_marginLeft="25dp"
+                android:layout_marginLeft="2dp"
                 android:layout_marginTop="15dp"
                 app:srcCompat="@android:drawable/ic_menu_revert" />
+
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
 
             android:layout_height="match_parent">
 
@@ -41,178 +41,134 @@
                 android:id="@+id/imageButn4"
                 android:layout_width="25dp"
                 android:layout_height="23dp"
+                android:layout_gravity=""
+                android:layout_marginLeft="20dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="13dp"
                 app:srcCompat="@mipmap/home" />
-
-            <ImageView
-                android:id="@+id/imageutton4"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="13dp"
-                android:layout_marginRight="20dp"
-                app:srcCompat="@mipmap/trofeos" />
-
         </LinearLayout>
 
     </LinearLayout>
 
+
     <LinearLayout
-            android:id="@+id/df45"
+        android:id="@+id/asd"
+        android:layout_width="match_parent"
+        android:layout_height="185dp"
+        android:layout_below="@+id/df"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/shape"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="109dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="45dp"
+            android:layout_marginRight="20dp"
+            android:fontFamily="@font/muli"
+            android:text="TextView pregunta va por aqui dfd sfddgdfgdfg dfgdfb  fd gfdggdfgdfgdfgdf"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/as"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_below="@+id/asd"
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="-195dp"
+        android:layout_marginRight="55dp"
+        android:background="@drawable/shape_boton_next"
+        android:orientation="vertical">
+
+        <Button
             android:layout_width="match_parent"
-            android:layout_marginTop="20dp"
-            android:layout_height="40dp"
-            android:layout_alignParentEnd="true"
-            android:orientation="vertical">
+            android:text="PREGUNTA"
+            android:background="#FFFBAF00"
+            android:id="@+id/button9"
+            android:layout_height="match_parent">
+
+        </Button>
 
 
-            <Button
-                android:id="@+id/button9"
-                android:layout_width="258dp"
-                android:background="@drawable/shape2"
-                android:layout_gravity="center_horizontal"
-                android:textColor="@color/white"
-                android:fontFamily="@font/muli"
-                android:layout_height="42dp"
-                android:text="Pregunta" />
-        </LinearLayout>
+    </LinearLayout>
 
+    <FrameLayout
+        android:id="@+id/frame"
+        android:layout_width="match_parent"
+        android:layout_height="210dp"
+        android:layout_below="@id/mundo"
+        android:layout_marginTop="-100dp"
+        android:layout_marginBottom="-15dp">
 
         <LinearLayout
-            android:id="@+id/asd"
             android:layout_width="match_parent"
-            android:layout_height="123dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginRight="15dp"
+            android:layout_height="210dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:background="@drawable/shape"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView9"
-                android:layout_width="match_parent"
+                android:id="@+id/respuestas2"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/muli"
-                android:text="TextView pregunta va por aqui"
-                android:textColor="@color/black"
-                android:textSize="20dp" />
-        </LinearLayout>
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="110dp"
+                android:text="TextView"
+                android:textSize="17dp" />
 
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="20dp"
+                android:text="Respuesta "
+                android:textSize="16dp" />
+        </LinearLayout>
+    </FrameLayout>
 
     <LinearLayout
+        android:id="@+id/mundo"
         android:layout_width="match_parent"
-        android:layout_height="407dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="30dp"
-
-        android:layout_marginRight="15dp"
-        android:background="@drawable/shape"
+        android:layout_height="185dp"
+        android:layout_below="@+id/df"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="170dp"
+        android:layout_marginRight="45dp"
+        android:background="@drawable/shape_fondo_tiburon"
         android:orientation="vertical">
 
-
-        <LinearLayout
+        <ImageView
+            android:id="@+id/imageView6"
             android:layout_width="match_parent"
-            android:layout_height="319dp"
-            android:id="@+id/mybackground"
-            android:background="@mipmap/tiburonhappy"
-            android:orientation="vertical">
+            android:layout_height="165dp"
+            app:srcCompat="@drawable/tiburon_celebrando2" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-
-                <TextView
-                    android:id="@+id/respuestas2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:fontFamily="@font/muli"
-                    android:text="Respuesta 2 "
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    app:layout_constraintBottom_toTopOf="@+id/textView8"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
-
-                <TextView
-                    android:id="@+id/textView8"
-                    android:layout_width="319dp"
-                    android:layout_height="53dp"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginEnd="32dp"
-                    android:layout_marginBottom="20dp"
-                    android:fontFamily="@font/muli"
-                    android:gravity="center_horizontal"
-                    android:text="Respuesta es esta ,pero tambien puede ser esta de aqui"
-                    android:textColor="@color/black"
-                    android:textSize="18dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/sfdf"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:id="@+id/sdfsdf"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/button12"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/shape_verde"
-                    android:fontFamily="@font/muli"
-                    android:text="Compartir"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    android:textSize="18dp" />
-
-                <Button
-                    android:id="@+id/button13"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/shape2"
-                    android:fontFamily="@font/muli"
-                    android:onClick="fragmentol"
-                    android:text="Siguiente Pregunta"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    android:textSize="16dp" />
-            </LinearLayout>
-        </LinearLayout>
     </LinearLayout>
 
-    <LinearLayout
+    <Button
+        android:id="@+id/button13"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:orientation="vertical">
+        android:layout_below="@+id/frame"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="41dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/shape_boton_next"
+        android:onClick="fragmentol"
+        android:text="Siguiente Pregunta" />
 
-    </LinearLayout>
 
-</LinearLayout>
+
+</RelativeLayout>

@@ -7,34 +7,27 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
-
 import com.tiburela.TriviasMedicas.Juego_Partida;
 import com.tiburela.TriviasMedicas.R;
 
 
 public class Dialogo_fragmento extends DialogFragment{
-    Button boton_compartir;
-    TextView txt_pregunta;
-    TextView txt_muestra_respue;
-    TextView txt_muestra_pregunt;
-    Button btn_next;
-    //String respuesta;
-   TextView txt_muestra_respue2;
-    String muestra_respuesta;
-    String muestra_pregunta;
+    TextView txt_muestra_respue,txt_muestra_pregunt;
+
+    TextView txt_muestra_respue2;
+    String muestra_respuesta,muestra_pregunta;
+
     boolean boolean_recibe_respuesta;
     ImageView imageButton4;
-    LinearLayout ilayout;
+    ImageView ilayout;
+
+
+
 
     int muestra_score;
 
@@ -42,10 +35,7 @@ public class Dialogo_fragmento extends DialogFragment{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
-
-
-
+        
 
         if (getArguments() != null ){
             Bundle bundle = getArguments();
@@ -57,13 +47,6 @@ public class Dialogo_fragmento extends DialogFragment{
 
 
             bundle.putInt("SCORELAB",muestra_score);
-
-            // yourLayout.setBackgroundResource(resid);
-
-            //score= getArguments().getInt("SCORE",0);
-            //Toast.makeText(getContext(),"el valor del  SCORE es "+score, Toast.LENGTH_LONG).show();
-
-           // txt_muestra_respue.setText("hola mundo");
         }
 
     }
@@ -86,7 +69,7 @@ public class Dialogo_fragmento extends DialogFragment{
 
     private AlertDialog crearDialogote(){
 
-        // Toast.makeText(getContext(),"el valor del  SCORE es "+score, Toast.LENGTH_LONG).show();//ARRIBA DEL RETURN
+
 
         //ontextThemeWrapper ctw = new ContextThemeWrapper(getActivity(), R.style.fullscreenalert );
         AlertDialog.Builder builder=new AlertDialog.Builder(getActivity(), R.style.fullscreenalert);//
@@ -98,27 +81,20 @@ public class Dialogo_fragmento extends DialogFragment{
         builder.setView(v);
 
         // setStyle(DialogFragment., android.R.style.fullscreenalert);
-        txt_muestra_pregunt= v.findViewById(R.id.textView9);
+        txt_muestra_pregunt= v.findViewById(R.id.textView3);
         txt_muestra_respue= v.findViewById(R.id.textView8);
-        boton_compartir = v.findViewById(R.id.button12);
       //  txt_pregunta=v.findViewById(R.id.txt_mspue);
    //   btn_next=v.findViewById(R.id.button13);
-       ilayout=v.findViewById(R.id.mybackground);
+       ilayout=v.findViewById(R.id.imageView6);
      imageButton4=v.findViewById(R.id.imageButton4);
         txt_muestra_respue2=v.findViewById(R.id.respuestas2);
         txt_muestra_pregunt.setText(muestra_pregunta);
-texto_Respuesta();
 
-        /*
-       btn_next.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                Toast.makeText(getContext(),"esto funciona hurras ", Toast.LENGTH_LONG).show();
-                dismiss();
-            }
-        });
+
+
+
+
+texto_Respuesta();
 
 
 
@@ -129,8 +105,8 @@ texto_Respuesta();
   eventosBotones();
 
         //AQUI UN TOAST
-        //Toast.makeText(getContext(),"el valor del  SCORE es "+score, Toast.LENGTH_LONG).show();//ARRIBA DEL RETURN
-*/
+
+
         return builder.create();
 
     }
@@ -143,16 +119,16 @@ public void texto_Respuesta(){
       txt_muestra_respue2.setText("Hurra!");
   }
     else{
+
       txt_muestra_respue2.setTextColor(Color.parseColor("#fd1532"));
       txt_muestra_respue.setText("La respuesta correcta es: "+muestra_respuesta);
       txt_muestra_respue2.setText( "Opcion incorrecta");
+      ilayout.setImageDrawable(getResources().getDrawable(R.drawable.tiburon_enojado2));
 
-      ilayout.setBackgroundResource(R.mipmap.tib23);
+
   }
 
 }
-
-
 
 
     private void eventosBotones() {
@@ -221,6 +197,11 @@ dismiss();
 
         dismiss();
     }
+
+
+
+
+
 }
 
 

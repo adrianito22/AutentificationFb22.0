@@ -18,15 +18,12 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
 import com.airbnb.lottie.LottieAnimationView;
-import com.facebook.CallbackManager;
-import com.facebook.share.model.ShareLinkContent;
-import com.facebook.share.widget.ShareDialog;
+
 import com.tiburela.TriviasMedicas.R;
 
 import java.io.UnsupportedEncodingException;
@@ -34,7 +31,6 @@ import java.net.URLEncoder;
 import java.util.List;
 
 import static android.content.ContentValues.TAG;
-import static com.facebook.FacebookSdk.getApplicationContext;
 
 public class NewLevel_dialogFragment extends DialogFragment {
 
@@ -50,7 +46,6 @@ public class NewLevel_dialogFragment extends DialogFragment {
    TextView puntos_text ;
    TextView  frase_levels  ;
 
-   CallbackManager callbackManager;
 
   int puntos_level;
   int numero_level;
@@ -60,23 +55,7 @@ public class NewLevel_dialogFragment extends DialogFragment {
     ImageView bt_t;
 
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
 
-     //   PackageManager pm= getActivity().getPackageManager();
-
-
-        callbackManager=CallbackManager.Factory.create();
-
-
-        //  enviaMensajeWhatsApp("Mi mensaje es abcdef 1234567890");
-        ShareLinkContent content = new ShareLinkContent.Builder()
-                .setContentUrl(Uri.parse("https://www.facebook.com/452022598534168/posts/1197683830634704/?app=fbl"))
-                .build();
-
-
-    }
 
 
 
@@ -86,7 +65,6 @@ public class NewLevel_dialogFragment extends DialogFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        callbackManager=CallbackManager.Factory.create();
 
         if (getArguments() != null ){
             Bundle bundle = getArguments();
@@ -131,8 +109,7 @@ public class NewLevel_dialogFragment extends DialogFragment {
 
          frase_levels  =v.findViewById(R.id.textView15);
          Continuar=v.findViewById(R.id.button7);
-         bt_f=v.findViewById(R.id.imageView8);
-         bt_w=v.findViewById(R.id.imageView2);
+         bt_f=v.findViewById(R.id.tl_b);
          bt_t =v.findViewById(R.id.imageView6);
          lotie_winner  = v.findViewById(R.id.lotiso);
 
@@ -144,24 +121,15 @@ public class NewLevel_dialogFragment extends DialogFragment {
 //////////////////////////////////////////////////////////////////
 /////////// Boton compartir FACEBOOK LINK
 
-        callbackManager=CallbackManager.Factory.create();
-        ShareDialog shareDialog = new ShareDialog(this);
+
 
 
         bt_f.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                ShareLinkContent linkcontent = new ShareLinkContent.Builder()
-                        .setQuote("sdfgdfg")
-                        .setContentUrl(Uri.parse("https://developers.facebook.com/docs/reference/android/current/class/ShareLinkContent"))
-                        .build();
 
-                if(ShareDialog.canShow(ShareLinkContent.class))
-                {
-                    shareDialog.show(linkcontent);
 
-                }
 
             }
         });
@@ -242,38 +210,7 @@ public class NewLevel_dialogFragment extends DialogFragment {
         });
 
 
-
-
-          bt_w .setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                enviaMensajeWhatsApp("hola ,seguro te va encantar esta app,esta muy divertida :) ");
-
-            }
-        });
     }
-
-
-    public void enviaMensajeWhatsApp(String msj) {
-      //  List<PackageInfo> packs = getActivity().getPackageManager().getInstalledPackages(0);
-      //  getActivity().getPackageManager().getInstalledPackages(0);
-        PackageManager pm= getActivity().getPackageManager();
-
-        try {
-            Intent waIntent = new Intent(Intent.ACTION_SEND);
-            waIntent.setType("text/plain");
-            PackageInfo info=pm.getPackageInfo("com.whatsapp", PackageManager.GET_META_DATA);
-            waIntent.setPackage("com.whatsapp");
-            waIntent.putExtra(Intent.EXTRA_TEXT, msj);
-            startActivity(Intent.createChooser(waIntent, "Compartir con:"));
-        } catch (PackageManager.NameNotFoundException e) {
-            Toast.makeText(getApplicationContext(), "WhatsApp no esta instalado!", Toast.LENGTH_SHORT)
-                    .show();
-        }
-    }
-
-
-
 
     public static String urlEncode(String s) {
         try {
@@ -323,17 +260,6 @@ public class NewLevel_dialogFragment extends DialogFragment {
 
 */
 
-public void sendfacebook() {
-
-    callbackManager=CallbackManager.Factory.create();
-
-    //  enviaMensajeWhatsApp("Mi mensaje es abcdef 1234567890");
-    ShareLinkContent content = new ShareLinkContent.Builder()
-            .setContentUrl(Uri.parse("https://www.facebook.com/452022598534168/posts/1197683830634704/?app=fbl"))
-            .build();
-
-
-}
 
 
 

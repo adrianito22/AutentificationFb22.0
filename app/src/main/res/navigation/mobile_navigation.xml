@@ -7,19 +7,37 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.tiburela.TriviasMedicas.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        android:name="com.tiburela.TriviasMedicas.ui.home_juego.Fragment1"
+        android:label="@string/juego"
+        tools:layout="@layout/fragment_2" />
+
+    <fragment
+        android:id="@+id/navigation_items"
+        android:name="com.tiburela.TriviasMedicas.ui.items_coleccion.Items_coleccion"
+        android:label="@string/items"
+        tools:layout="@layout/fragment_notifications" />
+
+
+
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.tiburela.TriviasMedicas.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
+        android:name="com.tiburela.TriviasMedicas.ui.Enviar_pregunta.Fragment2"
+        android:label="@string/enviar"
         tools:layout="@layout/fragment_dashboard" />
+
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.tiburela.TriviasMedicas.ui.notifications.NotificationsFragment"
+        android:name="com.tiburela.TriviasMedicas.ui.Acerca.Fragment3"
+        android:label="@string/configuracion"
+        tools:layout="@layout/fragment_3" />
+
+
+    <fragment
+        android:id="@+id/fragment_ejemplo"
+        android:name="com.tiburela.TriviasMedicas.Fragment_ejemplo"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_ejemplo" />
+
 </navigation>

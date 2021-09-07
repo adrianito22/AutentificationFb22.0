@@ -3,21 +3,21 @@ package com.tiburela.TriviasMedicas;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-import android.widget.Toast;
 
-import com.tiburela.TriviasMedicas.utils.IntroPref;
+import com.tiburela.TriviasMedicas.control_intro_e_inidcaciones.IntroSlider;
 
 public class SplashScreen extends AppCompatActivity {
     ImageView imageView ;
     Animation fadeInAnimation;
-    private IntroPref introPrefer;
-
-
+ //   private IntroPref introPref;
+   public  Intro_preferencias2 miprefers;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -28,38 +28,64 @@ public class SplashScreen extends AppCompatActivity {
          fadeInAnimation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.animation);
          imageView.startAnimation(fadeInAnimation); //
 
-
-
-        introPrefer = new IntroPref(this);
-        if (!introPrefer.isFirstTimeLaunch()) {
-            Toast.makeText(this, "ya se inicio antes", Toast.LENGTH_SHORT).show();
-
-            new Handler() .postDelayed(() -> {
-                Intent intent=new Intent (SplashScreen.this, com.tiburela.TriviasMedicas.Home.class);
-                startActivity(intent);
-                finish();
-            },2000);
-
-
-        }
-        else{
-            Toast.makeText(this, "nose inicia aun", Toast.LENGTH_SHORT).show();
-
-            new Handler() .postDelayed(() -> {
-                Intent intent=new Intent (SplashScreen.this, LoginActivity.class);
-                startActivity(intent);
-                finish();
-            },2000);
-
-
-
-        }
-
-
-
-
-
-
+        comprube_first_inicio();
     }
+
+
+  public void  comprube_first_inicio(){
+
+        Boolean isFirstTime;
+
+        SharedPreferences app_preferences = PreferenceManager
+                .getDefaultSharedPreferences(this);
+
+        SharedPreferences.Editor editor = app_preferences.edit();
+
+        isFirstTime = app_preferences.getBoolean("isFirstTime", true);
+
+
+
+
+      if (isFirstTime) {
+
+//implement your first time logic
+
+          editor.putBoolean("isFirstTime", false);
+          editor.commit();
+
+          new Handler() .postDelayed(() -> {
+
+            //  Intent intent=new Intent (SplashScreen.this, Home_Tab.class);
+
+              Intent intento=new Intent (SplashScreen.this, IntroSlider.class);
+              startActivity(intento);
+              finish();
+          },2000);
+
+
+      }else{
+//app open directly
+
+         // Toast.makeText(this, "ya se inicio antes", Toast.LENGTH_SHORT).show();
+
+          new Handler() .postDelayed(() -> {
+              Intent intent=new Intent (SplashScreen.this, MainActivity2dos.class);
+              startActivity(intent);
+              finish();
+          },2000);
+
+
+
+
+      }
+
+
+
+
+
+
+  }
+
+
 
 }
