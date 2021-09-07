@@ -1,0 +1,8 @@
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:drawable="@drawable/boton_a2"
+        android:width="55dp"
+        android:height="45dp">
+    </item>
+</layer-list>

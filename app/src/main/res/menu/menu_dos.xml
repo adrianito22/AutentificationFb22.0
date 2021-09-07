@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/navigation_home"
+            android:icon="@drawable/ic_baseline_videogame_asset_24"
+            android:title="@string/menu_home" />
+
+
+
+        <item
+            android:id="@+id/navigation_dashboard"
+            android:icon="@drawable/ic_baseline_send_24"
+            android:title="@string/menu_gallery" />
+
+        <item
+            android:id="@+id/navigation_notifications"
+            android:icon="@drawable/ic_baseline_settings_24"
+            android:title="@string/menu_slideshow" />
+
+        <item
+            android:id="@+id/fragment_ejemplo"
+            android:icon="@drawable/ic_baseline_self_improvement_24"
+            android:title="@string/item1" />
+
+        <item
+            android:id="@+id/item_munu2"
+            android:icon="@drawable/ic_baseline_self_improvement_24"
+            android:title="@string/item2" />
+
+
+        <item
+            android:id="@+id/item_munu3"
+            android:icon="@drawable/ic_baseline_self_improvement_24"
+            android:title="@string/item3" />
+
+    </group>
+
+    <group
+        android:id="@+id/group1"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/itemg1"
+            android:icon="@drawable/ic_baseline_star_rate_24"
+            android:title="item g1" />
+
+        <item
+            android:id="@+id/itemg2"
+            android:icon="@drawable/ic_baseline_star_rate_24"
+            android:title="item g2" />
+
+    </group>
+
+</menu>
