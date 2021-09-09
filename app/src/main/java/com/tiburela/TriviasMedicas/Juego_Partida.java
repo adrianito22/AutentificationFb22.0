@@ -40,7 +40,7 @@ public class Juego_Partida extends AppCompatActivity {
 
     LottieAnimationView lotie_coin_collection;
 
-
+boolean se_presiono50y50bt=true;
 
     final int NUMERO_ITEMS=9; //EN TOTAL HAY SOLO 9 ITEMS..
 
@@ -201,11 +201,17 @@ String monedica_string;
     }
 
     public void showNextQuiz() {
+
+
+        ///CREO QUE HAY QUE BORRAR ESTO
+       /*
         answerBtn1.setVisibility(Button.VISIBLE);
         answerBtn2.setVisibility(Button.VISIBLE);
         answerBtn3.setVisibility(Button.VISIBLE);
         answerBtn4.setVisibility(Button.VISIBLE);
-
+*/
+        //llamamos la metodo que resetea
+        resetea_Ui();
 
         mostramos_item_debloqueado =false;
 
@@ -846,9 +852,11 @@ public void fianlizaractivity(){
 public void cincuentay50(View vista){ //mostramos una opcion correcta e incorrecta...
 
 
+if(se_presiono50y50bt){
+
 
     Toast.makeText(this, "se pulso comodin", Toast.LENGTH_SHORT).show();
-        ArrayList<Button> buttonlista= new ArrayList<Button>();
+    ArrayList<Button> buttonlista= new ArrayList<Button>();
 
     buttonlista.add( answerBtn1);
     buttonlista.add(answerBtn2);
@@ -865,7 +873,7 @@ public void cincuentay50(View vista){ //mostramos una opcion correcta e incorrec
 
     int indice_contrado=-1;
 
-        for(int indice=0; indice<buttonlista.size(); indice++){
+    for(int indice=0; indice<buttonlista.size(); indice++){
 
         indice_contrado++;
         if( buttonlista.get(indice).getText().toString().equals(rightAnswer)){
@@ -873,17 +881,38 @@ public void cincuentay50(View vista){ //mostramos una opcion correcta e incorrec
             break;
         }
 
-        }
+    }
 
 
     //generemoa una opcion incorrecta Y OCULTAMOS LAS DEMAS OPCIONES
 
-     buttonlista.remove( indice_contrado);
+    buttonlista.remove( indice_contrado);
 
-     Collections.shuffle(buttonlista);
-  //  buttonlista.get(0); // mostramos esta..
-    buttonlista.get(1).setVisibility(View.GONE); // ocultamos
-    buttonlista.get(2).setVisibility(View.GONE);
+    Collections.shuffle(buttonlista);
+    //  buttonlista.get(0); // mostramos esta..
+
+    // buttonlista.get(1).setVisibility(View.GONE); // ocultamos
+    // buttonlista.get(2).setVisibility(View.GONE);
+
+
+
+    //ocultamos texto
+    buttonlista.get(1).setText(""); // ocultamos
+    buttonlista.get(2).setText("");
+
+    //ocultamos dibujable a la izquierda
+    buttonlista.get(1).setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+    buttonlista.get(2).setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+
+    //desabilitamos botones
+    buttonlista.get(1).setEnabled(false);
+    buttonlista.get(2).setEnabled(false);
+
+    // no puede presionarlo dos veces
+
+    se_presiono50y50bt=false;  //lo activamos en el metodo resetea
+
+}
 
 
 
@@ -939,5 +968,35 @@ public void cincuentay50(View vista){ //mostramos una opcion correcta e incorrec
         });
 
     }
+
+
+
+   public void resetea_Ui(){
+
+        se_presiono50y50bt=true; //volvemos activar esta opcion.
+
+
+       //vuelve activar botones
+
+       answerBtn1.setEnabled(true);
+       answerBtn2.setEnabled(true);
+       answerBtn3.setEnabled(true);
+       answerBtn4.setEnabled(true);
+
+
+       //muestra nuevmante el drawable en la izquierda..
+       answerBtn1.setCompoundDrawablesWithIntrinsicBounds(R.drawable.dentrodeboton_shape, 0, 0, 0);
+       answerBtn2.setCompoundDrawablesWithIntrinsicBounds(R.drawable.botonesob, 0, 0, 0);
+       answerBtn3.setCompoundDrawablesWithIntrinsicBounds(R.drawable.betunc, 0, 0, 0);
+       answerBtn4.setCompoundDrawablesWithIntrinsicBounds(R.drawable.betund, 0, 0, 0);
+
+
+
+   }
+
+
+
+
+
 
 }
