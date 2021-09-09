@@ -2,6 +2,8 @@ package com.tiburela.TriviasMedicas;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
+
+import android.animation.Animator;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,7 +12,6 @@ import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.media.AudioManager;
 import android.media.SoundPool;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -28,22 +29,29 @@ import com.tiburela.TriviasMedicas.ui.items_coleccion.Items_coleccion;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
 import java.util.Locale;
 import dialogos.Dialogo_fragmento;
 import dialogos.Game_over_dialog;
+import dialogos.Item_desbloqueado;
 import dialogos.NewLevel_dialogFragment;
 
 public class Juego_Partida extends AppCompatActivity {
     SharedPreferences mysharedpreference ;
 
+    LottieAnimationView lotie_coin_collection;
+
+
+
     final int NUMERO_ITEMS=9; //EN TOTAL HAY SOLO 9 ITEMS..
+
+
+    boolean mostramos_item_debloqueado =false;
 
     SharedPreferences mysharedpreferences;
     ArrayList<String> lista_array;
 
     int numero_de_items_contador=0;
-    final  int NUMERO_OK_RESPUESTAS_ITEMS=3 ; //cada 3 pregunta correctas desbloquea un item .
+    final  int NUMERO_OK_RESPUESTAS_ITEMS=2 ; //cada 1 pregunta correctas desbloquea un item .
     int respuestas_correctas_contador=0;
 
 
@@ -107,6 +115,11 @@ String monedica_string;
 
     Dialogo_fragmento dialogo_fragmento = new Dialogo_fragmento();
     NewLevel_dialogFragment dfragmentLevel= new NewLevel_dialogFragment();
+
+    Item_desbloqueado item_desbloqueado_obj= new Item_desbloqueado();
+
+
+
     Game_over_dialog fragmentsi=new Game_over_dialog();
 
     Bundle bundle = new Bundle();
@@ -132,7 +145,6 @@ String monedica_string;
         super.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
        //configuramos la pantalla
      //   getSupportActionBar().hide();
-
 
 
 
@@ -174,6 +186,10 @@ String monedica_string;
         lif=findViewById(R.id.lifes);
         textViewCountDown = findViewById(R.id.text_view_countdown);
         monedastxt=findViewById(R.id.coin);
+
+        lotie_coin_collection=findViewById(R.id.coin_collection_anim);
+
+
         // SharedPreferences.Editor editor = sharedpreferences.edit();
 
 // Receive quizCategory from StartActivity.
@@ -191,6 +207,7 @@ String monedica_string;
         answerBtn4.setVisibility(Button.VISIBLE);
 
 
+        mostramos_item_debloqueado =false;
 
 
 
@@ -453,6 +470,12 @@ String monedica_string;
                 String monedis=String.valueOf(moneditass);
                 monedastxt.setText(monedis);
 
+
+
+                //mostramos animacion monedas
+                cargar_animacion();
+
+
 //comprobamos para desbloquee items
 
                 int resto2=quizCorrect % NUMERO_OK_RESPUESTAS_ITEMS; //VERIFICAMOS EL RESTO
@@ -465,54 +488,45 @@ String monedica_string;
 
 if(numero_de_items_contador<NUMERO_ITEMS){
 
+    //LLAMAMOS EL METODO AQUI
 
-    numero_de_items_contador++;
-
-
-    editor.putInt("numero_item",numero_de_items_contador); //
-    editor.apply();
-
-    //deblqouemos un nuevo
-
-    Log.i("itemc", "se wejexuto este if");
-
-
-
-    Items_coleccion.genera_index_array(Juego_Partida.this);
-    Toast.makeText(this, "nuevo item desbloqueado", Toast.LENGTH_SHORT).show();
-
-
-    //  Items_targetas.genera_index_array(Juego_Partida.this);
-
-
-    //reproduciomos animacion
-
-    //le pasamos  el valor a items targetas o ejecutamos el metodo y le sumamos uno...posiblente usemos el valor de sahre preferences..
+    mostramos_item_debloqueado =true;
 
 
 
 }
 
 
-
                 }
 
 
 
-//comprobamos para mostrar dialog de un nuevop nivel
 
-                int resto= quizCorrect % 10;
-                if (resto==0){
-                    nivel  =mysharedpreferences.getInt("NIVEL_NUMERO",0);
-                    nivel++;
-                    //ACTUALIZA VALORES
-                    editor.putInt("NIVEL_NUMERO",nivel);
+
+                if (mostramos_item_debloqueado){
+                    //presentamos ventana de nuevo item desbloqueado...
+
+                    eviadata_abredialog_item_debloqueado();
+
+                    numero_de_items_contador++;
+
+                    editor.putInt("numero_item",numero_de_items_contador); //
                     editor.apply();
 
-                    //  editor.putInt("HOLAS",quizCorrect);
-                    //  editor.apply();
+                    //deblqouemos un nuevo
 
-                    eviadata_abrefragment_level();
+
+                    Items_coleccion.genera_index_array(Juego_Partida.this);
+                    Toast.makeText(this, "nuevo item desbloqueado", Toast.LENGTH_SHORT).show();
+
+                    //  Items_targetas.genera_index_array(Juego_Partida.this);
+
+
+                    //reproduciomos animacion
+
+                    //le pasamos  el valor a items targetas o ejecutamos el metodo y le sumamos uno...posiblente usemos el valor de sahre preferences..
+
+
 
                 }
 
@@ -723,6 +737,18 @@ if(numero_de_items_contador<NUMERO_ITEMS){
     }
 
 
+
+    public void cerrar_fragmentYnextquest(View vistaot) {
+        // answerBtn.clearAnimation();
+        selecbutton=false;
+        showNextQuiz();
+        FragmentManager prev = getSupportFragmentManager();
+        Item_desbloqueado previ = (Item_desbloqueado) prev.findFragmentByTag("fragmento_item");
+        previ.cerrar_fragmentos();
+
+    }
+
+
     public void envidata_yhabrefragment(){
         bundle.putInt("SCORES", score); //actualizacion aqui..
         bundle.putString("CORRECT_ANSWER",   respuesta_correct );
@@ -742,6 +768,20 @@ if(numero_de_items_contador<NUMERO_ITEMS){
         dfragmentLevel.show(getSupportFragmentManager(),"Fragment");
 
     }
+
+
+
+    public void eviadata_abredialog_item_debloqueado(){
+        bundle.putInt("ITEM_INDICE", numero_de_items_contador);
+        item_desbloqueado_obj.setArguments(bundle);
+        item_desbloqueado_obj.show(getSupportFragmentManager(),"fragmento_item");
+
+    }
+
+
+
+
+
 
     public void eviadata_abrefragment_gameover(){
 
@@ -863,4 +903,41 @@ public void cincuentay50(View vista){ //mostramos una opcion correcta e incorrec
     public boolean isRespondiomal() {
         return respondiomal;
     }
+
+
+
+
+
+
+    public void cargar_animacion() {
+        lotie_coin_collection.addAnimatorListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+                Log.e("Animation:", "start");
+
+                lotie_coin_collection.setVisibility(View.VISIBLE);
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                Log.e("Animation:", "end");
+                lotie_coin_collection.setVisibility(View.GONE);
+
+                // img1.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+                Log.e("Animation:", "cancel");
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+                Log.e("Animation:", "repeat");
+            }
+        });
+
+    }
+
 }

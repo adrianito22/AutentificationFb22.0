@@ -1,10 +1,12 @@
 package dialogos;
 
+import android.animation.Animator;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -12,6 +14,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
+
+import com.airbnb.lottie.LottieAnimationView;
 import com.tiburela.TriviasMedicas.Juego_Partida;
 import com.tiburela.TriviasMedicas.R;
 
@@ -26,7 +30,7 @@ public class Dialogo_fragmento extends DialogFragment{
     ImageView imageButton4;
     ImageView ilayout;
 
-
+  LottieAnimationView lotie_coin_collection;
 
 
     int muestra_score;
@@ -77,7 +81,7 @@ public class Dialogo_fragmento extends DialogFragment{
         //AlertDialog.Builder builder= new AlertDialog.Builder( ctw );
 
         LayoutInflater inflater = getActivity().getLayoutInflater();
-        View v = inflater.inflate(R.layout.fragment_dialogo_fragmento, null);
+        View v = inflater.inflate(R.layout.fragment_dialog2, null);
         builder.setView(v);
 
         // setStyle(DialogFragment., android.R.style.fullscreenalert);
@@ -91,7 +95,7 @@ public class Dialogo_fragmento extends DialogFragment{
         txt_muestra_pregunt.setText(muestra_pregunta);
 
 
-
+lotie_coin_collection =v.findViewById(R.id.coin_collection_anim);
 
 
 texto_Respuesta();
@@ -117,6 +121,7 @@ public void texto_Respuesta(){
   { txt_muestra_respue2.setTextColor(Color.parseColor("#008f39"));
       txt_muestra_respue.setText("Respuesta correcta ");
       txt_muestra_respue2.setText("Hurra!");
+      cargar_animacion_monedas();
   }
     else{
 
@@ -199,7 +204,36 @@ dismiss();
     }
 
 
+    public void cargar_animacion_monedas() {
+        lotie_coin_collection.addAnimatorListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+                Log.e("Animation:", "start");
 
+                lotie_coin_collection.setVisibility(View.VISIBLE);
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                Log.e("Animation:", "end");
+                lotie_coin_collection.setVisibility(View.GONE);
+
+                // img1.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+                Log.e("Animation:", "cancel");
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+                Log.e("Animation:", "repeat");
+            }
+        });
+
+    }
 
 
 }

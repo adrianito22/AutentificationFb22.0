@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
 
+import androidx.multidex.MultiDex;
+
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 
@@ -50,7 +52,7 @@ public class Configuraciones  extends Application {
                 new TypeToken<List<String>>(){}.getType());
 
 
-        Log.i("sixer", "onCreatez: "+wordsArray.size());
+     //   Log.i("sixer", "onCreatez: "+wordsArray.size());
 
         if(wordsArray==null ){ //si e; array es nullo ,
 
@@ -194,8 +196,6 @@ if(index_array+5<wordsArr.length){
        int tamanoarray=wordsArr.length;
         return tamanoarray;
    }
-
-
 
 
 

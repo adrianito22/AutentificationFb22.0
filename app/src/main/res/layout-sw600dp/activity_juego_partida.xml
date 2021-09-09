@@ -85,13 +85,15 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/frameLayout">
+            app:layout_constraintTop_toTopOf="@+id/frameLayout"
+            tools:ignore="UnknownIdInLayout">
 
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
                 android:fontFamily="@font/muli"
                 android:gravity="center_horizontal"
                 android:text="Numero pregunta"
@@ -102,8 +104,8 @@
 
             <ImageView
                 android:id="@+id/imageView7"
-                android:layout_width="22dp"
-                android:layout_height="20dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_marginStart="19dp"
                 android:layout_marginTop="16dp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -117,13 +119,14 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 android:text="1"
+                android:textSize="20dp"
                 app:layout_constraintStart_toEndOf="@+id/imageView7"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/moneditasaqui"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="8dp"
                 android:src="@drawable/coin2"
@@ -132,11 +135,12 @@
 
             <TextView
                 android:id="@+id/coin"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="19dp"
                 android:text="00"
+                android:textSize="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -265,7 +269,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.08" />
+        app:layout_constraintGuide_percent="0.03" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline11"
@@ -395,7 +399,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.95" />
+        app:layout_constraintGuide_percent="0.97" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline22"
@@ -440,8 +444,9 @@
         app:layout_constraintGuide_percent="100" />
 
     <FrameLayout
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:id="@+id/frameLayout4"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
         android:background="@drawable/fifita06"
         app:layout_constraintBottom_toTopOf="@+id/guideline26"
         app:layout_constraintEnd_toStartOf="@+id/guideline23"
@@ -455,8 +460,7 @@
             android:layout_gravity="center_vertical"
             android:gravity="center"
             android:text="10"
-            android:textSize="16dp" />
-
+            android:textSize="25dp" />
 
 
     </FrameLayout>
@@ -467,6 +471,19 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.27" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/coin_collection_anim"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintEnd_toStartOf="@+id/guideline21"
+        app:layout_constraintStart_toStartOf="@+id/guideline10"
+        app:layout_constraintTop_toTopOf="@+id/guideline12"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="false"
+        app:lottie_rawRes="@raw/coin_collection"
+        app:lottie_repeatCount="0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

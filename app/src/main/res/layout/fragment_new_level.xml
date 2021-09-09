@@ -84,7 +84,7 @@
                     app:layout_constraintStart_toStartOf="parent"/>
 
                 <com.airbnb.lottie.LottieAnimationView
-                    android:id="@+id/lotiso"
+                    android:id="@+id/coin_collection_anim"
                     android:layout_width="300dp"
                     android:layout_height="642dp"
                     app:lottie_autoPlay="true"
@@ -107,7 +107,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button7"
+                android:id="@+id/boton_continuar"
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
                 android:layout_marginLeft="35dp"

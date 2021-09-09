@@ -5,8 +5,6 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Bundle;
@@ -17,7 +15,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
@@ -108,10 +106,10 @@ public class NewLevel_dialogFragment extends DialogFragment {
 
 
          frase_levels  =v.findViewById(R.id.textView15);
-         Continuar=v.findViewById(R.id.button7);
+         Continuar=v.findViewById(R.id.boton_continuar);
          bt_f=v.findViewById(R.id.tl_b);
          bt_t =v.findViewById(R.id.imageView6);
-         lotie_winner  = v.findViewById(R.id.lotiso);
+         lotie_winner  = v.findViewById(R.id.coin_collection_anim);
 
          String leveltext=String.valueOf(numero_level);
          frase_levels.setText("Nivel "+leveltext+" completado");

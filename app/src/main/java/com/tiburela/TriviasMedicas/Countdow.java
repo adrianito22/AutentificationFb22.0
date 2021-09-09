@@ -5,8 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.animation.Animator;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.media.AudioManager;
-import android.media.MediaPlayer;
 import android.media.SoundPool;
 import android.os.Bundle;
 import android.util.Log;
@@ -33,7 +31,7 @@ public class Countdow extends AppCompatActivity {
 
 
 
-        anima_countdown=findViewById(R.id.lotiso);
+        anima_countdown=findViewById(R.id.coin_collection_anim);
 
         anima_countdown.addAnimatorListener(new Animator.AnimatorListener() {
 

@@ -27,15 +27,15 @@ public class Items_coleccion extends Fragment {
 
 
     public int[] items_drawables ={
-            R.drawable.tiburon_enojado2,
-            R.drawable.tiburon_enojado2,
-            R.drawable.tiburon_enojado2,
-            R.drawable.tiburon_enojado2,
-            R.drawable.tiburon_enojado2,
-            R.drawable.tiburon_enojado2,
-            R.drawable.tiburon_enojado2,
-            R.drawable.tiburon_enojado2,
-            R.drawable.tiburon_enojado2,
+            R.drawable.item_bandita,
+            R.drawable.item_botiquin,
+            R.drawable.item_estetoscopio,
+            R.drawable.item_inyeccion,
+            R.drawable.item_microscopio,
+            R.drawable.item_pastilla_redonda,
+            R.drawable.item_pildora,
+            R.drawable.item_probeta2,
+            R.drawable.item_probeta3,
 
 
 

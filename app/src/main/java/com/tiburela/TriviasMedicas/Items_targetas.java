@@ -17,15 +17,15 @@ static int indice_contador=0;
 
 
    public int items_drawables[]={
-           R.drawable.backpack,
-           R.drawable.belt,
-           R.drawable.bomb,
-           R.drawable.book,
-           R.drawable.bronze_coin,
-           R.drawable.clover,
-           R.drawable.feather,
-           R.drawable.ring,
-           R.drawable.backpack,
+           R.drawable.tiburon_enojado2,
+           R.drawable.tiburon_enojado2,
+           R.drawable.tiburon_enojado2,
+           R.drawable.tiburon_enojado2,
+           R.drawable.tiburon_enojado2,
+           R.drawable.tiburon_enojado2,
+           R.drawable.tiburon_enojado2,
+           R.drawable.tiburon_enojado2,
+
 
    };
 

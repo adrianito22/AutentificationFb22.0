@@ -9,7 +9,7 @@
 
 
     <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/lotiso"
+        android:id="@+id/coin_collection_anim"
         android:layout_width="200dp"
         android:layout_height="200dp"
         app:layout_constraintBottom_toBottomOf="parent"
