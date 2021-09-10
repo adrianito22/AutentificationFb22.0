@@ -76,7 +76,7 @@ public class Dialogo_fragmento extends DialogFragment{
 
 
         //ontextThemeWrapper ctw = new ContextThemeWrapper(getActivity(), R.style.fullscreenalert );
-        AlertDialog.Builder builder=new AlertDialog.Builder(getActivity(), R.style.fullscreenalert);//
+        AlertDialog.Builder builder=new AlertDialog.Builder(getActivity(), R.style.FullScreenDialog);//
 
         //AlertDialog.Builder builder= new AlertDialog.Builder( ctw );
 
