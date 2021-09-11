@@ -9,6 +9,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -39,7 +42,8 @@ public class Dialogo_fragmento extends DialogFragment{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        
+        setStyle(DialogFragment.STYLE_NORMAL, android.R.style.Theme);
+
 
         if (getArguments() != null ){
             Bundle bundle = getArguments();
@@ -74,15 +78,19 @@ public class Dialogo_fragmento extends DialogFragment{
     private AlertDialog crearDialogote(){
 
 
-
         //ontextThemeWrapper ctw = new ContextThemeWrapper(getActivity(), R.style.fullscreenalert );
-        AlertDialog.Builder builder=new AlertDialog.Builder(getActivity(), R.style.FullScreenDialog);//
+        AlertDialog.Builder builder=new AlertDialog.Builder(getActivity() , R.style.FullScreenDialog);//
+        //setStyle(DialogFragment.STYLE_NO_TITLE, android.R.style.Theme);
+
 
         //AlertDialog.Builder builder= new AlertDialog.Builder( ctw );
 
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View v = inflater.inflate(R.layout.fragment_dialog2, null);
         builder.setView(v);
+
+
+
 
         // setStyle(DialogFragment., android.R.style.fullscreenalert);
         txt_muestra_pregunt= v.findViewById(R.id.textView3);
@@ -115,6 +123,17 @@ texto_Respuesta();
 
     }
 
+
+
+
+
+
+
+
+
+
+
+
 public void texto_Respuesta(){
   if(boolean_recibe_respuesta ==true)
 
@@ -122,6 +141,10 @@ public void texto_Respuesta(){
       txt_muestra_respue.setText("Respuesta correcta ");
       txt_muestra_respue2.setText("Hurra!");
       cargar_animacion_monedas();
+
+
+
+
   }
     else{
 
@@ -233,7 +256,12 @@ dismiss();
             }
         });
 
+
+
+
+
     }
+
 
 
 }

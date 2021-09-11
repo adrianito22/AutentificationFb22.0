@@ -726,7 +726,7 @@ if(numero_de_items_contador<NUMERO_ITEMS){
         selecbutton=false;
         showNextQuiz();
         FragmentManager prev = getSupportFragmentManager();
-        Dialogo_fragmento previ = (Dialogo_fragmento) prev.findFragmentByTag("image dialog");
+        Dialogo_fragmento previ = (Dialogo_fragmento) prev.findFragmentByTag("image_dialog");
         previ.cerrar_fragmento();
 
     }
@@ -763,7 +763,7 @@ if(numero_de_items_contador<NUMERO_ITEMS){
         // bundle.putString("TEXT",   rightAnswer );
 
         dialogo_fragmento.setArguments(bundle);
-        dialogo_fragmento.show(getSupportFragmentManager(),"image dialog");          }
+        dialogo_fragmento.show(getSupportFragmentManager(),"image_dialog");          }
 
 
     public void eviadata_abrefragment_level(){

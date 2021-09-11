@@ -35,9 +35,26 @@
 
 
     <fragment
-        android:id="@+id/fragment_ejemplo"
-        android:name="com.tiburela.TriviasMedicas.Fragment_ejemplo"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_ejemplo" />
+        android:id="@+id/fragment_puntua_app"
+        android:name="com.tiburela.TriviasMedicas.Puntua_app_fragment"
+        android:label="@string/puntua_app"
+        tools:layout="@layout/fragment_puntua_app_fragment" />
+
+    <fragment
+        android:id="@+id/fragment_licencias"
+        android:name="com.tiburela.TriviasMedicas.Licencias_fragment"
+        android:label="@string/licencias"
+        tools:layout="@layout/fragment_licencias" />
+
+
+
+    <fragment
+        android:id="@+id/fragment_acerca"
+        android:name="com.tiburela.TriviasMedicas.FragmentAcerca"
+        android:label="@string/acerca"
+        tools:layout="@layout/fragment_acerca" />
+
+
+
 
 </navigation>

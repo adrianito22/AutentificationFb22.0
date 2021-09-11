@@ -25,7 +25,6 @@ public class Items_coleccion extends Fragment {
 
 
 
-
     public int[] items_drawables ={
             R.drawable.item_bandita,
             R.drawable.item_botiquin,
@@ -95,13 +94,20 @@ public class Items_coleccion extends Fragment {
 
 
 
-        genera_index_array(getActivity());
-        desbloquea_Nuevo_item(getActivity());
-
 
         // Inflate the layout for this fragment
         return view;
     }
+
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        genera_index_array(getActivity());
+        desbloquea_Nuevo_item(getActivity());
+
+    }
+
 
 
     @SuppressLint("UseCompatLoadingForDrawables")
@@ -146,6 +152,8 @@ public class Items_coleccion extends Fragment {
 
 
        }
+
+
 
 
         }

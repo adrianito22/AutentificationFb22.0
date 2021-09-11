@@ -12,11 +12,14 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -33,12 +36,20 @@ public class MainActivity2dos extends AppCompatActivity {
     Toolbar toolbar;
     private Menu menu;// Global Menu Declaration
 
+
+
+    Button boton_ok_rate;
     // DrawerLayout drawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_dos);
+
+
+        boton_ok_rate= findViewById(R.id.boton_ok_rate);
+
+
 
 
 
@@ -60,7 +71,7 @@ public class MainActivity2dos extends AppCompatActivity {
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
 
-                R.id.navigation_home, R.id.navigation_dashboard,R.id.navigation_notifications,R.id.navigation_items,R.id.fragment_ejemplo)
+                R.id.navigation_home, R.id.navigation_dashboard,R.id.navigation_notifications,R.id.navigation_items,R.id.fragment_licencias,R.id.fragment_puntua_app,R.id.fragment_acerca)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -85,9 +96,6 @@ public class MainActivity2dos extends AppCompatActivity {
         toggle.syncState();
 
 */
-
-
-
     }
 
     @Override
@@ -195,6 +203,40 @@ public void solicitar_puntuacion3(View vista) {
     });
 
 }
+
+
+
+    public void solicitar_puntuacion(Context context, Activity activity) {
+        ReviewManager manager = ReviewManagerFactory.create(context);
+        Log.d("hola", "1");
+        com.google.android.play.core.tasks.Task<ReviewInfo> request = manager.requestReviewFlow();
+        Log.d("hola", "2");
+        request.addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                // We can get the ReviewInfo object
+                Log.i("hola", "la tarea es exitosa ");
+                ReviewInfo reviewInfo = task.getResult();
+                Task<Void> flow = manager.launchReviewFlow(activity, reviewInfo);
+                flow.addOnCompleteListener(task2 -> {  //tarea finnalizada
+
+                    Log.i("hola", "se presento la ventana");
+
+                    // The flow has finished. The API does not indicate whether the user
+                    // reviewed or not, or even whether the review dialog was shown. Thus, no
+                    // matter the result, we continue our app flow.
+// a terminado de puntuar o se mostro laventa y la cerro y puede seguir
+                });
+            } else {
+
+
+                Toast.makeText(context, "Revise su conexion a interente he intente mas tarde", Toast.LENGTH_SHORT).show();
+                // There was some problem, log or handle the error code.
+            }
+        });
+
+    }
+
+
 
 
 

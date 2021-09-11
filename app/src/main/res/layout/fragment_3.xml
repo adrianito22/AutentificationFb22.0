@@ -12,6 +12,7 @@
         android:layout_marginTop="8dp"
         android:gravity="center_horizontal"
         android:text="Version 3.0  Mrarzo (28 de julio 2021) desde 05/02/2021"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView21"
@@ -39,7 +40,7 @@
         android:layout_marginTop="10dp"
         android:gravity="center_horizontal"
         android:text="Trivias Medicas"
-        android:textSize="23dp"
+        android:textSize="23sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView4"
@@ -51,6 +52,7 @@
         android:layout_height="0dp"
         android:fontFamily="sans-serif-light"
         android:text="Esta es una app educativa ,tiene el fin de ayudar a memorizar conceptos y conocimientos basicos sobre medicina y anatomia humana El contenido de nuestra aplicación fue previamente revisado y editado, aun así no podemos decir que el mismo este 100% libre de errores, en caso de encontrar alguno ,pedimos por favor lo notifi"
+        android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline43"
         app:layout_constraintEnd_toStartOf="@+id/guideline42"
         app:layout_constraintHorizontal_bias="0.0"
@@ -135,7 +137,7 @@
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="@+id/guideline41"
         app:layout_constraintTop_toTopOf="@+id/guideline43"
-        app:srcCompat="@drawable/ic_baseline_favorite_24"
+        app:srcCompat="@drawable/favorite2"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -159,7 +161,7 @@
         android:fontFamily="@font/muli"
         app:layout_constraintStart_toStartOf="@+id/guideline41"
         app:layout_constraintTop_toBottomOf="@+id/imagheVikew10"
-        app:srcCompat="@drawable/ic_baseline_list_alt_240"
+        app:srcCompat="@drawable/list2"
         tools:ignore="MissingConstraints" />
 
     <TextView

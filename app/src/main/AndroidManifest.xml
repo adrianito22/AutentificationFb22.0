@@ -8,7 +8,6 @@
 
     <application
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-
         android:name="androidx.multidex.MultiDexApplication" >android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/iconode_app01"
@@ -16,9 +15,14 @@
         android:roundIcon="@mipmap/iconode_app01_round"
         android:supportsRtl="true"
 
+
         <activity android:name=".Items_targetas"></activity>
         <activity android:name=".MainActivity2dos">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".Countdow"
@@ -39,11 +43,7 @@
             android:screenOrientation="portrait" >
 
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
         </activity>
         <activity

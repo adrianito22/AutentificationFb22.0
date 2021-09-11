@@ -21,21 +21,6 @@
             android:icon="@drawable/ic_baseline_settings_24"
             android:title="@string/menu_slideshow" />
 
-        <item
-            android:id="@+id/fragment_ejemplo"
-            android:icon="@drawable/ic_baseline_self_improvement_24"
-            android:title="@string/item1" />
-
-        <item
-            android:id="@+id/item_munu2"
-            android:icon="@drawable/ic_baseline_self_improvement_24"
-            android:title="@string/item2" />
-
-
-        <item
-            android:id="@+id/item_munu3"
-            android:icon="@drawable/ic_baseline_self_improvement_24"
-            android:title="@string/item3" />
 
     </group>
 
@@ -43,14 +28,19 @@
         android:id="@+id/group1"
         android:checkableBehavior="single">
         <item
-            android:id="@+id/itemg1"
-            android:icon="@drawable/ic_baseline_star_rate_24"
-            android:title="item g1" />
+            android:id="@+id/fragment_puntua_app"
+            android:icon="@drawable/ic_baseline_favorite_24"
+            android:title="@string/puntua_app" />
 
         <item
-            android:id="@+id/itemg2"
-            android:icon="@drawable/ic_baseline_star_rate_24"
-            android:title="item g2" />
+            android:id="@+id/fragment_licencias"
+            android:icon="@drawable/ic_sharp_library_books_24"
+            android:title="@string/licencias" />
+
+        <item
+            android:id="@+id/fragment_acerca"
+            android:icon="@drawable/ic_baseline_list_alt_240"
+            android:title="@string/acerca" />
 
     </group>
 

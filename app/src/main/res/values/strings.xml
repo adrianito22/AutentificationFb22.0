@@ -30,7 +30,9 @@
     <string name="enviar">Enviar</string>
     <string name="configuracion">Configuracion</string>
 
-
+    <string name="licencias">Licencias</string>
+    <string name="puntua_app">Puntuar App</string>
+    <string name="acerca">Acerca</string>
 
 
     <string name="facebook_app_id">4852271694845614</string>
@@ -77,6 +79,8 @@
     <string-array name="paises_espanol">
         <item>La laringe forma parte del aparato?. Respiratorio. Circulatorio.Boca.Digestivo</item>
         <item>Cuantas piezas dentales tiene un adulto?.32.24.28.31</item>
+        <item>Utilizado para tratar a pacientes con riñones defectuosos, ¿cómo se conoce el proceso de eliminación toxinas de la sangre?diálisis.terapia ocupacional.Fisioterapia.Refelexologia</item>
+
         <item>¿Cuál de los siguientes huesos no corresponden a la columna vertebral?.Tabique.Omóplatos.Atlas.Sacro</item>
         <item>Cuál de las siguientes opciones no es parte del ojo ?.Yunque.Retina.Pupila.Cornea</item>
         <item>Qué órgano ataca la enfermedad Cirrosis?.Hígado.Corazón.Cerebro.Pulmones</item>
@@ -164,6 +168,25 @@
         <item>¿Qué substancia debes consumir mucho para desarrollar Cirrosis?.Alcohol.Azúcar.Ácido .Sal</item>
         <item>¿Cuál es la articulación central de la pierna?.Rodilla .Muslo.Pies.Peroné </item>
         <item>¿Cuál es la célula principal del sistema nervioso?.Neurona.Glóbulos .Defensas .Células </item>
+
+
+        <item>La salida de sangre de los vasos se denomina?.Hemorragia.Hemocateresis.Hemoglobina.Todas son correctas</item>
+        <item>¿Cuál de sus órganos se ha detenido si está experimentando un paro cardíaco?.Corazon.Hígado.Riñones.Pulmones </item>
+        <item>¿Pituitaria, tiroides y próstata son todos tipos de qué?.Glándulas.Hormonas.Organos.Células</item>
+        <item>¿Con qué tipo de pacientes trabaja un pediatra?.Niños.Adultos.Adolescentes.Ancianos</item>
+        <item>¿Dónde podría estar rodeado de líquido amniótico?.Útero.Estomago.Pelvis.Rodilla</item>
+        <item>¿Qué especialidad médica se ocupa de las enfermedades de la sangre?.Hematologia.Patología.Geriatría.Psiquiatría</item>
+        <item>¿Qué dientes se pueden encontrar entre los incisivos y los premolares?.Caninos.Molares.Incisivos.Premolares</item>
+        <item>¿Dónde encontrarías tu glúteo mayor y glúteo medio?En los glúteos.En la espalda.En los brazos.En los Pectorales</item>
+        <item>En qué etapa del embarazo comienzan los latidos del corazón de un bebé?.Semana 6 .Semana 16.Semana 26.Semana 36</item>
+        <item>¿Los humanos comparten el 98,8% de su ADN con qué animal?.Chimpancés.Peces.Aves.Ardillas</item>
+        <item>¿A quién se le atribuye el descubrimiento de la penicilina en 1928?.Alexander Fleming.Edward Jenner.William Osler.Sigmund Freud</item>
+        <item>¿Qué se elimina durante una colecistectomía?.Vesícula biliar.Tejido Conectivo.Tumores.Quistes</item>
+        <item>Durante la fertilización, el óvulo y el espermatozoide se unen para formar un?.Cigoto.Neonato.Un gameto.Tejido</item>
+
+
+
+
 
     </string-array>
 
