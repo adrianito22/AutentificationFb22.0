@@ -38,6 +38,11 @@
             android:title="@string/licencias" />
 
         <item
+            android:id="@+id/politica_privacidad"
+            android:icon="@drawable/ic_baseline_policy_2400"
+            android:title="@string/politica_privacidad" />
+
+        <item
             android:id="@+id/fragment_acerca"
             android:icon="@drawable/ic_baseline_list_alt_240"
             android:title="@string/acerca" />

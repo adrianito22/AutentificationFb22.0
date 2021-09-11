@@ -13,12 +13,15 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -29,6 +32,8 @@ import com.google.android.play.core.review.ReviewManager;
 import com.google.android.play.core.review.ReviewManagerFactory;
 import com.google.android.play.core.tasks.Task;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Objects;
 
 public class MainActivity2dos extends AppCompatActivity {
@@ -36,6 +41,18 @@ public class MainActivity2dos extends AppCompatActivity {
     Toolbar toolbar;
     private Menu menu;// Global Menu Declaration
 
+    static int contador_intentos=0; //este hara que no se vulva a mostra la misma ventana
+    static int dias_intento3 = 5; //despues de 5 dias desde que le mostre la ultima vez...
+    static int dias_intento4 = 7; //despues de  7 dias desde que le mostre la ultima vez...
+    static int dias_intento5 = 10; //despues de  10 dias desde que le mostre la ultima vez...
+    static int dias_intento2 = 2; //dias  que tienen que pasar para mostra el dialog
+    static long dia_time_mostre_dialog; //dia cuando mostre la ventana la ultima vez...
+    static int cuenta_veces_habre_app; //contado dfe veces que se habre la app
+    private final static int DAYS_UNTIL_PROMPT = 3; //dias  que tienen que pasar para las proximas notificaciones.....
+    static boolean mostro_primera_vez_ventan = false;
+    static boolean aparentemente_puntuo_app = false;
+
+    Context contex_activity= MainActivity2dos.this;
 
 
     Button boton_ok_rate;
@@ -71,7 +88,7 @@ public class MainActivity2dos extends AppCompatActivity {
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
 
-                R.id.navigation_home, R.id.navigation_dashboard,R.id.navigation_notifications,R.id.navigation_items,R.id.fragment_licencias,R.id.fragment_puntua_app,R.id.fragment_acerca)
+                R.id.navigation_home, R.id.navigation_dashboard,R.id.navigation_notifications,R.id.navigation_items,R.id.fragment_licencias,R.id.fragment_puntua_app,R.id.politica_privacidad,  R.id.fragment_acerca)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -235,6 +252,260 @@ public void solicitar_puntuacion3(View vista) {
         });
 
     }
+
+
+///a partir de aqui codigo
+public  static void solicitar_puntuacion2(Context mContext, Activity activity ){  //solicta una puntuacion in app
+    //     SharedPreferences pref_puntuacion = getSharedPreferences("PUNTUACION_BOOLEAN", Context.MODE_PRIVATE);
+
+    ReviewManager manager = ReviewManagerFactory.create(mContext);
+    Log.d("hola", "1");
+    Task<ReviewInfo> request = manager.requestReviewFlow();
+    Log.d("hola", "2");
+    request.addOnCompleteListener(task -> {
+        if (task.isSuccessful()) {
+            // We can get the ReviewInfo object
+            Log.i("hola", "solicitar_puntuacion exitosa ");
+            ReviewInfo reviewInfo = task.getResult();
+            Task<Void> flow = manager.launchReviewFlow(activity, reviewInfo);
+            flow.addOnCompleteListener(task2 -> {  //tarea finnalizada
+                //decidio darle click en el boton puntuar. entonces aparentmente puntuolapp=
+                aparentemente_puntuo_app=true;
+                //usuario_calific();
+
+
+                // The flow has finished. The API does not indicate whether the user
+                // reviewed or not, or even whether the review dialog was shown. Thus, no
+                // matter the result, we continue our app flow.
+// a terminado de puntuar o se mostro laventa y la cerro y puede seguir
+            });
+        } else {
+
+            Log.i("hola", " error en  solicitar_puntuacion ");
+
+            // There was some problem, log or handle the error code.
+
+        }
+    });
+
+}
+
+
+
+
+
+
+
+    public static void app_launched(Context mContext,Activity activity) {
+
+
+        SharedPreferences prefsa =  mContext.getSharedPreferences("apprater", 0);
+        boolean valorcont=prefsa.getBoolean("primera_ventana_mostro", false);
+        int valorcontenido= prefsa.getInt("contador_intento",0);
+
+        Log.d("vergaso", "el valor del entero es  "+valorcontenido );
+        Log.d("vergaso", "el valor del booleano es "+valorcont );
+
+
+        Toast.makeText(mContext, "getexct", Toast.LENGTH_SHORT).show();
+        //prefencia no mopstrar nuevamente
+        SharedPreferences prefs = mContext.getSharedPreferences("apprater", 0);
+        SharedPreferences.Editor editor = prefs.edit();
+
+        if (prefs.getBoolean("dontshowagain", false)&&  prefs.getInt("contador_intento", 0) >=5 ) { //aparentemente_puntuo_app tambien va..
+
+            return;
+        }
+
+
+        //OBTENEMOS LAS VECS QUE SE ABRIO LA APP
+        cuenta_veces_habre_app = prefs.getInt("launch_count", 0); //veces que se abrio la app
+
+
+        // Incrementa contador de veces que se abrio la app
+        cuenta_veces_habre_app++;
+        editor.putInt("launch_count", cuenta_veces_habre_app);
+
+
+        // obtiene la fecha de cuando abrio la app por primera vez y la GUARDA SI no es cero
+        Long date_firstLaunch = prefs.getLong("date_firstlaunch", 0);
+
+
+        if (date_firstLaunch == 0) {
+            date_firstLaunch = System.currentTimeMillis();
+            editor.putLong("date_firstlaunch", date_firstLaunch);
+        }
+
+
+        //debugeo zona
+
+        long hora_fechactual = System.currentTimeMillis();
+        long fecha_esperadias = date_firstLaunch + (DAYS_UNTIL_PROMPT * 24 * 60 * 60 * 1000);
+
+
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy");
+        String dateString = formatter.format(new Date(hora_fechactual));
+
+        SimpleDateFormat formattero = new SimpleDateFormat("dd/MM/yy");
+        String dateStringa = formattero.format(new Date(fecha_esperadias));
+
+
+        Log.i("la_capital", "la fecha actual  es " + dateString);
+        Log.i("la_capital", "la fecha proxima es " + dateStringa);
+        Log.i("la_capital", "el valor de launch count es " + cuenta_veces_habre_app);
+
+
+        //comprobamos que no mostro ventana por primera vez
+
+        mostro_primera_vez_ventan = prefs.getBoolean("primera_ventana_mostro", false);
+
+
+        if (System.currentTimeMillis() >= date_firstLaunch + 5000 && !mostro_primera_vez_ventan) { // y si an pasado 5 sg minutos y aun no se amostrado la ventana ,muestrala
+
+            showRateDialog(mContext, editor,activity);
+            mostro_primera_vez_ventan = true;
+            contador_intentos=1;
+            editor.putBoolean("primera_ventana_mostro", mostro_primera_vez_ventan);
+            editor.putInt("contador_intento", contador_intentos);
+
+
+
+        }
+
+
+        //esta es el segundo intento de mostrar ventana despues de 2 dias
+        else if (System.currentTimeMillis() >= date_firstLaunch +   //proxima vez que se mostrara el dialog
+                (dias_intento2 * 24 * 60 * 60 * 1000) && !aparentemente_puntuo_app && prefs.getInt("contador_intento", 0) ==1) {  //vuelve a mostrar despues de 3 dias
+
+            showRateDialog(mContext, editor,activity);
+
+
+            //Guardamos el dia que se mostro la ventana
+            dia_time_mostre_dialog = System.currentTimeMillis();
+            editor.putLong("dia_time_mostro_ventana", dia_time_mostre_dialog);
+            contador_intentos=2;
+            editor.putInt("contador_intento", contador_intentos);
+
+        }
+
+
+//3 intento
+        else if (System.currentTimeMillis() >= prefs.getLong("dia_time_mostro_ventana", 0) +   //proxima vez que se mostrara el dialog
+                (dias_intento3 * 24 * 60 * 60 * 1000)  && !aparentemente_puntuo_app && prefs.getLong("dia_time_mostro_ventana", 0) > 0 && prefs.getInt("contador_intento", 0) ==2 )   {  //vuelve a mostrar despues de 3 dias
+
+            showRateDialog(mContext, editor,activity);
+
+
+            dia_time_mostre_dialog = System.currentTimeMillis();
+            editor.putLong("dia_time_mostro_ventana", dia_time_mostre_dialog);
+
+
+            contador_intentos=3;
+            editor.putInt("contador_intento", contador_intentos);
+
+        }
+
+
+//4 intento despues de 7 dia desde la ultima vez que se abrio
+        else if (System.currentTimeMillis() >= prefs.getLong("dia_time_mostro_ventana", 0) +   //proxima vez que se mostrara el dialog
+                (dias_intento4 * 24 * 60 * 60 * 1000) && !aparentemente_puntuo_app && prefs.getLong("dia_time_mostro_ventana", 0) > 0  && prefs.getInt("contador_intento", 0) ==3 ) {  //vuelve a mostrar despues de 3 dias
+
+            showRateDialog(mContext, editor, activity);
+
+
+            dia_time_mostre_dialog = System.currentTimeMillis();
+            editor.putLong("dia_time_mostro_ventana", dia_time_mostre_dialog);
+
+            contador_intentos=4;
+            editor.putInt("contador_intento", contador_intentos);
+
+        }
+
+
+        //5  intento y ultimo despues de 7 dia desde la ultima vez que se abrio
+        else if (System.currentTimeMillis() >= prefs.getLong("dia_time_mostro_ventana", 0) +   //proxima vez que se mostrara el dialog
+                (dias_intento5 * 24 * 60 * 60 * 1000) && !aparentemente_puntuo_app && prefs.getLong("dia_time_mostro_ventana", 0) > 0 && prefs.getInt("contador_intento", 0) ==4 ) {  //vuelve a mostrar despues de 3 dias
+
+            showRateDialog(mContext, editor,activity);
+
+            dia_time_mostre_dialog = System.currentTimeMillis();
+            editor.putLong("dia_time_mostro_ventana", dia_time_mostre_dialog);
+
+            contador_intentos=5;
+            editor.putInt("contador_intento", contador_intentos);
+
+        }
+
+
+        editor.commit();
+    }
+
+
+
+    public static void showRateDialog(final Context mContext, final SharedPreferences.Editor editor ,final Activity activity ) {
+        //   final Dialog dialog = new Dialog(        getActivity() );
+
+        final Dialog dialog = new Dialog(mContext); //anterior sirvia mas o menosx
+        //  final Dialog dialog = new Dialog(MainActivity2); //anterior sirvia mas o menosx
+
+
+        //    getActivity()
+
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setCancelable(false);
+        dialog.setContentView(R.layout.custom_dialog_rateapp);
+
+        Button b1 = dialog.findViewById(R.id.b1);
+        Button b2 = dialog.findViewById(R.id.b2);
+        Button b3 = dialog.findViewById(R.id.b3);
+
+        Log.i("CIENCIA", "se jecuto showRATE ");
+
+        b1.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Toast.makeText(mContext, "1111", Toast.LENGTH_SHORT).show();
+
+                solicitar_puntuacion2(mContext,activity);
+
+
+            }
+        });
+
+
+        b2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Toast.makeText(mContext, "222", Toast.LENGTH_SHORT).show();
+
+                dialog.dismiss();
+
+
+            }
+        });
+
+        b3.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Toast.makeText(mContext, "3", Toast.LENGTH_SHORT).show();
+
+
+                if (editor != null) {
+                    editor.putBoolean("dontshowagain", true);
+                    editor.commit();
+                }
+                dialog.dismiss();
+            }
+        });
+
+
+
+        dialog.show();
+
+    }
+
+
+
+
+
+
 
 
 

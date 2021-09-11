@@ -79,7 +79,7 @@ public class Items_coleccion extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_items_targetas, container, false);
+        View view = inflater.inflate(R.layout.item_tarjetas, container, false);
 
         img1= view.findViewById(R.id.img1);
         img2= view.findViewById(R.id.img2);

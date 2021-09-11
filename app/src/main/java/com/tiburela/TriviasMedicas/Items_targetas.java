@@ -4,9 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.media.Image;
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.ImageView;
 
 public class Items_targetas extends AppCompatActivity {
@@ -35,7 +33,7 @@ static int indice_contador=0;
    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_items_targetas);
+        setContentView(R.layout.item_tarjetas);
 
                img1= findViewById(R.id.img1);
                img2= findViewById(R.id.img2);

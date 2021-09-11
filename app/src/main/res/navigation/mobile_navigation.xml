@@ -36,21 +36,29 @@
 
     <fragment
         android:id="@+id/fragment_puntua_app"
-        android:name="com.tiburela.TriviasMedicas.Puntua_app_fragment"
+        android:name="com.tiburela.TriviasMedicas.fragments.Puntua_app_fragment"
         android:label="@string/puntua_app"
         tools:layout="@layout/fragment_puntua_app_fragment" />
 
     <fragment
         android:id="@+id/fragment_licencias"
-        android:name="com.tiburela.TriviasMedicas.Licencias_fragment"
+        android:name="com.tiburela.TriviasMedicas.fragments.Licencias_fragment"
         android:label="@string/licencias"
         tools:layout="@layout/fragment_licencias" />
 
 
 
     <fragment
+        android:id="@+id/politica_privacidad"
+        android:name="com.tiburela.TriviasMedicas.fragments.Politicas_privacidad"
+        android:label="@string/politica_privacidad"
+        tools:layout="@layout/fragment_otro" />
+
+
+
+    <fragment
         android:id="@+id/fragment_acerca"
-        android:name="com.tiburela.TriviasMedicas.FragmentAcerca"
+        android:name="com.tiburela.TriviasMedicas.fragments.FragmentAcerca"
         android:label="@string/acerca"
         tools:layout="@layout/fragment_acerca" />
 
