@@ -20,7 +20,7 @@
         app:srcCompat="@mipmap/home" />
 
     <Button
-        android:id="@+id/button13"
+        android:id="@+id/btn_siguiente_quiz"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -132,7 +132,7 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout6">
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/texto_uno"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -203,19 +203,6 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.82" />
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/coin_collection_anim"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="false"
-        app:lottie_rawRes="@raw/coin_collection"
-        app:lottie_repeatCount="0" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout5"
         android:layout_width="0dp"
@@ -273,6 +260,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/tiburon_celebrando2" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/coin_collection_anim"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="false"
+            app:lottie_rawRes="@raw/coin_collection"
+            app:lottie_repeatCount="0" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

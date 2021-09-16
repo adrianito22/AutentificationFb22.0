@@ -5,7 +5,6 @@ import androidx.fragment.app.FragmentManager;
 
 import android.animation.Animator;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
@@ -25,6 +24,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.airbnb.lottie.LottieAnimationView;
+import com.tiburela.TriviasMedicas.callbacks.SampleCallback;
 import com.tiburela.TriviasMedicas.ui.items_coleccion.Items_coleccion;
 
 import java.util.ArrayList;
@@ -39,7 +39,7 @@ import dialogos.NewLevel_dialogFragment;
 public class Juego_Partida extends AppCompatActivity  implements SampleCallback {
     SharedPreferences mysharedpreference ;
 
-
+boolean cierra_autom =false;
 
 
     LottieAnimationView lotie_coin_collection;
@@ -55,7 +55,7 @@ boolean se_presiono50y50bt=true;
     ArrayList<String> lista_array;
 
     int numero_de_items_contador=0;
-    final  int NUMERO_OK_RESPUESTAS_ITEMS=2 ; //cada 1 pregunta correctas desbloquea un item .
+    final  int NUMERO_OK_RESPUESTAS_ITEMS=10 ; //cada 1 pregunta correctas desbloquea un item .
     int respuestas_correctas_contador=0;
 
 
@@ -135,7 +135,7 @@ String monedica_string;
     Animation animation1;
     Animation slide_up;
     Animation animacion;
-    int quizCorrect;
+    private int quizCorrect;
     TextView monedastxt;
     ArrayList<ArrayList<String>> quizArray = new ArrayList<>();
     ArrayList<ArrayList<String>> quizArray2 = new ArrayList<>();
@@ -193,7 +193,7 @@ String monedica_string;
 
 
         countLabel = findViewById(R.id.textView4);
-        questionLabel = findViewById(R.id.textView3);
+        questionLabel = findViewById(R.id.texto_uno);
         answerBtn1 = findViewById(R.id.button3);
         answerBtn2 = findViewById(R.id.button22);
         answerBtn3 = findViewById(R.id.button11);
@@ -449,6 +449,7 @@ String monedica_string;
 
 
 
+
     public void checkAnswer(View view) {
         answerBtn1.clearAnimation();
 
@@ -476,12 +477,24 @@ String monedica_string;
                 SharedPreferences.Editor editor = mysharedpreferences.edit();
                 ////////////////////////////////////////////////////////////////////////////////////
 
+               //oobtenemos el numero de respuestas correctas
+                quizCorrect =mysharedpreferences.getInt("respuestas_correctas",0);
+
+
                 score =mysharedpreferences.getInt("USERINFO_SCORE",0);
 
                 repuesta_correct_partida++;
                 quizCorrect++;
                 score= score+25;
                 score_local=score_local+25;
+
+
+
+                //actualizamos  el numero de respuestas correctas..
+                editor.putInt("respuestas_correctas",quizCorrect); //esta reanudar posiblemnte
+                editor.apply();
+
+
 
                 editor.putInt("USERINFO_SCORE",score); //esta reanudar posiblemnte
                 editor.apply();
@@ -556,7 +569,36 @@ if(numero_de_items_contador<NUMERO_ITEMS){
 
                 else
                 {
-                    envidata_yhabrefragment();
+
+
+//borra esto abrimos fragment
+
+
+                    MainActivity2dos objdos = new MainActivity2dos(this);
+                    objdos.app_launched(this,Juego_Partida.this);
+
+                    Log.d("caer", "el value is "+ objdos.seabrioventana);
+
+if(objdos.seabrioventana){
+cierra_autom =true;
+    envidata_yhabrefragment(); //abrimos el dialog fragment pero con un valor boleano true;
+
+}else{
+    cierra_autom =false;
+
+    envidata_yhabrefragment(); //le enviamos venatan normal
+
+
+}
+
+
+
+
+
+///
+
+                    // Log.d("renos", "se cerro despues de 10 segundos ");
+                   // Toast.makeText(this, "ok se cerro despues de 10 segundios", Toast.LENGTH_SHORT).show();
                 }
 
             } else {  //si no contesto bien ...
@@ -587,10 +629,6 @@ if(numero_de_items_contador<NUMERO_ITEMS){
 
                 envidata_yhabrefragment();
 
-
-                MainActivity2dos objdos = new MainActivity2dos(this);
-
-                objdos.app_launched(this,Juego_Partida.this);
 
               //tomamos el index de la respuesta que no contesto bien...para mostrala mas adelante....
 
@@ -787,6 +825,7 @@ if(numero_de_items_contador<NUMERO_ITEMS){
         bundle.putString("PREGUNTA",   pregunta );
         bundle.putBoolean("BOLEAN_VALUE",respuestacorrecta);
         // bundle.putString("TEXT",   rightAnswer );
+        bundle.putBoolean("BOLEAN_VENTANA",cierra_autom);
 
         dialogo_fragmento.setArguments(bundle);
         dialogo_fragmento.show(getSupportFragmentManager(),"image_dialog");
@@ -796,10 +835,10 @@ if(numero_de_items_contador<NUMERO_ITEMS){
     public void eviadata_abrefragment_level(){
       //  bundle.putInt("NIVEL", nivel);
       //  bundle.putInt("SCORE", score);
-
         dfragmentLevel.setArguments(bundle);
         dfragmentLevel.show(getSupportFragmentManager(),"Fragment");
         Log.i("bebo", "se ejecuto este fragment");
+
     }
 
 
@@ -1092,8 +1131,14 @@ if(se_presiono50y50bt){
 
     @Override
     public void cuando_cierra() {
-        Toast.makeText(this, "vergaxxxx", Toast.LENGTH_SHORT).show();
-     //   callback.cuando_cierra();
+        showNextQuiz();
+      //  eviadata_abrefragment_level();
+        //   callback.cuando_cierra();
 
     }
+
+    ///mostramos el dialog fragment continuar
+
+
+
 }

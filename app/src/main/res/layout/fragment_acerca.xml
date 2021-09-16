@@ -9,7 +9,7 @@
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:id="@+id/firebase"
+        android:id="@+id/texto"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="@string/acerca_texto"

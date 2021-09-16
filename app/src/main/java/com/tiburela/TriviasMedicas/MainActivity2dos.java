@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -28,21 +29,25 @@ import com.google.android.play.core.review.ReviewInfo;
 import com.google.android.play.core.review.ReviewManager;
 import com.google.android.play.core.review.ReviewManagerFactory;
 import com.google.android.play.core.tasks.Task;
+import com.tiburela.TriviasMedicas.callbacks.SampleCallback;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
 
+import dialogos.Dialogo_fragmento;
+
 public class MainActivity2dos extends AppCompatActivity {
+    boolean seabrioventana=false;
 
     private AppBarConfiguration mAppBarConfiguration;
     Toolbar toolbar;
     private Menu menu;// Global Menu Declaration
      boolean dialogo_cerrado=false;
 
+   public SampleCallback callback;
 
-   public  SampleCallback callback;
-
+private final int REPUESTAS_OK_1_DIALOG=2; //minimo de respuestas correctas para mostrar el dialog ra
 
     Context mcontexto = MainActivity2dos.this;
 
@@ -316,6 +321,9 @@ public   void solicitar_puntuacion2(Context mContext, Activity activity  ){  //s
 
 
     public  void app_launched(Context mContext,Activity activity) {
+       seabrioventana=false;
+        SharedPreferences mysharedpreferences = mContext.getSharedPreferences("MyPREFERENCES", Context.MODE_PRIVATE);
+
 
 
         SharedPreferences prefsa =  mContext.getSharedPreferences("apprater", 0);
@@ -378,8 +386,30 @@ public   void solicitar_puntuacion2(Context mContext, Activity activity  ){  //s
 
         mostro_primera_vez_ventan = prefs.getBoolean("primera_ventana_mostro", false);
 
-        showRateDialog(mContext, editor,activity); //borrar despues
+    //    showRateDialog(mContext, editor,activity); //borrar despues
+        Log.i("mocho2","el valor de share es ");
 
+
+        Log.i("mocho", "el valor de share es  "+ mysharedpreferences.getInt("respuestas_correctas",0));
+
+        if(mysharedpreferences.getInt("respuestas_correctas",0)==REPUESTAS_OK_1_DIALOG){ //MOSTRAMOS EL PRIMER  DIALGO DESPUES DEL NUMERO DE PREGUNTAS ...
+          ///intentar y chat a aqui para esta accion
+
+
+
+          //There is an active fragment with tag "dialog" and "prev" variable holds a reference to it.
+
+
+
+          showRateDialog(mContext, editor,activity);
+          mostro_primera_vez_ventan = true;
+          contador_intentos=1;
+          editor.putBoolean("primera_ventana_mostro", mostro_primera_vez_ventan);
+          editor.putInt("contador_intento", contador_intentos);
+      }
+
+
+       /*
         if (System.currentTimeMillis() >= date_firstLaunch + 5000000 && !mostro_primera_vez_ventan) { // y si an pasado 5 sg minutos y aun no se amostrado la ventana ,muestrala
 
             showRateDialog(mContext, editor,activity);
@@ -390,7 +420,7 @@ public   void solicitar_puntuacion2(Context mContext, Activity activity  ){  //s
             Log.i("ifuno", "se ejecuto el primer if ");
 
 
-        }
+        }*/
 
 
         //esta es el segundo intento de mostrar ventana despues de 2 dias
@@ -466,125 +496,156 @@ public   void solicitar_puntuacion2(Context mContext, Activity activity  ){  //s
         //   final Dialog dialog = new Dialog(        getActivity() );
 
 
-
-         Dialog dialog = new Dialog(mContext); //anterior sirvia mas o menosx
-        //  final Dialog dialog = new Dialog(MainActivity2); //anterior sirvia mas o menosx
-
-
-        //    getActivity()
-
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setCancelable(false);
-        dialog.setContentView(R.layout.custom_dialog_rateapp);
-
-        Button b1 = dialog.findViewById(R.id.b1);
-        Button b2 = dialog.findViewById(R.id.b2);
-        Button b3 = dialog.findViewById(R.id.b3);
-
-        Log.i("CIENCIA", "se jecuto showRATE ");
-
-        b1.setOnClickListener(new View.OnClickListener() { ///pk lo hare
-            public void onClick(View v) {
-
-
-                Toast.makeText(mContext, "1111", Toast.LENGTH_SHORT).show();
-
-                solicitar_puntuacion2(mContext,activity);
-
-            //    callback.cuando_cierra();
-                callback.cuando_cierra();
-
-
-            }
-        });
-
-
-        b2.setOnClickListener(new View.OnClickListener() { //mas tarde
-            public void onClick(View v) {
-                Toast.makeText(mContext, "222", Toast.LENGTH_SHORT).show();
-
-
-           //    callback.cuando_cierra();
-
-                dialog.dismiss();
-
-            //    goToLoginActivity(mContext);
-
-              //  Intent intent = Juego_Partida.createIntent(this, 10);
-              //  startActivity(intent);
-
-                callback.cuando_cierra();
-
-
-            }
-        });
-
-        b3.setOnClickListener(new View.OnClickListener() { //no gracias..
-            public void onClick(View v) {
-                Toast.makeText(mContext, "3", Toast.LENGTH_SHORT).show();
-
-
-                if (editor != null) {
-                    editor.putBoolean("dontshowagain", true);
-                    editor.commit();
-                }
-
-
-
-                dialog.dismiss();
-
-             //   callback.cuando_cierra();
+         seabrioventana=true;
 
 
 
 
 
-            }
-        });
 
 
 
-        dialog.show();
+        Log.d("renose", "se cerro despues de 10 segundos");
+                Dialog dialog = new Dialog(mContext); //anterior sirvia mas o menosx
+                //  final Dialog dialog = new Dialog(MainActivity2); //anterior sirvia mas o menosx
 
 
-        dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-            @Override
-            public void onDismiss(final DialogInterface arg) {
-                //when dialog closed
-            //ok dialogo cerrado ....
+                //    getActivity()
+
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setCancelable(false);
+                dialog.setContentView(R.layout.custom_dialog_rateapp);
+
+                Button b1 = dialog.findViewById(R.id.b1);
+                Button b2 = dialog.findViewById(R.id.b2);
+                Button b3 = dialog.findViewById(R.id.b3);
+
+                Log.i("CIENCIA", "se jecuto showRATE ");
+
+                b1.setOnClickListener(new View.OnClickListener() { ///pk lo hare
+                    public void onClick(View v) {
+
+
+                        Toast.makeText(mContext, "1111", Toast.LENGTH_SHORT).show();
+
+                        solicitar_puntuacion2(mContext,activity);
+
+                        //    callback.cuando_cierra();
+                        callback.cuando_cierra();
+
+
+                    }
+                });
+
+
+                b2.setOnClickListener(new View.OnClickListener() { //mas tarde
+                    public void onClick(View v) {
+                        Toast.makeText(mContext, "222", Toast.LENGTH_SHORT).show();
+
+
+                        //    callback.cuando_cierra();
+
+                        dialog.dismiss();
+
+                        //    goToLoginActivity(mContext);
+
+                        //  Intent intent = Juego_Partida.createIntent(this, 10);
+                        //  startActivity(intent);
+
+                        callback.cuando_cierra();
+
+
+                    }
+                });
+
+                b3.setOnClickListener(new View.OnClickListener() { //no gracias..
+                    public void onClick(View v) {
+                        Toast.makeText(mContext, "3", Toast.LENGTH_SHORT).show();
+
+
+                        if (editor != null) {
+                            editor.putBoolean("dontshowagain", true);
+                            editor.commit();
+                        }
 
 
 
-             //   public void onDismiss(final DialogInterface dialog) {
+                        dialog.dismiss();
+
+                        //   callback.cuando_cierra();
 
 
 
 
-                dialogo_cerrado=true;
-                Toast.makeText(b1.getContext(), "se cerro el dialogo", Toast.LENGTH_SHORT).show();
-                isDialogo_cerrado();
 
-                callback.cuando_cierra();
+                    }
+                });
 
 
 
-            }
-        });
+                dialog.show();
 
 
-        dialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
-        @Override
-        public void onCancel(DialogInterface dialog) {
-        }
-    });
+                dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                    @Override
+                    public void onDismiss(final DialogInterface arg) {
+                        //when dialog closed
+                        //ok dialogo cerrado ....
 
 
-        dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialogInterface) {
 
-            }
-        });
+                        //   public void onDismiss(final DialogInterface dialog) {
+
+
+
+
+                        dialogo_cerrado=true;
+                        Toast.makeText(b1.getContext(), "se cerro el dialogo", Toast.LENGTH_SHORT).show();
+                        isDialogo_cerrado();
+
+                        callback.cuando_cierra();
+
+
+
+                    }
+                });
+
+
+                dialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+                    @Override
+                    public void onCancel(DialogInterface dialog) {
+                    }
+                });
+
+
+                dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                    @Override
+                    public void onDismiss(DialogInterface dialogInterface) {
+
+                    }
+                });
+
+
+                ///vamos a un metodo de la activity  que muestra continuar..ventana que no se puede cerrar.
+
+
+
+            //    dismiss();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

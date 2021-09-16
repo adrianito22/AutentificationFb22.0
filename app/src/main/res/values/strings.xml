@@ -89,8 +89,7 @@
     Apache License <br/><br/>  Version 2.0, January 2004  <br/><br/>      http://www.apache.org/licenses/
     </string>
 
-    <string name="licencia2"> MIT License <br/><br/> Copyright (c) 2017 Airbnb</string>
-
+    <string name="licencia2"> "MIT License \n Copyright (c) 2017 Airbnb"</string>
 
 
 
@@ -98,116 +97,101 @@
 
 
 
-
-
-    <string name="acerca_texto"> "Trivias Medicas" es una app educativa ,tiene el fin de ayudar a memorizar conceptos y conocimientos basicos sobre medicina y anatomia humana .El contenido de esta aplicación fue previamente revisado y editado, aun así no podemos decir que el mismo este 100% libre de errores, en caso de encontrar alguno, pedimos por favor que nos Lo notifiques. Tiburela es una marca joven que busca seriamente desarrollar un espacio importante en la vida académica de estudiantes de diversas partes del mundo. Tiburela esta conformamos todos los que hacemos posible que una nueva app cobre vida ,desde amigos, familares y todos los que an aportado alguna o muchas veces en la creacion de un nuevo producto.
+    <string name="acerca_texto"> Trivias Medicas es una app educativa ,tiene el fin de ayudar a memorizar conceptos y conocimientos basicos sobre medicina y anatomia humana .El contenido de esta aplicación fue previamente revisado y editado, aun así no podemos decir que el mismo este 100% libre de errores, en caso de encontrar alguno, pedimos por favor que nos Lo notifiques. Tiburela es una marca joven que busca seriamente desarrollar un espacio importante en la vida académica de estudiantes de diversas partes del mundo. Tiburela esta conformamos todos los que hacemos posible que una nueva app cobre vida ,desde amigos, familares y todos los que an aportado alguna o muchas veces en la creacion de un nuevo producto.
 </string>
 
-
-    <string name="politica">
-
-      This privacy policy is used to inform you regarding policies with the collection, use, and
-disclosure of Personal Information if anyone decided to use this Service.<br/><br/>
-1. Overview <br/><br/>
+    <string name="politica">"This privacy policy is used to inform you regarding policies with the collection, use, and disclosure of Personal Information if anyone decided to use this Service.\n
+1. Overview \n
  The app uses advertising (and in app payments) to make revenue. The app uses third party
-libraries for advertising which may collect and share personal information with third
-parties.<br/>
+libraries for advertising which may collect and share personal information with third parties.\n
 Links to privacy policies of third party service providers used in the app
 Google Play Services https://www.google.com/policies/privacy/
-AdMob https://support.google.com/admob/answer/6128543<br/><br/>
-2.) Sharing Your Information<br/><br/>
+AdMob https://support.google.com/admob/answer/6128543\n
+2.) Sharing Your Information \n
 The developer will share personal information with third parties only in the ways that are
-described in this privacy statement.<br/>
-Your personal information may be disclosed:<br/>
+described in this privacy statement. \n
+Your personal information may be disclosed: \n
 * As required by law, such as to comply with a subpoena, or similar legal process.
 * To any other third party with your prior consent to do so.
-3. What information are collected and why<br/><br/>
-3.1 AdMob<br/><br/>
+3. What information are collected and why \n
+3.1 AdMob\n
 AdMob, is Google’s mobile app advertising platform designed specifically for app
 developers. In order to understand Google’s use of Data, consult Google’s partner policy.
-Personal Data:<br/>
+Personal Data: \n
 * Online identifiers, including cookie identifiers
 * IP addresses
 * Device identifiers
 * Client identifiers
-* unique device identifiers for advertising (Google Advertiser ID or IDFA, for example)
-* Usage Data.<br/>
-Retention:<br/>
+* unique device identifiers for advertising (Google Advertiser ID or IDFA, for example) \n
+* Usage Data.
+Retention: \n
 Google anonymizes the log data by removing part of the IP address (after 9 months) and
 cookie information (after 18 months)
 Online resources:
-* Privacy Policy https://www.google.com/policies/technologies/ads/<br/>
-* Opt out https://www.google.com/settings/ads<br/>
-* Service Information https://privacy.google.com/businesses/adsservices/<br/>
-* Partner policy https://policies.google.com/technologies/partner-sites<br/>
-* Ad technology providers https://support.google.com/admob/answer/9012903<br/>
-3.2 Google Play Services<br/>
+* Privacy Policy https://www.google.com/policies/technologies/ads/\n
+* Opt out https://www.google.com/settings/ads\n
+* Service Information https://privacy.google.com/businesses/adsservices/ \n
+* Partner policy https://policies.google.com/technologies/partner-sites \n
+* Ad technology providers https://support.google.com/admob/answer/9012903 \n
+3.2 Google Play Services \n
 Google Play Services offers APIs and security services to the Android developer ecosystem.
 Google acts as a data controller for any personal data processed in Google Play Services,
 and offers user notices and consents about the use of personal data in the service’s user
-interface in Android.<br/>
-Collected informations:<br/>
-* Device information<br/>
-* Log information<br/>
-* Location information<br/>
-* Unique application numbers<br/>
-* Local storage<br/>
-* Cookies and similar technologies<br/>
+interface in Android.
+Collected informations:
+* Device information
+* Log information
+* Location information
+* Unique application numbers
+* Local storage
+* Cookies and similar technologies \n
 Google use the collected information to provide, maintain, protect and improve Google’s
 services, to develop new ones, and to protect Google and the users. Google also use this
 information to offer you tailored content – like giving you more relevant search results
-and ads.<br/>
+and ads. \n
 Online resources:
 * Google Terms of Service https://policies.google.com/terms
-* Google Privacy Policy https://policies.google.com/privacy<br/><br/>
-4. Security<br/>
+* Google Privacy Policy https://policies.google.com/privacy \n
+4. Security \n
 I am striving to use commercially acceptable means of protecting your Personal
 Information. But remember that no method of transmission over the internet, or method of
 electronic storage is 100% secure and reliable, and I cannot guarantee its absolute
-security.<br/><br/>
-5. Links to Other Sites<br/>
+security. \n
+5. Links to Other Sites \n
 This Service may contain links to other sites. If you click on a third-party link, you
 will be directed to that site. Note that these external sites are not operated by me.
 Therefore, I strongly advise you to review the Privacy Policy of these websites. I have
 no control over and assume no responsibility for the content, privacy policies, or
-practices of any third-party sites or services.<br/><br/>
-6. Children’s Privacy<br/>
+practices of any third-party sites or services. \n
+6. Children’s Privacy \n
 These Services do not address anyone under the age of 16. I do not knowingly collect
 personally identifiable information from children under 16. In the case I discover that
 a child under 16 has provided me with personal information, I immediately delete those
 informations. If you are a parent or guardian and you are aware that your child has
 provided personal information, please contact me so that I will be able to do necessary
-actions.<br/><br/>
-7. Distribution<br/><br/>
+actions. \n
+7. Distribution \n
 The only official channel for distribution of this app are:
 * Google Play Store https://play.google.com/
 * XDA Developers Android Forum https://www.xda-developers.com/
 Any other mode of distribution is not official and thus, is not maintained by the developer.
-This privacy policy is effective to distribution made on official channel only.<br/><br/>
+This privacy policy is effective to distribution made on official channel only. \n
 
+9.Google analitycs \n
 
-9.Google analitycs<br/><br/>
-
-Our applications use Google Analytics. Google Analytics is a web analytics tool that helps website owners understand how visitors interact with their website. Google Analytics customers can view a variety of reports on how visitors interact with their website so that they can improve it. Google Analytics collects information anonymously. Reports website trends without identifying individual visitors.
-
-Ícono de validado por la comunidad<br/><br/>
-
-
-10. Changes to This Privacy Policy<br/><br/>
-This policy may be updated from time to time.<br/>
-Contact me<br/>
+Our applications use Google Analytics. Google Analytics is a web analytics tool that helps website owners understand how visitors interact with their website. Google Analytics customers can view a variety of reports on how visitors interact with their website so that they can improve it. Google Analytics collects information anonymously. Reports website trends without identifying individual visitors. \n
+10. Changes to This Privacy Policy \n
+This policy may be updated from time to time. \n
+Contact me \n
 If you have any questions or suggestions about my Privacy Policy, do not hesitate to
-contact me.
-
-  </string>
+contact me"</string>
 
 
     <string name="polica_parrafo1">
-    Privacy Policy<br/><br/>
+    Privacy Policy \n
     Tiburela built the Trivias “Medicas app” as an Ad Supported app. This SERVICE
     (“Trivias Medicas”) is provided by at no cost and is intended for use as is:
-    OR<br/>
-    as is:</string>
+    OR as is:</string>
 
     <string name="link">http://tiburela.com/privacy_policy/</string>
 
@@ -218,12 +202,10 @@ contact me.
     <string-array name="paises_espanol">
         <item>La laringe forma parte del aparato?. Respiratorio. Circulatorio.Boca.Digestivo</item>
         <item>Cuantas piezas dentales tiene un adulto?.32.24.28.31</item>
-        <item>Utilizado para tratar a pacientes con riñones defectuosos, ¿cómo se conoce el proceso de eliminación toxinas de la sangre?diálisis.terapia ocupacional.Fisioterapia.Refelexologia</item>
-
+        <item>Utilizado para tratar a pacientes con riñones defectuosos, ¿cómo se conoce el proceso de eliminación toxinas de la sangre?.Diálisis.Terapia ocupacional.Fisioterapia.Refelexologia</item>
         <item>¿Cuál de los siguientes huesos no corresponden a la columna vertebral?.Tabique.Omóplatos.Atlas.Sacro</item>
         <item>Cuál de las siguientes opciones no es parte del ojo ?.Yunque.Retina.Pupila.Cornea</item>
         <item>Qué órgano ataca la enfermedad Cirrosis?.Hígado.Corazón.Cerebro.Pulmones</item>
-        <item>La laringe forma parte del aparato?.Respiratorio.Circulatorio.Boca.Digestivo</item>
         <item>En que parte del cuerpo humano se encuentra la falanges.Dedos.Garganta.Codos.Piernas</item>
         <item>Cuál de las siguientes opciones no es parte del ojo ?.Yunque.Retina.Pupila.Cornea</item>
         <item> Qué órgano ataca la enfermedad Cirrosis?.Hígado.Corazón.Cerebro.Pulmones</item>

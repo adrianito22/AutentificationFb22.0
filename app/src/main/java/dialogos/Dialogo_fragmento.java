@@ -1,7 +1,6 @@
 package dialogos;
 
 import android.animation.Animator;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
@@ -10,9 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -21,18 +18,22 @@ import androidx.fragment.app.DialogFragment;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.tiburela.TriviasMedicas.Juego_Partida;
-import com.tiburela.TriviasMedicas.MainActivity;
-import com.tiburela.TriviasMedicas.MainActivity2dos;
 import com.tiburela.TriviasMedicas.R;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class Dialogo_fragmento extends DialogFragment{
     TextView txt_muestra_respue,txt_muestra_pregunt;
+  Button btn_siguiente_quiz;
+
 
     TextView txt_muestra_respue2;
     String muestra_respuesta,muestra_pregunta;
 
     boolean boolean_recibe_respuesta;
+    boolean recibe_auto_close=false;
     ImageView imageButton4;
     ImageView ilayout;
 
@@ -53,8 +54,8 @@ public class Dialogo_fragmento extends DialogFragment{
             muestra_respuesta = bundle.getString("CORRECT_ANSWER","");
             muestra_pregunta = bundle.getString("PREGUNTA","");
             boolean_recibe_respuesta=bundle.getBoolean("BOLEAN_VALUE",false);
-
-          muestra_score=  bundle.getInt("SCORE",0);
+            recibe_auto_close=bundle.getBoolean("BOLEAN_VENTANA",false);
+            muestra_score=  bundle.getInt("SCORE",0);
 
 
             bundle.putInt("SCORELAB",muestra_score);
@@ -95,9 +96,12 @@ public class Dialogo_fragmento extends DialogFragment{
 
 
 
+
         // setStyle(DialogFragment., android.R.style.fullscreenalert);
-        txt_muestra_pregunt= v.findViewById(R.id.textView3);
+        txt_muestra_pregunt= v.findViewById(R.id.texto_uno);
         txt_muestra_respue= v.findViewById(R.id.textView8);
+
+        btn_siguiente_quiz=v.findViewById(R.id.btn_siguiente_quiz);
       //  txt_pregunta=v.findViewById(R.id.txt_mspue);
    //   btn_next=v.findViewById(R.id.button13);
        ilayout=v.findViewById(R.id.imageView6);
@@ -133,10 +137,6 @@ texto_Respuesta();
 
 
 
-
-
-
-
 public void texto_Respuesta(){
   if(boolean_recibe_respuesta ==true)
 
@@ -144,10 +144,19 @@ public void texto_Respuesta(){
       txt_muestra_respue.setText("Respuesta correcta ");
       txt_muestra_respue2.setText("Hurra!");
       cargar_animacion_monedas();
+      btn_siguiente_quiz.setEnabled(true);
 
-
-
+//cuando entra aqui la ventana se cierra..
       //MOSTRAMOS EL DIALOGO AQUI...
+
+      if(recibe_auto_close){ //cerramos automaticamente
+
+
+cierra_5segundos_desact_b();
+
+
+      }
+
 
 
   }
@@ -268,6 +277,29 @@ dismiss();
     }
 
 
+
+
+    public void cierra_5segundos_desact_b(){
+
+        btn_siguiente_quiz.setEnabled(false);
+
+
+        //cerramos el dialgo despues de 10 segundos
+        new Timer().schedule(new TimerTask() {
+            public void run() {
+                dismiss();
+                Log.d("renose", "se cerro despues de 10 segundos");
+
+
+                ///vamos a un metodo de la activity  que muestra continuar..ventana que no se puede cerrar.
+
+                dismiss();
+
+
+            }}, 4000);//t
+
+
+    }
 
 }
 

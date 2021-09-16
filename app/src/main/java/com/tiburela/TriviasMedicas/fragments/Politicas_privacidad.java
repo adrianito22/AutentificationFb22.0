@@ -18,7 +18,8 @@ import com.tiburela.TriviasMedicas.R;
  * create an instance of this fragment.
  */
 public class Politicas_privacidad extends Fragment {
-
+TextView stringvar;
+  TextView  textView33;
 
    TextView link_p;
     // TODO: Rename parameter arguments, choose names that match
@@ -71,7 +72,12 @@ public class Politicas_privacidad extends Fragment {
        //activa el link
         link_p=view.findViewById(R.id.link_p);
         Linkify.addLinks(link_p, Linkify.ALL);
+         stringvar=view.findViewById(R.id.texto);
+        stringvar.getText().toString().replaceAll("\\\\n", "\\\n");
+        textView33=view.findViewById(R.id.textView33);
+        textView33.getText().toString().replaceAll("\\\\n", "\\\n");
 
+///si no funciona usar esto string = string.replace("\\\n", System.getProperty("line.separator")); y  \n en el texto
         return view;
 
 

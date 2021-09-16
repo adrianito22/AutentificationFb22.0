@@ -142,7 +142,7 @@
 
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/texto_uno"
                 android:layout_width="0dp"
                 android:layout_height="143dp"
                 android:layout_gravity="center_horizontal"

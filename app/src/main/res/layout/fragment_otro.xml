@@ -22,6 +22,7 @@
             <TextView
                 android:id="@+id/textView33"
                 android:layout_width="match_parent"
+                android:singleLine="false"
                 android:layout_height="wrap_content"
                 android:text="@string/polica_parrafo1" />
 
@@ -33,8 +34,9 @@
                 android:textColor="#3F51B5" />
 
             <TextView
-                android:id="@+id/firebase"
+                android:id="@+id/texto"
                 android:layout_width="match_parent"
+                android:singleLine="false"
                 android:layout_height="match_parent"
                 android:text="@string/politica"
                 android:textSize="14sp" />

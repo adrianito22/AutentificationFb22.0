@@ -1,126 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/holas"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#7E57C2"
-    android:orientation="vertical">
+    android:background="@android:color/transparent">
 
 
-    <LinearLayout
-        android:id="@+id/linearLayout8"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="0dp"
-        android:background="@drawable/shap_sharegame"
-        android:orientation="vertical"
+    <Button
+        android:id="@+id/boton_continuar"
+        android:layout_width="155dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/shape_boton_next"
+        android:onClick="fragmentol2"
+        android:text="Si ,Continuemos"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.193"
+        app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="16dp">
+        app:layout_constraintTop_toBottomOf="@+id/texto_uno"
+        tools:ignore="MissingConstraints" />
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="15dp"
-            android:fontFamily="@font/muli"
-            android:text="HURRA !"
-            android:textAllCaps="false"
-            android:textColor="#171616"
-            android:textSize="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+    <TextView
+        android:id="@+id/texto_uno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/muli"
+        android:text="Continuamos ?"
+        android:textAllCaps="false"
+        android:textColor="#171616"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textView15"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="12dp"
-            android:fontFamily="@font/muli"
-            android:text="Has llegado al nivel "
-            android:textAllCaps="false"
-            android:textColor="#171616"
-            android:textSize="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline75"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.50" />
 
-
-        <LinearLayout
-            android:id="@+id/mybackground"
-            android:layout_width="match_parent"
-            android:layout_height="408dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/tiburon_celebrando2"
-            android:orientation="vertical">
-
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/kkj"
-                android:layout_width="match_parent"
-                android:layout_height="420dp">
-
-                <LinearLayout
-                    android:id="@+id/linearLayout7"
-                    android:layout_width="275dp"
-                    android:layout_height="0dp"
-                    android:layout_marginBottom="24dp"
-                    android:orientation="vertical"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"/>
-
-                <com.airbnb.lottie.LottieAnimationView
-                    android:id="@+id/coin_collection_anim"
-                    android:layout_width="300dp"
-                    android:layout_height="642dp"
-                    app:lottie_autoPlay="true"
-                    app:lottie_loop="false"
-                    app:lottie_rawRes="@raw/confeti"
-                    app:lottie_repeatCount="0"
-                    tools:layout_editor_absoluteX="40dp"
-                    tools:layout_editor_absoluteY="-100dp" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:id="@+id/s48"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/boton_continuar"
-                android:layout_width="wrap_content"
-                android:layout_height="60dp"
-                android:layout_marginLeft="35dp"
-                android:onClick="fragmentol2"
-                android:layout_marginTop="25dp"
-                android:textColor="@color/white"
-                android:background="@drawable/shape_boton_next"
-                android:layout_marginRight="35dp"
-                android:layout_weight="1"
-                android:text="CONTINUAR" />
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
