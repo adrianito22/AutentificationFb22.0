@@ -1,6 +1,7 @@
 package dialogos;
 
 import android.animation.Animator;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
@@ -20,6 +21,8 @@ import androidx.fragment.app.DialogFragment;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.tiburela.TriviasMedicas.Juego_Partida;
+import com.tiburela.TriviasMedicas.MainActivity;
+import com.tiburela.TriviasMedicas.MainActivity2dos;
 import com.tiburela.TriviasMedicas.R;
 
 
@@ -35,7 +38,7 @@ public class Dialogo_fragmento extends DialogFragment{
 
   LottieAnimationView lotie_coin_collection;
 
-
+// Activity MainActivity2dos;
     int muestra_score;
 
     @Override
@@ -143,6 +146,8 @@ public void texto_Respuesta(){
       cargar_animacion_monedas();
 
 
+
+      //MOSTRAMOS EL DIALOGO AQUI...
 
 
   }

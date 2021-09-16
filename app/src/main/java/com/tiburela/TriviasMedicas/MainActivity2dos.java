@@ -1,10 +1,7 @@
 package com.tiburela.TriviasMedicas;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
@@ -12,14 +9,17 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+
+
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -37,25 +37,46 @@ import java.util.Date;
 import java.util.Objects;
 
 public class MainActivity2dos extends AppCompatActivity {
+
     private AppBarConfiguration mAppBarConfiguration;
     Toolbar toolbar;
     private Menu menu;// Global Menu Declaration
+     boolean dialogo_cerrado=false;
 
-    static int contador_intentos=0; //este hara que no se vulva a mostra la misma ventana
-    static int dias_intento3 = 5; //despues de 5 dias desde que le mostre la ultima vez...
-    static int dias_intento4 = 7; //despues de  7 dias desde que le mostre la ultima vez...
-    static int dias_intento5 = 10; //despues de  10 dias desde que le mostre la ultima vez...
-    static int dias_intento2 = 2; //dias  que tienen que pasar para mostra el dialog
-    static long dia_time_mostre_dialog; //dia cuando mostre la ventana la ultima vez...
-    static int cuenta_veces_habre_app; //contado dfe veces que se habre la app
-    private final static int DAYS_UNTIL_PROMPT = 3; //dias  que tienen que pasar para las proximas notificaciones.....
-    static boolean mostro_primera_vez_ventan = false;
-    static boolean aparentemente_puntuo_app = false;
 
-    Context contex_activity= MainActivity2dos.this;
+   public  SampleCallback callback;
+
+
+    Context mcontexto = MainActivity2dos.this;
+
+     Juego_Partida jpobjeto=new Juego_Partida();
+
+     int contador_intentos=0; //este hara que no se vulva a mostra la misma ventana
+     int dias_intento3 = 5; //despues de 5 dias desde que le mostre la ultima vez...
+     int dias_intento4 = 7; //despues de  7 dias desde que le mostre la ultima vez...
+     int dias_intento5 = 10; //despues de  10 dias desde que le mostre la ultima vez...
+     int dias_intento2 = 2; //dias  que tienen que pasar para mostra el dialog
+     long dia_time_mostre_dialog; //dia cuando mostre la ventana la ultima vez...
+     int cuenta_veces_habre_app; //contado dfe veces que se habre la app
+    private final  int DAYS_UNTIL_PROMPT = 3; //dias  que tienen que pasar para las proximas notificaciones.....
+     boolean mostro_primera_vez_ventan = false;
+     boolean aparentemente_puntuo_app = false;
+
+   Context contex_activity= MainActivity2dos.this;
+
+
+
+
+
+
+
 
 
     Button boton_ok_rate;
+
+    public MainActivity2dos() {
+
+    }
     // DrawerLayout drawerLayout;
 
     @Override
@@ -255,7 +276,7 @@ public void solicitar_puntuacion3(View vista) {
 
 
 ///a partir de aqui codigo
-public  static void solicitar_puntuacion2(Context mContext, Activity activity ){  //solicta una puntuacion in app
+public   void solicitar_puntuacion2(Context mContext, Activity activity  ){  //solicta una puntuacion in app
     //     SharedPreferences pref_puntuacion = getSharedPreferences("PUNTUACION_BOOLEAN", Context.MODE_PRIVATE);
 
     ReviewManager manager = ReviewManagerFactory.create(mContext);
@@ -273,7 +294,6 @@ public  static void solicitar_puntuacion2(Context mContext, Activity activity ){
                 aparentemente_puntuo_app=true;
                 //usuario_calific();
 
-
                 // The flow has finished. The API does not indicate whether the user
                 // reviewed or not, or even whether the review dialog was shown. Thus, no
                 // matter the result, we continue our app flow.
@@ -281,7 +301,9 @@ public  static void solicitar_puntuacion2(Context mContext, Activity activity ){
             });
         } else {
 
-            Log.i("hola", " error en  solicitar_puntuacion ");
+          //  Juego_Partida jpobjeto=new Juego_Partida();
+          //  jpobjeto.eviadata_abrefragment_level();
+         //   Log.i("hola", " error en  solicitar_puntuacion ");
 
             // There was some problem, log or handle the error code.
 
@@ -296,7 +318,7 @@ public  static void solicitar_puntuacion2(Context mContext, Activity activity ){
 
 
 
-    public static void app_launched(Context mContext,Activity activity) {
+    public  void app_launched(Context mContext,Activity activity) {
 
 
         SharedPreferences prefsa =  mContext.getSharedPreferences("apprater", 0);
@@ -359,15 +381,16 @@ public  static void solicitar_puntuacion2(Context mContext, Activity activity ){
 
         mostro_primera_vez_ventan = prefs.getBoolean("primera_ventana_mostro", false);
 
+        showRateDialog(mContext, editor,activity); //borrar despues
 
-        if (System.currentTimeMillis() >= date_firstLaunch + 5000 && !mostro_primera_vez_ventan) { // y si an pasado 5 sg minutos y aun no se amostrado la ventana ,muestrala
+        if (System.currentTimeMillis() >= date_firstLaunch + 5000000 && !mostro_primera_vez_ventan) { // y si an pasado 5 sg minutos y aun no se amostrado la ventana ,muestrala
 
             showRateDialog(mContext, editor,activity);
             mostro_primera_vez_ventan = true;
             contador_intentos=1;
             editor.putBoolean("primera_ventana_mostro", mostro_primera_vez_ventan);
             editor.putInt("contador_intento", contador_intentos);
-
+            Log.i("ifuno", "se ejecuto el primer if ");
 
 
         }
@@ -442,10 +465,12 @@ public  static void solicitar_puntuacion2(Context mContext, Activity activity ){
 
 
 
-    public static void showRateDialog(final Context mContext, final SharedPreferences.Editor editor ,final Activity activity ) {
+    public  void showRateDialog(final Context mContext, final SharedPreferences.Editor editor ,final Activity activity ) {
         //   final Dialog dialog = new Dialog(        getActivity() );
 
-        final Dialog dialog = new Dialog(mContext); //anterior sirvia mas o menosx
+
+
+         Dialog dialog = new Dialog(mContext); //anterior sirvia mas o menosx
         //  final Dialog dialog = new Dialog(MainActivity2); //anterior sirvia mas o menosx
 
 
@@ -461,28 +486,43 @@ public  static void solicitar_puntuacion2(Context mContext, Activity activity ){
 
         Log.i("CIENCIA", "se jecuto showRATE ");
 
-        b1.setOnClickListener(new View.OnClickListener() {
+        b1.setOnClickListener(new View.OnClickListener() { ///pk lo hare
             public void onClick(View v) {
+
+
                 Toast.makeText(mContext, "1111", Toast.LENGTH_SHORT).show();
 
                 solicitar_puntuacion2(mContext,activity);
 
+            //    callback.cuando_cierra();
+                callback.cuando_cierra();
+
 
             }
         });
 
 
-        b2.setOnClickListener(new View.OnClickListener() {
+        b2.setOnClickListener(new View.OnClickListener() { //mas tarde
             public void onClick(View v) {
                 Toast.makeText(mContext, "222", Toast.LENGTH_SHORT).show();
 
+
+           //    callback.cuando_cierra();
+
                 dialog.dismiss();
+
+            //    goToLoginActivity(mContext);
+
+              //  Intent intent = Juego_Partida.createIntent(this, 10);
+              //  startActivity(intent);
+
+                callback.cuando_cierra();
 
 
             }
         });
 
-        b3.setOnClickListener(new View.OnClickListener() {
+        b3.setOnClickListener(new View.OnClickListener() { //no gracias..
             public void onClick(View v) {
                 Toast.makeText(mContext, "3", Toast.LENGTH_SHORT).show();
 
@@ -491,7 +531,17 @@ public  static void solicitar_puntuacion2(Context mContext, Activity activity ){
                     editor.putBoolean("dontshowagain", true);
                     editor.commit();
                 }
+
+
+
                 dialog.dismiss();
+
+             //   callback.cuando_cierra();
+
+
+
+
+
             }
         });
 
@@ -499,19 +549,85 @@ public  static void solicitar_puntuacion2(Context mContext, Activity activity ){
 
         dialog.show();
 
+
+        dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(final DialogInterface arg) {
+                //when dialog closed
+            //ok dialogo cerrado ....
+
+
+
+             //   public void onDismiss(final DialogInterface dialog) {
+
+
+
+
+                dialogo_cerrado=true;
+                Toast.makeText(b1.getContext(), "se cerro el dialogo", Toast.LENGTH_SHORT).show();
+                isDialogo_cerrado();
+
+                callback.cuando_cierra();
+
+
+
+            }
+        });
+
+
+        dialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+        @Override
+        public void onCancel(DialogInterface dialog) {
+        }
+    });
+
+
+        dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialogInterface) {
+
+            }
+        });
+
+
+
+
+    }
+
+    public   Boolean isDialogo_cerrado(){
+        return dialogo_cerrado;
     }
 
 
 
+    public static Intent createIntent(Activity activity, int value) {
+        Intent intent = new Intent(activity, Juego_Partida.class);
+        intent.putExtra("EXTRA_VALUE", value);
+        return intent;
+    }
 
 
+    public static void goToLoginActivity(Context mContext) {
+
+        Intent login = new Intent(mContext, Juego_Partida.class);
+
+        mContext.startActivity(login);
+    }
+
+    public void mundo_azul(){
+        Log.d("eres", "mundo_azul");
+        callback.cuando_cierra();
+
+    }
+
+    public MainActivity2dos(SampleCallback callback){
+
+        this.callback= callback;
 
 
+    }
 
-
+    //callback de ejemplo
 
 
 }
-
-
-

@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentManager;
 
 import android.animation.Animator;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
@@ -35,8 +36,11 @@ import dialogos.Game_over_dialog;
 import dialogos.Item_desbloqueado;
 import dialogos.NewLevel_dialogFragment;
 
-public class Juego_Partida extends AppCompatActivity {
+public class Juego_Partida extends AppCompatActivity  implements SampleCallback {
     SharedPreferences mysharedpreference ;
+
+
+
 
     LottieAnimationView lotie_coin_collection;
 
@@ -114,7 +118,7 @@ String monedica_string;
     static final private int QUIZ_COUNT = 5;
 
     Dialogo_fragmento dialogo_fragmento = new Dialogo_fragmento();
-    NewLevel_dialogFragment dfragmentLevel= new NewLevel_dialogFragment();
+    NewLevel_dialogFragment dfragmentLevel= new NewLevel_dialogFragment(Juego_Partida.getInstance());
 
     Item_desbloqueado item_desbloqueado_obj= new Item_desbloqueado();
 
@@ -137,8 +141,19 @@ String monedica_string;
     ArrayList<ArrayList<String>> quizArray2 = new ArrayList<>();
 
 
+
+    private static Juego_Partida instance = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+        this.instance = this;
+
+
+
+
+
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_juego_partida);
@@ -201,6 +216,9 @@ String monedica_string;
     }
 
     public void showNextQuiz() {
+
+
+
 
 
         ///CREO QUE HAY QUE BORRAR ESTO
@@ -566,8 +584,13 @@ if(numero_de_items_contador<NUMERO_ITEMS){
 
                 answer_incorrect++;
 
+
                 envidata_yhabrefragment();
 
+
+                MainActivity2dos objdos = new MainActivity2dos(this);
+
+                objdos.app_launched(this,Juego_Partida.this);
 
               //tomamos el index de la respuesta que no contesto bien...para mostrala mas adelante....
 
@@ -717,6 +740,9 @@ if(numero_de_items_contador<NUMERO_ITEMS){
     public void onStop() {
         super.onStop();
         pausetimer();
+
+        Toast.makeText(getApplicationContext(), "se ejecuta on stop", Toast.LENGTH_SHORT).show();
+
     }
 
 
@@ -763,16 +789,17 @@ if(numero_de_items_contador<NUMERO_ITEMS){
         // bundle.putString("TEXT",   rightAnswer );
 
         dialogo_fragmento.setArguments(bundle);
-        dialogo_fragmento.show(getSupportFragmentManager(),"image_dialog");          }
+        dialogo_fragmento.show(getSupportFragmentManager(),"image_dialog");
+    }
 
 
     public void eviadata_abrefragment_level(){
-        bundle.putInt("NIVEL", nivel);
-        bundle.putInt("SCORE", score);
+      //  bundle.putInt("NIVEL", nivel);
+      //  bundle.putInt("SCORE", score);
 
         dfragmentLevel.setArguments(bundle);
         dfragmentLevel.show(getSupportFragmentManager(),"Fragment");
-
+        Log.i("bebo", "se ejecuto este fragment");
     }
 
 
@@ -991,12 +1018,82 @@ if(se_presiono50y50bt){
        answerBtn4.setCompoundDrawablesWithIntrinsicBounds(R.drawable.betund, 0, 0, 0);
 
 
-
    }
 
 
+////por qui verificar si la venta se cerro
+
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        Toast.makeText(getApplicationContext(), "se ejecuta on pause", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Toast.makeText(getApplicationContext(), "se ejecuta on resume", Toast.LENGTH_SHORT).show();
+
+       //llamos est metodo y obtenemos su valor..
 
 
 
 
+
+
+
+    }
+
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+
+        Toast.makeText(getApplicationContext(), "se ejecuta on restart", Toast.LENGTH_SHORT).show();
+
+        // MainActivity2dos. isDialogo_cerrado(); //llamos est metodo y obtenemos su valor..
+
+
+
+
+    }
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        Toast.makeText(getApplicationContext(), "se ejecuta on restart", Toast.LENGTH_SHORT).show();
+
+        // MainActivity2dos. isDialogo_cerrado(); //llamos est metodo y obtenemos su valor..
+
+    }
+
+
+    public static Juego_Partida getInstance() {
+        return instance;
+    }
+
+
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        if(intent.getStringExtra("methodName").equals("showNextQuiz")){
+            showNextQuiz();
+
+
+
+        }
+    }
+
+
+    @Override
+    public void cuando_cierra() {
+        Toast.makeText(this, "vergaxxxx", Toast.LENGTH_SHORT).show();
+     //   callback.cuando_cierra();
+
+    }
 }

@@ -22,6 +22,7 @@ import androidx.fragment.app.DialogFragment;
 
 import com.airbnb.lottie.LottieAnimationView;
 
+import com.tiburela.TriviasMedicas.Juego_Partida;
 import com.tiburela.TriviasMedicas.R;
 
 import java.io.UnsupportedEncodingException;
@@ -45,8 +46,8 @@ public class NewLevel_dialogFragment extends DialogFragment {
    TextView  frase_levels  ;
 
 
-  int puntos_level;
-  int numero_level;
+  int puntos_level=0;
+  int numero_level=0;
 
     ImageView bt_f;
     ImageView bt_w;
@@ -67,8 +68,8 @@ public class NewLevel_dialogFragment extends DialogFragment {
         if (getArguments() != null ){
             Bundle bundle = getArguments();
 
-          numero_level = bundle.getInt("NIVEL",0);
-          puntos_level = bundle.getInt("SCORE",0);
+        //  numero_level = bundle.getInt("NIVEL",0);
+       //   puntos_level = bundle.getInt("SCORE",0);
 
 
 
@@ -76,7 +77,7 @@ public class NewLevel_dialogFragment extends DialogFragment {
 
     }
 
-    public NewLevel_dialogFragment() {
+    public NewLevel_dialogFragment(Juego_Partida instance) {
 
     }
 
