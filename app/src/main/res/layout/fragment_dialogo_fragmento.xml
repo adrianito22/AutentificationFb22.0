@@ -46,7 +46,7 @@
             android:layout_weight="1">
 
             <ImageView
-                android:id="@+id/imageButn4"
+                android:id="@+id/botonoculato_aqui"
                 android:layout_width="25dp"
                 android:layout_height="23dp"
                 android:layout_marginLeft="20dp"

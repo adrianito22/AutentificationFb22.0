@@ -10,7 +10,7 @@
 
 
     <ImageView
-        android:id="@+id/imageButn2"
+        android:id="@+id/imageButn4"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_marginTop="16dp"
@@ -34,24 +34,14 @@
         app:layout_constraintTop_toTopOf="@+id/guideline57" />
 
     <ImageView
-        android:id="@+id/imageButn4"
+        android:id="@+id/botonoculato_aqui"
         android:layout_width="25dp"
         android:layout_height="25dp"
-        android:layout_marginStart="57dp"
         android:layout_marginTop="16dp"
-        app:layout_constraintStart_toEndOf="@+id/imageButton4"
+        android:visibility="invisible"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/home" />
-
-    <ImageView
-        android:id="@+id/imageButton4"
-        android:layout_width="67dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="@+id/guideline46"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_revert" />
+        app:srcCompat="@mipmap/home"
+        tools:layout_editor_absoluteX="173dp" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout3"

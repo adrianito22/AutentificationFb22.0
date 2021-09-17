@@ -4,9 +4,11 @@ import android.animation.Animator;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -34,7 +36,6 @@ public class Dialogo_fragmento extends DialogFragment{
 
     boolean boolean_recibe_respuesta;
     boolean recibe_auto_close=false;
-    ImageView imageButton4;
     ImageView ilayout;
 
   LottieAnimationView lotie_coin_collection;
@@ -74,7 +75,6 @@ public class Dialogo_fragmento extends DialogFragment{
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
 
 
-
         return crearDialogote();
     }
 
@@ -92,6 +92,7 @@ public class Dialogo_fragmento extends DialogFragment{
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View v = inflater.inflate(R.layout.fragment_dialog2, null);
         builder.setView(v);
+        builder.setCancelable(false);
 
 
 
@@ -105,7 +106,6 @@ public class Dialogo_fragmento extends DialogFragment{
       //  txt_pregunta=v.findViewById(R.id.txt_mspue);
    //   btn_next=v.findViewById(R.id.button13);
        ilayout=v.findViewById(R.id.imageView6);
-     imageButton4=v.findViewById(R.id.imageButton4);
         txt_muestra_respue2=v.findViewById(R.id.respuestas2);
         txt_muestra_pregunt.setText(muestra_pregunta);
 
@@ -121,9 +121,10 @@ texto_Respuesta();
 
 
        // txt_muestra_respue.setText("hola mundo");
-  eventosBotones();
 
         //AQUI UN TOAST
+
+
 
 
         return builder.create();
@@ -173,29 +174,7 @@ cierra_5segundos_desact_b();
 }
 
 
-    private void eventosBotones() {
 
-        imageButton4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                dismiss();
-            }
-        });
-
-
- /*     boton_compartir.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                dismiss();
-            }
-
-
-        });
- */
-
-    }
 
 
 
@@ -299,6 +278,40 @@ dismiss();
             }}, 4000);//t
 
 
+    }
+
+
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        getDialog().setOnKeyListener(new DialogInterface.OnKeyListener() {
+            @Override
+            public boolean onKey(android.content.DialogInterface dialog,
+                                 int keyCode, android.view.KeyEvent event) {
+                if ((keyCode == android.view.KeyEvent.KEYCODE_BACK)) {
+                    // To dismiss the fragment when the back-button is pressed.
+                    Log.i("verde", "no cerrar");
+                    // dismiss();
+                    return true;
+                }
+                // Otherwise, do nothing else
+                else
+                    return false;
+            }
+        });
+
+
+    }
+
+    @Override
+    public void onCancel(DialogInterface dialog) {
+        super.onCancel(dialog);
+        Log.i("verde", "no cerrar");
+
+        // Add you codition
     }
 
 }

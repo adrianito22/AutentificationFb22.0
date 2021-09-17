@@ -61,9 +61,9 @@ public class NewLevel_dialogFragment extends DialogFragment {
 
 
         //ontextThemeWrapper ctw = new ContextThemeWrapper(getActivity(), R.style.fullscreenalert );
-        AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());//
+        AlertDialog.Builder builder=new AlertDialog.Builder(getActivity(), R.style.fullscreenalert);
 
-      //  AlertDialog.Builder builder=new AlertDialog.Builder(getActivity(), R.style.fullscreenalert );//anterior asi y salia grande
+        //  AlertDialog.Builder builder=new AlertDialog.Builder(getActivity(), R.style.fullscreenalert );//anterior asi y salia grande
 
 
         //AlertDialog.Builder builder= new AlertDialog.Builder( ctw );

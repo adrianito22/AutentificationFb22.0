@@ -43,7 +43,7 @@
             app:srcCompat="@android:drawable/ic_menu_revert" />
 
         <ImageView
-            android:id="@+id/imageButn4"
+            android:id="@+id/botonoculato_aqui"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_gravity="start|right"

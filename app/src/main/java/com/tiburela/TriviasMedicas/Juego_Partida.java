@@ -16,6 +16,8 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.util.Log;
+import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
@@ -117,7 +119,6 @@ String monedica_string;
     private TextView textViewCountDown;//
     static final private int QUIZ_COUNT = 5;
 
-    Dialogo_fragmento dialogo_fragmento = new Dialogo_fragmento();
     NewLevel_dialogFragment dfragmentLevel= new NewLevel_dialogFragment(Juego_Partida.getInstance());
 
     Item_desbloqueado item_desbloqueado_obj= new Item_desbloqueado();
@@ -820,6 +821,16 @@ cierra_autom =true;
 
 
     public void envidata_yhabrefragment(){
+
+        Dialogo_fragmento dialogo_fragmento = new Dialogo_fragmento();
+
+
+
+
+
+
+
+
         bundle.putInt("SCORES", score); //actualizacion aqui..
         bundle.putString("CORRECT_ANSWER",   respuesta_correct );
         bundle.putString("PREGUNTA",   pregunta );
@@ -829,7 +840,15 @@ cierra_autom =true;
 
         dialogo_fragmento.setArguments(bundle);
         dialogo_fragmento.show(getSupportFragmentManager(),"image_dialog");
+
+
+
+
     }
+
+
+
+
 
 
     public void eviadata_abrefragment_level(){
