@@ -469,7 +469,7 @@
 
 
         <Button
-            android:id="@+id/button22"
+            android:id="@+id/btn_empezarjuego"
             android:layout_width="141dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

@@ -190,7 +190,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline8" />
 
     <Button
-        android:id="@+id/button22"
+        android:id="@+id/btn_empezarjuego"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_gravity="center_horizontal"
@@ -211,7 +211,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline14" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btn_continuar_juego"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_gravity="center_horizontal"
@@ -230,7 +230,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline16" />
 
     <Button
-        android:id="@+id/button11"
+        android:id="@+id/btn_puntuar_app"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_gravity="center_horizontal"

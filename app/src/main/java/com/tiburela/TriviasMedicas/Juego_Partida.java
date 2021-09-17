@@ -16,8 +16,6 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.util.Log;
-import android.view.KeyEvent;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
@@ -195,9 +193,9 @@ String monedica_string;
 
         countLabel = findViewById(R.id.textView4);
         questionLabel = findViewById(R.id.texto_uno);
-        answerBtn1 = findViewById(R.id.button3);
-        answerBtn2 = findViewById(R.id.button22);
-        answerBtn3 = findViewById(R.id.button11);
+        answerBtn1 = findViewById(R.id.btn_continuar_juego);
+        answerBtn2 = findViewById(R.id.btn_empezarjuego);
+        answerBtn3 = findViewById(R.id.btn_puntuar_app);
         answerBtn4 = findViewById(R.id.button4);
         lif=findViewById(R.id.lifes);
         textViewCountDown = findViewById(R.id.text_view_countdown);
@@ -379,7 +377,7 @@ String monedica_string;
 
 
                     break;
-                case R.id.button22:
+                case R.id.btn_empezarjuego:
                     answerBtn2.setBackgroundResource(R.drawable.shape_lila);
                     answerBtn2.setTextColor(Color.parseColor("#ffffff"));
 
@@ -399,7 +397,7 @@ String monedica_string;
 
 
                     break;
-                case R.id.button3:
+                case R.id.btn_continuar_juego:
                     answerBtn1.setBackgroundResource(R.drawable.shape_lila);
                     answerBtn1.setTextColor(Color.parseColor("#ffffff"));
 
@@ -423,7 +421,7 @@ String monedica_string;
 
 
                     break;
-                case R.id.button11:
+                case R.id.btn_puntuar_app:
                     answerBtn3.setBackgroundResource(R.drawable.shape_lila);
                     answerBtn3.setTextColor(Color.parseColor("#ffffff"));
 
