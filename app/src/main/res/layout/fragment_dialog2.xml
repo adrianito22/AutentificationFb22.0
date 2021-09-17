@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:minHeight="1000dp"
+    android:background="#3F51B5"
 
-    android:background="#3F51B5">
+    android:minHeight="1000dp">
 
 
     <ImageView
@@ -22,14 +22,16 @@
     <Button
         android:id="@+id/btn_siguiente_quiz"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="12dp"
         android:layout_marginEnd="20dp"
         android:background="@drawable/shape_boton_next"
         android:onClick="fragmentol"
         android:text="SIguiente Pregunta"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline79"
         app:layout_constraintEnd_toStartOf="@+id/guideline52"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline46"
         app:layout_constraintTop_toTopOf="@+id/guideline57" />
 
@@ -41,7 +43,8 @@
         android:visibility="invisible"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/home"
-        tools:layout_editor_absoluteX="173dp" />
+        tools:layout_editor_absoluteX="173dp"
+        tools:ignore="MissingConstraints" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout3"
@@ -78,7 +81,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/shape_boton_next"
-            android:text="Button"
+            android:text="Pregunta"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -91,6 +95,20 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.18" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline76"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.13" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline77"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.85" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline56"
@@ -113,12 +131,26 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.14" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline78"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="1.0" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline79"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.91" />
+
     <FrameLayout
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline52"
-        app:layout_constraintStart_toStartOf="@+id/guideline46"
+        app:layout_constraintEnd_toStartOf="@+id/guideline77"
+        app:layout_constraintStart_toStartOf="@+id/guideline76"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout6">
 
         <TextView
@@ -191,7 +223,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.82" />
+        app:layout_constraintGuide_percent="0.84" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout5"
@@ -210,8 +242,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:layout_marginBottom="32dp"
+            android:layout_marginBottom="28dp"
             android:text="TextView"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -222,6 +255,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:text="TextView"
+            android:textSize="17sp"
             app:layout_constraintBottom_toTopOf="@+id/textView8"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

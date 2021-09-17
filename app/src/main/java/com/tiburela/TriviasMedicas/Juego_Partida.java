@@ -192,11 +192,12 @@ String monedica_string;
 
 
         countLabel = findViewById(R.id.textView4);
-        questionLabel = findViewById(R.id.texto_uno);
-        answerBtn1 = findViewById(R.id.btn_continuar_juego);
-        answerBtn2 = findViewById(R.id.btn_empezarjuego);
-        answerBtn3 = findViewById(R.id.btn_puntuar_app);
-        answerBtn4 = findViewById(R.id.button4);
+        questionLabel = findViewById(R.id.textView3);
+
+        answerBtn1 = findViewById(R.id.btn_opcion1);
+        answerBtn2 = findViewById(R.id.btn_opcion2);
+        answerBtn3 = findViewById(R.id.btn_opcion3);
+        answerBtn4 = findViewById(R.id.btn_opcion4);
         lif=findViewById(R.id.lifes);
         textViewCountDown = findViewById(R.id.text_view_countdown);
         monedastxt=findViewById(R.id.coin);
@@ -322,11 +323,12 @@ String monedica_string;
         //  answer_explain = quiz.get(5);//Explicacion no va ahora
 
 
+
+        lista_array.remove(0);
         // Remove "Country" from quiz and Shuffle choices.///estas son las opciones o boton
         //quiz.remove(4);  //esta creo que es opcion..
 
-        lista_array.remove(0);
-
+        Collections.shuffle(lista_array);
 
         // Set choices.
         answerBtn1.setText(lista_array.get(0));
@@ -352,7 +354,7 @@ String monedica_string;
             switch(view.getId())
             {
 
-                case R.id.button4:
+                case R.id.btn_opcion4:
                     answerBtn4.setBackgroundResource(R.drawable.shape_lila);
                     answerBtn4.setTextColor(Color.parseColor("#ffffff"));
                     // answerBtn4.startAnimation(animation1);
@@ -372,15 +374,10 @@ String monedica_string;
 
 
 
-
-
-
-
                     break;
-                case R.id.btn_empezarjuego:
+                case R.id.btn_opcion2:
                     answerBtn2.setBackgroundResource(R.drawable.shape_lila);
                     answerBtn2.setTextColor(Color.parseColor("#ffffff"));
-
 
 
                     answerBtn1.setBackgroundResource(R.drawable.shape_verde);
@@ -397,7 +394,7 @@ String monedica_string;
 
 
                     break;
-                case R.id.btn_continuar_juego:
+                case R.id.btn_opcion1:
                     answerBtn1.setBackgroundResource(R.drawable.shape_lila);
                     answerBtn1.setTextColor(Color.parseColor("#ffffff"));
 
@@ -417,11 +414,8 @@ String monedica_string;
 
 
 
-
-
-
                     break;
-                case R.id.btn_puntuar_app:
+                case R.id.btn_opcion3:
                     answerBtn3.setBackgroundResource(R.drawable.shape_lila);
                     answerBtn3.setTextColor(Color.parseColor("#ffffff"));
 
