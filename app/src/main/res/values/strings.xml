@@ -86,15 +86,13 @@
     <string name="sangre">Sangre</string>
 
     <string name="licencia1">Sangre
-    Apache License <br/><br/>  Version 2.0, January 2004  <br/><br/>      http://www.apache.org/licenses/
+    Apache License <br /><br />  Version 2.0, January 2004  <br /><br />      http://www.apache.org/licenses/
     </string>
 
     <string name="licencia2"> "MIT License \n Copyright (c) 2017 Airbnb"</string>
 
 
-
     <string name="politica_privacidad">Politicas</string>
-
 
 
     <string name="acerca_texto"> Trivias Medicas es una app educativa ,tiene el fin de ayudar a memorizar conceptos y conocimientos basicos sobre medicina y anatomia humana .El contenido de esta aplicación fue previamente revisado y editado, aun así no podemos decir que el mismo este 100% libre de errores, en caso de encontrar alguno, pedimos por favor que nos Lo notifiques. Tiburela es una marca joven que busca seriamente desarrollar un espacio importante en la vida académica de estudiantes de diversas partes del mundo. Tiburela esta conformamos todos los que hacemos posible que una nueva app cobre vida ,desde amigos, familares y todos los que an aportado alguna o muchas veces en la creacion de un nuevo producto.
@@ -196,7 +194,6 @@ contact me"</string>
     <string name="link">http://tiburela.com/privacy_policy/</string>
 
 
-
     <!--Comentario-->
 
     <string-array name="paises_espanol">
@@ -218,13 +215,13 @@ contact me"</string>
         <item>La laringe forma parte del aparato?. Respiratorio. Circulatorio.Boca.Digestivo</item>
         <item>¿Qué tipo de sangre transportan las arterias no pulmonares? .Oxigenada.Sin oxígeno.De desechos.Todas las anteriores</item>
         <item>¿Cuál de las opciones no es componente principal de la sangre?.Flora.Glóbulos blancos.Globulos rojos.Plaquetas</item>
-        <item> ¿Qué función simple cumple el páncreas?.Producir insulina.Producir Globulos.Producir Flora.Sintetizar Vitaminas</item>
-        <item> Cuál sistema es responsable del 80% del calor que genera el cuerpo humano?.Sistema circulatorio.Sistema digestivo.Sistema nervioso.Sistema muscular</item>
-        <item> Qué elemento indica que el crecimiento de la persona a terminado?.La línea epifiseal. La densidad ósea .El porte.El tamaño</item>
-        <item> ¿Qué función tienen las proteínas? .Constructivas.Energéticas. Reguladora . Anabolizantes</item>
+        <item>¿Qué función simple cumple el páncreas?.Producir insulina.Producir Globulos.Producir Flora.Sintetizar Vitaminas</item>
+        <item>Cuál sistema es responsable del 80% del calor que genera el cuerpo humano?.Sistema circulatorio.Sistema digestivo.Sistema nervioso.Sistema muscular</item>
+        <item>Qué elemento indica que el crecimiento de la persona a terminado?.La línea epifiseal. La densidad ósea .El porte.El tamaño</item>
+        <item>¿Qué función tienen las proteínas? .Constructivas.Energéticas. Reguladora . Anabolizantes</item>
         <item>Qué parte del cuerpo mantiene su tamaño desde el nacimiento? .Ojos.Garganta.Uñas.Orejas</item>
-        <item> ¿Dónde podemos encontrar proteínas?.Legumbres.Agua.verdura.Fruta</item>
-        <item> ¿Cuánta sangre tiene un ser humano aproximadamente?.6 litros.2 litros.20 litros.62 litros</item>
+        <item>¿Dónde podemos encontrar proteínas?.Legumbres.Agua.verdura.Fruta</item>
+        <item>¿Cuánta sangre tiene un ser humano aproximadamente?.6 litros.2 litros.20 litros.62 litros</item>
         <item>Cómo llamamos al latido del corazón?.Bombeo.propulsión.Latido.Impulso Cardiaco</item>
         <item>A qué aparato pertenece la Tráquea?.Respiratorio.Digestivo.Circulatorio.Excretor</item>
         <item>Qué aparato se encarga de recoger oxígeno?.Respiratorio.Digestivo.Circulatorio.Excretor</item>

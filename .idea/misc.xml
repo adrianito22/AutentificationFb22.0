@@ -18,23 +18,24 @@
         <entry key="..\:/Users/adrix/Desktop/Apps Play Store/AutentificationFb/app/src/main/res/drawable/shape_botones_hide.xml" value="0.2111111111111111" />
         <entry key="..\:/Users/adrix/Desktop/Apps Play Store/AutentificationFb/app/src/main/res/drawable/shape_verde.xml" value="0.2111111111111111" />
         <entry key="..\:/Users/adrix/Desktop/Apps Play Store/AutentificationFb/app/src/main/res/layout-mcc600/activity_juego_partida.xml" value="0.1" />
-        <entry key="..\:/Users/adrix/Desktop/Apps Play Store/AutentificationFb/app/src/main/res/layout-sw320dp/activity_juego_partida.xml" value="0.2" />
+        <entry key="..\:/Users/adrix/Desktop/Apps Play Store/AutentificationFb/app/src/main/res/layout-sw320dp/activity_juego_partida.xml" value="0.25" />
         <entry key="..\:/Users/adrix/Desktop/Apps Play Store/AutentificationFb/app/src/main/res/layout-sw480dp/activity_juego_partida.xml" value="0.5025" />
         <entry key="..\:/Users/adrix/Desktop/Apps Play Store/AutentificationFb/app/src/main/res/layout-sw600dp/activity_juego_partida.xml" value="0.33" />
         <entry key="..\:/Users/adrix/Desktop/Apps Play Store/AutentificationFb/app/src/main/res/layout-sw720dp/activity_juego_partida.xml" value="0.22" />
         <entry key="..\:/Users/adrix/Desktop/Apps Play Store/AutentificationFb/app/src/main/res/layout/activity_countdow.xml" value="0.16145833333333334" />
         <entry key="..\:/Users/adrix/Desktop/Apps Play Store/AutentificationFb/app/src/main/res/layout/activity_items_targetas.xml" value="0.16" />
-        <entry key="..\:/Users/adrix/Desktop/Apps Play Store/AutentificationFb/app/src/main/res/layout/activity_juego_partida.xml" value="0.25" />
+        <entry key="..\:/Users/adrix/Desktop/Apps Play Store/AutentificationFb/app/src/main/res/layout/activity_juego_partida.xml" value="0.22" />
         <entry key="..\:/Users/adrix/Desktop/Apps Play Store/AutentificationFb/app/src/main/res/layout/activity_main_dos.xml" value="0.209375" />
         <entry key="..\:/Users/adrix/Desktop/Apps Play Store/AutentificationFb/app/src/main/res/layout/custom_dialog_rateapp.xml" value="0.2" />
         <entry key="..\:/Users/adrix/Desktop/Apps Play Store/AutentificationFb/app/src/main/res/layout/fragment1.xml" value="0.19" />
         <entry key="..\:/Users/adrix/Desktop/Apps Play Store/AutentificationFb/app/src/main/res/layout/fragment_1.xml" value="0.33" />
         <entry key="..\:/Users/adrix/Desktop/Apps Play Store/AutentificationFb/app/src/main/res/layout/fragment_3.xml" value="0.25" />
         <entry key="..\:/Users/adrix/Desktop/Apps Play Store/AutentificationFb/app/src/main/res/layout/fragment_acerca.xml" value="0.18" />
-        <entry key="..\:/Users/adrix/Desktop/Apps Play Store/AutentificationFb/app/src/main/res/layout/fragment_dialog2.xml" value="0.16" />
+        <entry key="..\:/Users/adrix/Desktop/Apps Play Store/AutentificationFb/app/src/main/res/layout/fragment_dialog2.xml" value="0.22" />
         <entry key="..\:/Users/adrix/Desktop/Apps Play Store/AutentificationFb/app/src/main/res/layout/fragment_dialog3.xml" value="0.209375" />
         <entry key="..\:/Users/adrix/Desktop/Apps Play Store/AutentificationFb/app/src/main/res/layout/fragment_dialogo_fragmento.xml" value="0.25" />
-        <entry key="..\:/Users/adrix/Desktop/Apps Play Store/AutentificationFb/app/src/main/res/layout/fragment_game_over.xml" value="0.209375" />
+        <entry key="..\:/Users/adrix/Desktop/Apps Play Store/AutentificationFb/app/src/main/res/layout/fragment_fullscreen.xml" value="0.1" />
+        <entry key="..\:/Users/adrix/Desktop/Apps Play Store/AutentificationFb/app/src/main/res/layout/fragment_game_over.xml" value="0.14" />
         <entry key="..\:/Users/adrix/Desktop/Apps Play Store/AutentificationFb/app/src/main/res/layout/fragment_licencias.xml" value="0.33" />
         <entry key="..\:/Users/adrix/Desktop/Apps Play Store/AutentificationFb/app/src/main/res/layout/fragment_new_level.xml" value="0.14" />
         <entry key="..\:/Users/adrix/Desktop/Apps Play Store/AutentificationFb/app/src/main/res/layout/fragment_otro.xml" value="0.2" />

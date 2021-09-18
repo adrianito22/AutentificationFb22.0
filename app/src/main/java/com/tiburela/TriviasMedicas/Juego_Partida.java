@@ -243,7 +243,7 @@ String monedica_string;
 
         //crear sharePreferences
         SharedPreferences sharedpreferences = getSharedPreferences("MyPREFERENCES", Context.MODE_PRIVATE);
-       int  valor_sharep_indice  =sharedpreferences.getInt("HOLA",0);
+        int  valor_sharep_indice  =sharedpreferences.getInt("HOLA",0);
 
 //BORRAR DESPUES
 
@@ -503,7 +503,7 @@ String monedica_string;
 
 
                 //mostramos animacion monedas
-                cargar_animacion();
+              //  cargar_animacion();
 
 
 //comprobamos para desbloquee items
@@ -815,12 +815,6 @@ cierra_autom =true;
     public void envidata_yhabrefragment(){
 
         Dialogo_fragmento dialogo_fragmento = new Dialogo_fragmento();
-
-
-
-
-
-
 
 
         bundle.putInt("SCORES", score); //actualizacion aqui..
