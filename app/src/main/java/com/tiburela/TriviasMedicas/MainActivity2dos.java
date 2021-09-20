@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -15,6 +14,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -29,16 +30,15 @@ import com.google.android.play.core.review.ReviewInfo;
 import com.google.android.play.core.review.ReviewManager;
 import com.google.android.play.core.review.ReviewManagerFactory;
 import com.google.android.play.core.tasks.Task;
-import com.tiburela.TriviasMedicas.callbacks.SampleCallback;
+import com.tiburela.TriviasMedicas.Interface_callbacks.SampleCallback;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
 
-import dialogos.Dialogo_fragmento;
-
 public class MainActivity2dos extends AppCompatActivity {
     boolean seabrioventana=false;
+
 
     private AppBarConfiguration mAppBarConfiguration;
     Toolbar toolbar;
@@ -47,7 +47,7 @@ public class MainActivity2dos extends AppCompatActivity {
 
    public SampleCallback callback;
 
-private final int REPUESTAS_OK_1_DIALOG=2; //minimo de respuestas correctas para mostrar el dialog ra
+private final int REPUESTAS_OK_1_DIALOG=2; //minimo de respuestas correctas para mostrar el primer dialogo
 
     Context mcontexto = MainActivity2dos.this;
 
@@ -296,6 +296,10 @@ public   void solicitar_puntuacion2(Context mContext, Activity activity  ){  //s
                 aparentemente_puntuo_app=true;
                 //usuario_calific();
 
+                callback.cuando_cierra();
+
+
+
                 // The flow has finished. The API does not indicate whether the user
                 // reviewed or not, or even whether the review dialog was shown. Thus, no
                 // matter the result, we continue our app flow.
@@ -306,6 +310,10 @@ public   void solicitar_puntuacion2(Context mContext, Activity activity  ){  //s
           //  Juego_Partida jpobjeto=new Juego_Partida();
           //  jpobjeto.eviadata_abrefragment_level();
          //   Log.i("hola", " error en  solicitar_puntuacion ");
+
+            callback.cuando_cierra();
+
+
 
             // There was some problem, log or handle the error code.
 
@@ -495,7 +503,6 @@ public   void solicitar_puntuacion2(Context mContext, Activity activity  ){  //s
     public  void showRateDialog(final Context mContext, final SharedPreferences.Editor editor ,final Activity activity ) {
         //   final Dialog dialog = new Dialog(        getActivity() );
 
-
          seabrioventana=true;
 
 
@@ -516,7 +523,13 @@ public   void solicitar_puntuacion2(Context mContext, Activity activity  ){  //s
                 dialog.setCancelable(false);
                 dialog.setContentView(R.layout.custom_dialog_rateapp);
 
-                Button b1 = dialog.findViewById(R.id.b1);
+
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+
+
+
+        Button b1 = dialog.findViewById(R.id.b1);
                 Button b2 = dialog.findViewById(R.id.b2);
                 Button b3 = dialog.findViewById(R.id.b3);
 
@@ -526,12 +539,9 @@ public   void solicitar_puntuacion2(Context mContext, Activity activity  ){  //s
                     public void onClick(View v) {
 
 
-                        Toast.makeText(mContext, "1111", Toast.LENGTH_SHORT).show();
-
                         solicitar_puntuacion2(mContext,activity);
+                        dialog.dismiss();
 
-                        //    callback.cuando_cierra();
-                        callback.cuando_cierra();
 
 
                     }
@@ -542,8 +552,7 @@ public   void solicitar_puntuacion2(Context mContext, Activity activity  ){  //s
                     public void onClick(View v) {
                         Toast.makeText(mContext, "222", Toast.LENGTH_SHORT).show();
 
-
-                        //    callback.cuando_cierra();
+                        callback.cuando_cierra();
 
                         dialog.dismiss();
 
@@ -552,7 +561,6 @@ public   void solicitar_puntuacion2(Context mContext, Activity activity  ){  //s
                         //  Intent intent = Juego_Partida.createIntent(this, 10);
                         //  startActivity(intent);
 
-                        callback.cuando_cierra();
 
 
                     }
@@ -562,20 +570,15 @@ public   void solicitar_puntuacion2(Context mContext, Activity activity  ){  //s
                     public void onClick(View v) {
                         Toast.makeText(mContext, "3", Toast.LENGTH_SHORT).show();
 
-
                         if (editor != null) {
                             editor.putBoolean("dontshowagain", true);
                             editor.commit();
                         }
 
 
+                        callback.cuando_cierra();
 
                         dialog.dismiss();
-
-                        //   callback.cuando_cierra();
-
-
-
 
 
                     }
@@ -600,7 +603,6 @@ public   void solicitar_puntuacion2(Context mContext, Activity activity  ){  //s
 
 
                         dialogo_cerrado=true;
-                        Toast.makeText(b1.getContext(), "se cerro el dialogo", Toast.LENGTH_SHORT).show();
                         isDialogo_cerrado();
 
                         callback.cuando_cierra();
@@ -686,6 +688,7 @@ public   void solicitar_puntuacion2(Context mContext, Activity activity  ){  //s
     }
 
     //callback de ejemplo
+
 
 
 }

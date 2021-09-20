@@ -42,7 +42,6 @@ public class Dialogo_fragmento extends DialogFragment {
     boolean recibe_auto_close=false;
     ImageView ilayout;
 
-    LottieAnimationView lotie_coin_collection;
 
     // Activity MainActivity2dos;
     int muestra_score;
@@ -84,7 +83,6 @@ public class Dialogo_fragmento extends DialogFragment {
         txt_muestra_respue2=rootView.findViewById(R.id.respuestas2);
         txt_muestra_pregunt.setText(muestra_pregunta);
 
-        lotie_coin_collection =rootView.findViewById(R.id.coin_collection_anim);
 
 
 
@@ -146,10 +144,6 @@ public class Dialogo_fragmento extends DialogFragment {
 
 
 
-
-
-
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -178,7 +172,7 @@ public class Dialogo_fragmento extends DialogFragment {
             txt_muestra_respue2.setTextColor(Color.parseColor("#008f39"));
             txt_muestra_respue.setText("Respuesta correcta ");
             txt_muestra_respue2.setText("Hurra!");
-          //  cargar_animacion_monedas();
+            cargar_animacion_monedas2();
 
 
             btn_siguiente_quiz.setEnabled(true);
@@ -216,13 +210,21 @@ public class Dialogo_fragmento extends DialogFragment {
     }
 
 
-    public void cargar_animacion_monedas() {
-        lotie_coin_collection.addAnimatorListener(new Animator.AnimatorListener() {
+
+    public void cargar_animacion_monedas2() {
+        LottieAnimationView coin_collect2;
+
+        coin_collect2 =rootView.findViewById(R.id.coin_collection_anim);
+
+        coin_collect2.playAnimation();
+
+
+        coin_collect2.addAnimatorListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animation) {
                 Log.e("Animation:", "start");
 
-                lotie_coin_collection.setVisibility(View.VISIBLE);
+                coin_collect2.setVisibility(View.VISIBLE);
 
                 Log.i("anim", "animacion empieza");
 
@@ -231,7 +233,7 @@ public class Dialogo_fragmento extends DialogFragment {
             @Override
             public void onAnimationEnd(Animator animation) {
                 Log.e("Animation:", "end");
-                lotie_coin_collection.setVisibility(View.GONE);
+                coin_collect2.setVisibility(View.GONE);
 
                 // img1.setVisibility(View.VISIBLE);
             }
@@ -246,10 +248,6 @@ public class Dialogo_fragmento extends DialogFragment {
                 Log.e("Animation:", "repeat");
             }
         });
-
-
-
-
 
     }
 
@@ -273,7 +271,7 @@ public class Dialogo_fragmento extends DialogFragment {
                 dismiss();
 
 
-            }}, 4000);//t
+            }}, 3000);//t
 
 
     }

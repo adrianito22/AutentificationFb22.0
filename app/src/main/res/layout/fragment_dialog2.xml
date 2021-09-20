@@ -318,9 +318,9 @@
                     android:id="@+id/coin_collection_anim"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:lottie_autoPlay="true"
+                    app:lottie_autoPlay="false"
                     app:lottie_loop="false"
-                    app:lottie_rawRes="@raw/coin_collection"
+                     app:lottie_rawRes="@raw/coin_collection"
                     app:lottie_repeatCount="0" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 

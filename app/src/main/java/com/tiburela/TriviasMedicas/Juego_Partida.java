@@ -3,7 +3,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
-import android.animation.Animator;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,6 +10,7 @@ import android.content.pm.ActivityInfo;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.media.SoundPool;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -24,7 +24,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.airbnb.lottie.LottieAnimationView;
-import com.tiburela.TriviasMedicas.callbacks.SampleCallback;
+import com.tiburela.TriviasMedicas.Interface_callbacks.SampleCallback;
 import com.tiburela.TriviasMedicas.ui.items_coleccion.Items_coleccion;
 
 import java.util.ArrayList;
@@ -42,7 +42,7 @@ public class Juego_Partida extends AppCompatActivity  implements SampleCallback 
 boolean cierra_autom =false;
 
 
-    LottieAnimationView lotie_coin_collection;
+  //  LottieAnimationView lotie_coin_collection;
 
 boolean se_presiono50y50bt=true;
 
@@ -202,7 +202,7 @@ String monedica_string;
         textViewCountDown = findViewById(R.id.text_view_countdown);
         monedastxt=findViewById(R.id.coin);
 
-        lotie_coin_collection=findViewById(R.id.coin_collection_anim);
+   //     lotie_coin_collection=findViewById(R.id.coin_collection_anim);
 
 
         // SharedPreferences.Editor editor = sharedpreferences.edit();
@@ -218,7 +218,9 @@ String monedica_string;
     public void showNextQuiz() {
 
 
-
+        MediaPlayer mp = MediaPlayer.create(getBaseContext(),
+                R.raw.swipe);
+        mp.start();
 
 
         ///CREO QUE HAY QUE BORRAR ESTO
@@ -530,9 +532,6 @@ if(numero_de_items_contador<NUMERO_ITEMS){
                 }
 
 
-
-
-
                 if (mostramos_item_debloqueado){
                     //presentamos ventana de nuevo item desbloqueado...
 
@@ -668,7 +667,7 @@ cierra_autom =true;
         }
         else{
 
-            Toast.makeText(this, "por favor selecione una opcion  ", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "por favor selecione una opcion", Toast.LENGTH_SHORT).show();
         }
 
 
@@ -767,14 +766,7 @@ cierra_autom =true;
 
     }
 
-    @Override
-    public void onStop() {
-        super.onStop();
-        pausetimer();
 
-        Toast.makeText(getApplicationContext(), "se ejecuta on stop", Toast.LENGTH_SHORT).show();
-
-    }
 
 
     //siguiente pregunta y cierra fragment
@@ -926,7 +918,7 @@ public void cincuentay50(View vista){ //mostramos una opcion correcta e incorrec
 if(se_presiono50y50bt){
 
 
-    Toast.makeText(this, "se pulso comodin", Toast.LENGTH_SHORT).show();
+   // Toast.makeText(this, "se pulso comodin", Toast.LENGTH_SHORT).show();
     ArrayList<Button> buttonlista= new ArrayList<Button>();
 
     buttonlista.add( answerBtn1);
@@ -1008,7 +1000,7 @@ if(se_presiono50y50bt){
 
 
 
-
+/*
     public void cargar_animacion() {
         lotie_coin_collection.addAnimatorListener(new Animator.AnimatorListener() {
             @Override
@@ -1040,7 +1032,7 @@ if(se_presiono50y50bt){
 
     }
 
-
+*/
 
    public void resetea_Ui(){
 
@@ -1068,52 +1060,6 @@ if(se_presiono50y50bt){
 ////por qui verificar si la venta se cerro
 
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-
-        Toast.makeText(getApplicationContext(), "se ejecuta on pause", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Toast.makeText(getApplicationContext(), "se ejecuta on resume", Toast.LENGTH_SHORT).show();
-
-       //llamos est metodo y obtenemos su valor..
-
-
-
-
-
-
-
-    }
-
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-
-        Toast.makeText(getApplicationContext(), "se ejecuta on restart", Toast.LENGTH_SHORT).show();
-
-        // MainActivity2dos. isDialogo_cerrado(); //llamos est metodo y obtenemos su valor..
-
-
-
-
-    }
-
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-        Toast.makeText(getApplicationContext(), "se ejecuta on restart", Toast.LENGTH_SHORT).show();
-
-        // MainActivity2dos. isDialogo_cerrado(); //llamos est metodo y obtenemos su valor..
-
-    }
 
 
     public static Juego_Partida getInstance() {
@@ -1136,9 +1082,12 @@ if(se_presiono50y50bt){
 
     @Override
     public void cuando_cierra() {
-        showNextQuiz();
-      //  eviadata_abrefragment_level();
-        //   callback.cuando_cierra();
+       showNextQuiz();
+
+
+
+
+
 
     }
 
