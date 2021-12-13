@@ -82,7 +82,7 @@ public class Game_over_dialog extends DialogFragment {
         totalScoreLabel=v.findViewById(R.id.textView7);
         resultLabel=v.findViewById(R.id.result);
         button5=v.findViewById(R.id.btn_empezarjuego);
-        imageButton4= v.findViewById(R.id.imageButton4);
+        imageButton4= v.findViewById(R.id.backbtn);
 
         //MOSTRAR RESULTADOS E INTENTOS..
         resultLabel.setText(concatenardo_score);

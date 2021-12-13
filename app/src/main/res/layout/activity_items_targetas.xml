@@ -63,7 +63,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline29">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/texto_sabias"
             android:layout_width="117dp"
             android:layout_height="19dp"
             android:gravity="center_horizontal"

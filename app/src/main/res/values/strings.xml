@@ -197,24 +197,22 @@ contact me"</string>
     <!--Comentario-->
 
     <string-array name="paises_espanol">
-        <item>La laringe forma parte del aparato?. Respiratorio. Circulatorio.Boca.Digestivo</item>
+        <item>La laringe forma parte del aparato?. Respiratorio. Circulatorio.Boca.Digestivo</item> .
         <item>Cuantas piezas dentales tiene un adulto?.32.24.28.31</item>
         <item>Utilizado para tratar a pacientes con riñones defectuosos, ¿cómo se conoce el proceso de eliminación toxinas de la sangre?.Diálisis.Terapia ocupacional.Fisioterapia.Refelexologia</item>
-        <item>¿Cuál de los siguientes huesos no corresponden a la columna vertebral?.Tabique.Omóplatos.Atlas.Sacro</item>
+        <item>¿Cuál de los siguientes huesos no corresponden a la columna vertebral?.Tabique.Omóplatos.Atlas.Sacro</item>     <!--RESPNDEMOS MAS DEBUG-->
         <item>Cuál de las siguientes opciones no es parte del ojo ?.Yunque.Retina.Pupila.Cornea</item>
         <item>Qué órgano ataca la enfermedad Cirrosis?.Hígado.Corazón.Cerebro.Pulmones</item>
         <item>En que parte del cuerpo humano se encuentra la falanges.Dedos.Garganta.Codos.Piernas</item>
         <item>Cuál de las siguientes opciones no es parte del ojo ?.Yunque.Retina.Pupila.Cornea</item>
-        <item> Qué órgano ataca la enfermedad Cirrosis?.Hígado.Corazón.Cerebro.Pulmones</item>
-        <item>Cuántos huesos hay en el cuerpo humano?.206.214.310.200</item>
+        <item>Cuántos huesos hay en el cuerpo humano?.206.214.310.200</item> <!--RESPNDEMOS MAS DEBUG-->
         <item>¿Cómo se llama el músculo que no podemos mover?.Musculo liso.Musculo estriado.Musculo esqueletico.Ninguna de las anteriores</item>
         <item>El esqueleto humano tiene 206 huesos pero al nacer tiene?.270 y 350 .206 y 270.206.215</item>
-        <item>¿El músculo más fuerte del cuerpo humano es?.La lengua.Abdomen. Cuádricep .Tripses</item>
+        <item>¿El músculo más fuerte del cuerpo humano es?.La lengua.Abdomen. Cuádricep .Tripses</item><!--RESPNDEMOS MAS DEBUG-->
         <item>¿Cuándo el organismo pierde el 1%de agua provoca?.Nerviosismo.Sensación de sed.Desmayos.Alucinaciones</item>
         <item>Que parte del cuerpo mantiene su tamaño desde el nacimiento? .Ojos.Garganta.Uñas.Orejas</item>
-        <item>La laringe forma parte del aparato?. Respiratorio. Circulatorio.Boca.Digestivo</item>
         <item>¿Qué tipo de sangre transportan las arterias no pulmonares? .Oxigenada.Sin oxígeno.De desechos.Todas las anteriores</item>
-        <item>¿Cuál de las opciones no es componente principal de la sangre?.Flora.Glóbulos blancos.Globulos rojos.Plaquetas</item>
+        <item>¿Cuál de las opciones no es componente principal de la sangre?.Flora.Glóbulos blancos.Globulos rojos.Plaquetas</item><!--RESPNDEMOS MAS DEBUG-->
         <item>¿Qué función simple cumple el páncreas?.Producir insulina.Producir Globulos.Producir Flora.Sintetizar Vitaminas</item>
         <item>Cuál sistema es responsable del 80% del calor que genera el cuerpo humano?.Sistema circulatorio.Sistema digestivo.Sistema nervioso.Sistema muscular</item>
         <item>Qué elemento indica que el crecimiento de la persona a terminado?.La línea epifiseal. La densidad ósea .El porte.El tamaño</item>
@@ -250,7 +248,7 @@ contact me"</string>
         <item>De qué están compuestas nuestras uñas?.Queratina .Proteína.Fósforo .Azufre</item>
         <item>¿Cuántos huesos hay en el cuerpo humano?.206 huesos.300 huesos.203 huesos.100 huesos</item>
         <item>¿Cuál es el hueso más pequeño del cuerpo humano?.Estribo.Yunque.Meñique.Martillo </item>
-        <item>En qué parte del cuerpo está el mayor número de huesos?.Manos.Pies.cabeza.Oidos</item>
+        <item>En qué parte del cuerpo está el mayor número de huesos?.Manos.Pies.Cabeza.Oidos</item>
         <item>Dónde está la glándula pituitaria?.Cerebro .Corazón.Estómago .Hígado</item>
         <item>¿Qué es el estrógeno?.Hormona sexual femenina .Una glandula.Hormona masculina.Ninguna</item>
         <item>¿Cómo se llama la capa externa de la piel que podemos ver y tocar?.Epidermis.Dermis.Nervios.Hipodermis</item>
@@ -267,13 +265,13 @@ contact me"</string>
         <item>¿Dónde está el músculo bíceps femoral?.Pierna .Brazos.Espalda.Caderas </item>
         <item>¿Qué tipos de colores de venas tenemos?.Azul y verde.Rojo.Morada y violeta.Cafés </item>
         <item>¿Cuál es la causa de muerte en un cuadro de picadura por escorpión?.Shock cardiogénico.Insuficiencia renal .Deshidratación severa.Insuficiencia hepática </item>
-        <item>¿Cómo se llama el aumento de temperatura en el cuerpo?.Fiebre.quemazón .Hipotermia .Calentura</item>
-        <item>¿La lengua es un músculo o músculos?.Músculos .Músculo .Todas las anteriores .órgano </item>
+        <item>¿Cómo se llama al aumento de temperatura en el cuerpo?.Fiebre.Quemazón .Hipotermia .Calentura</item>
+        <item>¿La lengua es un músculo o músculos?.Músculos .Músculo .Todas las anteriores .Órgano </item>
         <item>¿La varicela es contagiosa?. Si es contagiosa .No.Talvez.Aveces </item>
         <item>¿Cómo se llama la caída súbita de la temperatura del cuerpo?.Hipotermia .Frio.Escalofríos .Resfrío </item>
         <item>¿Cómo se le llama ala reacción exagerada del sistema inmune a una sustancia exagerada?.Alergia .Malestar.Decaimiento .Picazón </item>
         <item>¿Qué no pueden consumir los intolerantes a la lactosa?.Lácteos.Harinas.Néctar .Sumos</item>
-        <item>¿Cómo se llama al cansancio de los ojos?.Fatiga ocular.Pestañeo.somnoliento .Cansancio</item>
+        <item>¿Cómo se llama al cansancio de los ojos?.Fatiga ocular.Pestañeo.Somnoliento .Cansancio</item>
         <item>¿Cómo se llama el comportamiento excesivo de comerse las uñas?.Onicofagia .Nervios.Fatiga.Ansiedad</item>
         <item>¿Quién tiene más probabilidades de desarrollar autismo?.Niños.Niñas.Adultos.Adolescentes </item>
         <item>¿Qué enfermedad ocurre cuando se inflaman los bronquios?.Bronquitis.Neumonía .Tos.Pulmonía </item>
@@ -303,6 +301,34 @@ contact me"</string>
         <item>Durante la fertilización, el óvulo y el espermatozoide se unen para formar un?.Cigoto.Neonato.Un gameto.Tejido</item>
 
 
+    </string-array>
+
+    <!--Comentario-->
+
+    <string-array name="conceptos">
+        <item>Una tira adhesiva sanitaria, venda adhesiva, curita o tirita.Había sido desarrollado en 1917 por el norteamericano Earle Dickson, que trabajaba para los laboratorios Johnson &amp; Johnson, cuando se dio cuenta de que su mujer se cortaba a menudo mientras trabajaba en la cocina y utilizaba vendajes aparatosos que se le desprendían con facilidad.</item>
+        <item>El botiquin tuvo sus orígenes en el Antiguo Egipto y luego fue pasado a los griegos y romanos. Su única función era facilitar el transporte de instrumentos médicos y se llamaba: "la caja del serrucho", pues allí se depositaba un gran serrucho para cortar huesos.</item>
+        <item>El estetoscopio fue inventado en Francia por el médico René Laënnec en 1816, quien dio a conocer su trabajo en la obra De l’auscultation médiate ou Traité du Diagnostic des Maladies des Poumon et du Coeur publicada en 1819.6​ Todo comenzó debido a la gran timidez de Laënnec y la vergüenza que sentía al acercar su oído al pecho de las pacientes.</item>
+        <item>Una vacuna es una preparación destinada a generar inmunidad adquirida contra una enfermedad, mediante la estimulación de la producción de anticuerpos. Normalmente una vacuna contiene un agente que se asemeja a un microorganismo causante de la enfermedad y a menudo se hace a partir de formas debilitadas o muertas del microbio, sus toxinas o una de sus proteínas de superficie.</item>
+        <item>Se dice que hacia 1930 ya los microscopios ópticos compuestos habían alcanzado el tope de sus capacidades, que rondaban los aumentos de 500X y 1000X. Sin embargo, en los años siguientes se inventó el microscopio electrónico, que permite alcanzar los aumentos de 100.000X.</item>
+        <item>La Aspirina aún es el agente analgésico-antipirético y antiinflamatorio más prescrito y en 1950 fue reconocida como el fármaco más vendido en el mundo por el Libro Mundial de Récords Guinness.</item>
+        <item>¿Cómo funciona? La mayoría de las píldoras anticonceptivas son "píldoras combinadas" que tienen una mezcla de estrógeno y progesterona para prevenir la ovulación (el desprendimiento de un óvulo durante el ciclo mensual). Las mujeres no pueden quedar embarazadas si no ovulan porque no hay ningún óvulo para fertilizar.</item>
+        <item>Tienes unos 30 billones de glóbulos rojos .Las células más abundantes de tu cuerpo son los glóbulos rojos. Se cree que hay unos 26 billones en los hombres y la cifra es algo menor en las mujeres.</item>
+        <item>Plasma es la fracción acelular de la sangre. Se obtiene al dejar a la sangre desprovista de células como los glóbulos rojos y los glóbulos blancos. Está compuesto por un 90 % de agua, un 7 % de proteínas, y el 3 % restante por grasa, glucosa, vitaminas, hormonas, oxígeno, dióxido de carbono y nitrógeno, además de productos de desecho del metabolismo como el ácido úrico.</item>
+
+    </string-array>
+
+
+    <string-array name="fuentes">
+        <item>https://es.wikipedia.org/wiki/Tira_adhesiva_sanitaria</item>
+        <item>https://es.wikipedia.org/wiki/Botiqu%C3%ADn</item>
+        <item>https://es.wikipedia.org/wiki/Estetoscopio</item>
+        <item>https://es.wikipedia.org/wiki/Vacuna</item>
+        <item>https://www.caracteristicas.co/microscopio/</item>
+        <item>https://www.unotv.com/</item>
+        <item>https://es.wikipedia.org/wiki/P%C3%ADldora</item>
+        <item>https://www.bbc.com/mundo/noticias-49754904</item>
+        <item>https://es.wikipedia.org/wiki/Plasma_(sangre)</item>
     </string-array>
 
 

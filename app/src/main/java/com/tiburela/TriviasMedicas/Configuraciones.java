@@ -5,14 +5,10 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
 
-import androidx.multidex.MultiDex;
-
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
 
-import org.yaml.snakeyaml.scanner.Constant;
-
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -23,13 +19,17 @@ public class Configuraciones  extends Application {
 
     Gson gson = new Gson();
 
-    String response;
+    private int numero_items_List=0;
 
+    String response;
+    private int valor_indice_Lista;
 
     String key = "Key";
 
     List<String> wordsArray;
-
+    List<String> list_indices_modificados;
+    SharedPreferences   objeto_sharep;
+    SharedPreferences   shref2;
     String randomWord;
 
     public static  List<String> stringsArray;
@@ -43,16 +43,72 @@ public class Configuraciones  extends Application {
 
     public   String[] genera_pregunta_opciones(int index_array, Context context) {
 
-        SharedPreferences   shref2=context.getSharedPreferences("MyPREFERENCESOS", Context.MODE_PRIVATE);
+          objeto_sharep=context.getSharedPreferences("MyPREFERENCES", Context.MODE_PRIVATE);
+         shref2=context.getSharedPreferences("MyPREFERENCESOS", Context.MODE_PRIVATE);
 
 
-        //recuperamos preferencias
-        response=shref2.getString(key  , "");
-        wordsArray = gson.fromJson(response,
-                new TypeToken<List<String>>(){}.getType());
+
+        //recuperamos el del contador de list _indices
 
 
-     //   Log.i("sixer", "onCreatez: "+wordsArray.size());
+        try{  response=shref2.getString(key  , "");
+            list_indices_modificados = gson.fromJson(response, new TypeToken<List<String>>(){}.getType());
+
+
+
+        } catch (JsonSyntaxException e) {
+            e.printStackTrace();
+        }
+
+
+        if(shref2.getBoolean("reseteamos",false)){//comprobamos que no hemos reseteado o llegando al tamano maximo del array......//recuperamos..
+
+            //despues cmbiamos este valor a falso y guardamos
+
+            SharedPreferences.Editor editor;
+            editor = shref2.edit();
+            editor.putBoolean("reseteamos",false);
+            editor.apply();
+
+            //rseteamos list....el de abajo se encargara de guardar
+            list_indices_modificados.clear();
+            Log.i("sopa", "emos reseteado en configuraciones,se ejecuto el if");
+
+            Log.i("sopa", "el valor del indice contador es "+ list_indices_modificados);
+
+
+        }
+
+
+
+
+
+//verificando que no de un error..
+
+        if(list_indices_modificados ==null || list_indices_modificados.size()<=0){
+
+            Log.i("sopa", "es nulo o el tamano es <=0");
+
+            Log.i("sixera", "ES NULO");
+            list_indices_modificados =new ArrayList<String>(); //posibleente la movamos arri
+
+            for(int indice=0; indice<enviatamanode_array(context); indice++){
+
+                list_indices_modificados.add(String.valueOf(indice)); //anadimos la pregunta 5 espacios mas arriba
+
+            }
+
+            //guardamos preferencias
+            SharedPreferences.Editor editor;
+            Gson gson2 = new Gson();
+            String json = gson2.toJson(list_indices_modificados);
+            editor = shref2.edit();
+            editor.putString(key, json);
+            editor.commit();
+
+
+        }
+
 
         if(wordsArray==null ){ //si e; array es nullo ,
 
@@ -62,85 +118,60 @@ public class Configuraciones  extends Application {
 
             Log.i("sixer", "onCreate: "+wordsArray.size());
 
-
-            //guardamos preferencias
-            SharedPreferences.Editor editor;
-            Gson gson2 = new Gson();
-            String json = gson2.toJson(wordsArray);
-
-            editor = shref2.edit();
-            // editor.remove(key).commit(); //verificarlo mas tarde
-            editor.putString(key, json);
-            editor.commit();
-
         }
 
 
 
-        Log.i("sixer", "onCreatex: "+wordsArray.size());
+//recuperamos indice de pregunta que respondio mal
+       int index_pregunta_nanterior_fail= objeto_sharep.getInt(   "INDEX_NO_CORRECT",0);
+        Log.i("tamano", "respondimos mal la pregunta anterior? "+objeto_sharep.getBoolean("respondio_mal",false ));
 
 
 
-        ///si el usuario no respondio bien l;a pregunta anterior
-        Juego_Partida juegoPartida = new Juego_Partida();
+        if(objeto_sharep.getBoolean("respondio_mal",false)) { //si repondio mal .pregunta anterior
 
-         if(juegoPartida.isRespondiomal()){   //si no rersponde bien
-         int index_cambiado=  juegoPartida.getIndex_question_no_correct();  // To get
-
-//meliminamos el index actual; y lo cambiamos de posicion
-
-
-if(index_array+5<wordsArr.length){
-    wordsArray.add(index_array+5,wordsArray.get(index_cambiado)); //anadimos la pregunta 5 espacios mas arriba
-    wordsArray.remove(wordsArray.get(index_cambiado));  // removemos el index anterior
+            //recuperamos la pregunta anterior
+            valor_indice_Lista= shref2.getInt("valor_indice_Lista",0);
 
 
 
+            //anadimos la pregunta 5 espacios mas arriba //index donde colcamos /elemento que colocamos
+            list_indices_modificados.add(index_pregunta_nanterior_fail+5,Integer.toString(valor_indice_Lista));//anteriomente era index_pregunta_nanterior_fail
 
-    //guardamos preferencias
+
+            //guardamos el nuevo objeto en la lista
     SharedPreferences.Editor editor;
     Gson gson2 = new Gson();
-    String json = gson2.toJson(wordsArray);
+    String json = gson2.toJson(list_indices_modificados);
 
     editor = shref2.edit();
     // editor.remove(key).commit(); //verificarlo mas tarde
     editor.putString(key, json);
-    editor.commit();
+    editor.apply();
+
+            Log.i("tamano", "el valor del indice contador es "+ list_indices_modificados);
+
+        }
 
 
+              //esta parece incesario
+
+             response=shref2.getString(key  , "");
+             list_indices_modificados = gson.fromJson(response, new TypeToken<List<String>>(){}.getType());
+
+             valor_indice_Lista=Integer.parseInt(list_indices_modificados.get(index_array));
+                  //obtnemos el index
+             randomWord = wordsArray.get(valor_indice_Lista); //usamos este indice
 
 
+            //guardamos el indice de la ultima pregunta y el tamano del list
+            SharedPreferences.Editor editor;
+            editor = shref2.edit();
+            editor.putInt("valor_indice_Lista",valor_indice_Lista);
+            editor.putInt("tamanoList",list_indices_modificados.size());
+            editor.apply();
 
 
-
-} else{ //si supera el tamano entonces ponla la pregunta al final
-
-    wordsArray.add(wordsArr.length-1,wordsArray.get(index_cambiado)); //anadimos la pregunta al final
-    wordsArray.remove(wordsArray.get(index_cambiado));  // removemos el index anterior
-
-
-    //guardamos preferencias
-    SharedPreferences.Editor editor;
-    Gson gson2 = new Gson();
-    String json = gson2.toJson(wordsArray);
-
-    editor = shref2.edit();
-    // editor.remove(key).commit(); //verificarlo mas tarde
-    editor.putString(key, json);
-    editor.commit();
-
-
-
-
-}
-
-       }
-
-
-
-        //si anterior pregunta no la contesto bien ,la movemos y la ponemos 5 index mas ...
-        //siempre y cuando el index no supere el tamano del array .example posicion actual 98 ..movemos.5..mas...
-        //y saldra un erros...pilas
 
 
         String wordStr = "";
@@ -154,7 +185,7 @@ if(index_array+5<wordsArr.length){
         Log.i("sixer", "onCreatexa: "+wordsArray.size());
 
 
-        randomWord = wordsArray.get(index_array);
+      //  randomWord = wordsArray.get(index_array);
 
 
         wordStr = randomWord;
@@ -196,6 +227,7 @@ if(index_array+5<wordsArr.length){
        int tamanoarray=wordsArr.length;
         return tamanoarray;
    }
+
 
 
 

@@ -24,7 +24,7 @@
             android:layout_weight="1">
 
             <ImageView
-                android:id="@+id/imageButton4"
+                android:id="@+id/backbtn"
                 android:layout_width="67dp"
                 android:layout_height="30dp"
                 android:layout_marginLeft="2dp"

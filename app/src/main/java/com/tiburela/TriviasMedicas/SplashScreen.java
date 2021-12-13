@@ -46,7 +46,8 @@ public class SplashScreen extends AppCompatActivity {
 
 
 
-      if (isFirstTime) {
+      if (isFirstTime) {  //si es la primera vez que entra muestrale un intro slider
+          //en este caso no le mostramos ...
 
 //implement your first time logic
 
@@ -57,7 +58,7 @@ public class SplashScreen extends AppCompatActivity {
 
             //  Intent intent=new Intent (SplashScreen.this, Home_Tab.class);
 
-              Intent intento=new Intent (SplashScreen.this, IntroSlider.class);
+              Intent intento=new Intent (SplashScreen.this, MainActivity2dos.class);
               startActivity(intento);
               finish();
           },2000);

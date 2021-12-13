@@ -5,6 +5,7 @@
     android:id="@+id/frameLayout6"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".fragments.FragmentAcerca">
 
     <!-- TODO: Update blank fragment layout -->
@@ -22,8 +23,8 @@
             <TextView
                 android:id="@+id/textView33"
                 android:layout_width="match_parent"
-                android:singleLine="false"
                 android:layout_height="wrap_content"
+                android:singleLine="false"
                 android:text="@string/polica_parrafo1" />
 
             <TextView
@@ -36,8 +37,8 @@
             <TextView
                 android:id="@+id/texto"
                 android:layout_width="match_parent"
-                android:singleLine="false"
                 android:layout_height="match_parent"
+                android:singleLine="false"
                 android:text="@string/politica"
                 android:textSize="14sp" />
         </LinearLayout>

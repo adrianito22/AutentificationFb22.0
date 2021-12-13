@@ -12,7 +12,7 @@
 
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/texto_sabias"
         android:layout_width="match_parent"
         android:layout_height="125dp"
         android:layout_marginLeft="15dp"
@@ -52,7 +52,7 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/b1"
+                android:id="@+id/lo_tengobtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"

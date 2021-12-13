@@ -1,103 +1,88 @@
 package com.tiburela.TriviasMedicas;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
-import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.SoundPool;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.airbnb.lottie.LottieAnimationView;
+import com.google.android.gms.ads.AdError;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.FullScreenContentCallback;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.RequestConfiguration;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 import com.tiburela.TriviasMedicas.Interface_callbacks.SampleCallback;
 import com.tiburela.TriviasMedicas.ui.items_coleccion.Items_coleccion;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 import java.util.Locale;
 import dialogos.Dialogo_fragmento;
 import dialogos.Game_over_dialog;
 import dialogos.Item_desbloqueado;
 import dialogos.NewLevel_dialogFragment;
 
-public class Juego_Partida extends AppCompatActivity  implements SampleCallback {
-    SharedPreferences mysharedpreference ;
+public class Juego_Partida extends AppCompatActivity  implements SampleCallback  {
+    //cada 6 preguntas un anuncio...
 
-boolean cierra_autom =false;
+    private static final String AD_UNIT_ID = "ca-app-pub-3117180621986741/3322088409";
+    private static final String TAG = "Juego_Partida";
+    private InterstitialAd interstitialAd;
 
-
-  //  LottieAnimationView lotie_coin_collection;
-
-boolean se_presiono50y50bt=true;
-
-    final int NUMERO_ITEMS=9; //EN TOTAL HAY SOLO 9 ITEMS..
-
-
+    private int preguntas_partida_Ads=0;
+    boolean isPause =false;
+    private final int  NUMERO_PREGUNTAS_MIN = 50; //el numero de preguntas mininas que tenemos
+    int [] songs;
+    ImageView imageButton4;
+    boolean cierra_autom =false;
     boolean mostramos_item_debloqueado =false;
+    public  boolean     respondiomal= false;
+    boolean respuestacorrecta;
+    boolean selecbutton;
+    boolean se_presiono50y50bt=true;
 
+    int nivel_Juego=1;
+  //  LottieAnimationView lotie_coin_collection;
+    final int NUMERO_ITEMS=9; //EN TOTAL HAY SOLO 9 ITEMS..//poner aqui el numero de items que existen
     SharedPreferences mysharedpreferences;
     ArrayList<String> lista_array;
-
     int numero_de_items_contador=0;
-    final  int NUMERO_OK_RESPUESTAS_ITEMS=10 ; //cada 1 pregunta correctas desbloquea un item .
-    int respuestas_correctas_contador=0;
-
-
+    final  int NUMERO_OK_RESPUESTAS_ITEMS=10 ; //cada 1 pregunta correctas desbloquea un item .//ponerle 10
     public  int index_question_no_correct=0; //aqui guardaermos el index de la pregunta no conestada
-
-public  boolean     respondiomal= false;
-
-
-
-
     private static final long COUNTDOWN_IN_MILLIS = 30000;
     Button answerBtn1, answerBtn2, answerBtn3, answerBtn4;
     Configuraciones config_obj= new Configuraciones();
-
     int contado_prueba=0;
-
-
     String array_recev_preguntas_opcs[];
-
     Button answerBtn;
     private TextView countLabel, questionLabel,lif;
     private String rightAnswer;
-    SoundPool selec_sonico;
-    int selecionar_sonido;
-    SoundPool sp;
-    int sonido_de_Reproduccion;
-    TextView monedicas;
-    SoundPool sp_correct;
-    int sonido_correct;
-    SoundPool timefinish;
-    int sonido_timefinish;
-
-    float monedas;
-    int moneditas;
-
-    private int rightAnswerCount ;
     private int quizCount = 1;
     private int lifes=3;
-    private int answer_incorrect;
-
-    private final int NPREGUNTAS=95;// aqui va el numero de preguntas totales..
-
     String liftext;
     String pregunta;
     String texto_respuesta1;
@@ -105,18 +90,11 @@ public  boolean     respondiomal= false;
     String respuesta_correct;
     String btnText;
 
-    boolean respuestacorrecta;
-    boolean selecbutton;
-
-    int nivel=1;
     int score=0;
     int preguntas_partida;
     int repuesta_correct_partida;
     int score_local;
-String monedica_string;
     private TextView textViewCountDown;//
-    static final private int QUIZ_COUNT = 5;
-
     NewLevel_dialogFragment dfragmentLevel= new NewLevel_dialogFragment(Juego_Partida.getInstance());
 
     Item_desbloqueado item_desbloqueado_obj= new Item_desbloqueado();
@@ -126,33 +104,18 @@ String monedica_string;
     Game_over_dialog fragmentsi=new Game_over_dialog();
 
     Bundle bundle = new Bundle();
-    LottieAnimationView stars_animation;
     private CountDownTimer countDownTimer;
     private long timeLeftInMillis;
-    private ColorStateList textColorDefaultRb;
-    private ColorStateList textColorDefaultCd;
     Animation animation1;
     Animation slide_up;
     Animation animacion;
     private int quizCorrect;
     TextView monedastxt;
-    ArrayList<ArrayList<String>> quizArray = new ArrayList<>();
-    ArrayList<ArrayList<String>> quizArray2 = new ArrayList<>();
-
-
 
     private static Juego_Partida instance = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-
-        this.instance = this;
-
-
-
-
-
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_juego_partida);
@@ -160,7 +123,31 @@ String monedica_string;
        //configuramos la pantalla
      //   getSupportActionBar().hide();
 
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
 
+                /*
+                List<String> testDeviceIds = Arrays.asList("7B467FCEEBB22C374575734D16D49184");
+                RequestConfiguration configuration =
+                        new RequestConfiguration.Builder().setTestDeviceIds(testDeviceIds).build();
+                MobileAds.setRequestConfiguration(configuration);
+               */
+
+
+
+            }
+        });
+
+
+        loadAd(); //cargamo s anuncio
+
+
+
+     //   loadAd(); //cargamos anuncio
+      //  showInterstitial(); //mostramos anuncio
+
+        this.instance = this;
 
         // Hide Status bar
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -168,20 +155,9 @@ String monedica_string;
         AnimationUtils.loadAnimation( this, R.anim.bounce_dos);
         AnimationUtils.loadAnimation( this, R.anim.slide_up);
         AnimationUtils.loadAnimation( this, R.anim.animacion);
-
-        sp = new SoundPool(1, AudioManager.STREAM_MUSIC, 1);
-        sonido_de_Reproduccion = sp.load(this, R.raw.wroung_answer, 1);
-
-        sp_correct = new SoundPool(1, AudioManager.STREAM_MUSIC, 1);
-        sonido_correct=sp_correct.load(this, R.raw.correct_answer, 1);
-
-        timefinish= new SoundPool(1, AudioManager.STREAM_MUSIC, 1);
-        sonido_timefinish =timefinish.load(this, R.raw.time_finish, 1);
-
-
-
-        selec_sonico= new SoundPool(1, AudioManager.STREAM_MUSIC, 1);
-        selecionar_sonido=selec_sonico.load(this, R.raw.selec_sound, 1);
+//
+//        wroung_answer,correct_answer,time_finish,selec_sound
+        songs= new int[] {R.raw.wroung_answer,R.raw.correct_answer,R.raw.time_finish,R.raw.selec_sound,R.raw.swipe};
 
 
 
@@ -190,10 +166,11 @@ String monedica_string;
         animacion = AnimationUtils.loadAnimation( this, R.anim.animacion);
 
 
-
         countLabel = findViewById(R.id.textView4);
         questionLabel = findViewById(R.id.textView3);
 
+
+        imageButton4= findViewById(R.id.backbtn);
         answerBtn1 = findViewById(R.id.btn_opcion1);
         answerBtn2 = findViewById(R.id.btn_opcion2);
         answerBtn3 = findViewById(R.id.btn_opcion3);
@@ -201,6 +178,7 @@ String monedica_string;
         lif=findViewById(R.id.lifes);
         textViewCountDown = findViewById(R.id.text_view_countdown);
         monedastxt=findViewById(R.id.coin);
+        eventos();
 
    //     lotie_coin_collection=findViewById(R.id.coin_collection_anim);
 
@@ -218,19 +196,13 @@ String monedica_string;
     public void showNextQuiz() {
 
 
-        MediaPlayer mp = MediaPlayer.create(getBaseContext(),
-                R.raw.swipe);
-        mp.start();
+        preguntas_partida_Ads++;
 
 
-        ///CREO QUE HAY QUE BORRAR ESTO
-       /*
-        answerBtn1.setVisibility(Button.VISIBLE);
-        answerBtn2.setVisibility(Button.VISIBLE);
-        answerBtn3.setVisibility(Button.VISIBLE);
-        answerBtn4.setVisibility(Button.VISIBLE);
-*/
-        //llamamos la metodo que resetea
+        //  wroung_answer,correct_answer,time_finish,selec_sound,swipe
+
+        reproducir_Sonido(4);
+
         resetea_Ui();
 
         mostramos_item_debloqueado =false;
@@ -246,6 +218,19 @@ String monedica_string;
         //crear sharePreferences
         SharedPreferences sharedpreferences = getSharedPreferences("MyPREFERENCES", Context.MODE_PRIVATE);
         int  valor_sharep_indice  =sharedpreferences.getInt("HOLA",0);
+        boolean movio_pregunta=sharedpreferences.getBoolean("movio_pregunta",false);
+
+
+
+if(movio_pregunta){ //si movio la pregunta restale1;
+    valor_sharep_indice=valor_sharep_indice-1;
+}
+
+
+
+            //si objetos creados es multiplo de 10...
+
+
 
 //BORRAR DESPUES
 
@@ -289,23 +274,62 @@ String monedica_string;
 
  index_question_no_correct=valor_sharep_indice;
 
-        valor_sharep_indice++;
+        Log.i("banano", "el valor de index question no correct es "+ index_question_no_correct);
 
-        if(   valor_sharep_indice >= config_obj.enviatamanode_array(getApplicationContext())-1){
-            valor_sharep_indice=0;
+        Log.i("welcome","viene de pregunta repetida "+sharedpreferences.getBoolean("esrepetida",false));
+
+        if(!sharedpreferences.getBoolean("esrepetida", false)){ //solo si es falso
+    valor_sharep_indice++;
+
+}else{
+            Log.i("welcome","viene de pregunta repetida,else "+sharedpreferences.getBoolean("esrepetida",false));
         }
 
+         SharedPreferences objeto_sharep=getSharedPreferences("MyPREFERENCESOS", Context.MODE_PRIVATE);
+
+
+        if(valor_sharep_indice >= NUMERO_PREGUNTAS_MIN && valor_sharep_indice >= objeto_sharep.getInt("tamanoList",0)){
+            valor_sharep_indice=0;
+            //sinnifica que reseteamo el valor sahrepindice en 0....y debemos hacer algo en configuraciones
+
+            SharedPreferences.Editor editor;
+            editor = objeto_sharep.edit();
+            editor.putBoolean("reseteamos",true);
+            editor.apply();
+            Log.i("sopa", "emos reseteado en juego partida");
+
+
+        }
+
+
+     /*
+        SharedPreferences sharedpreferences2 = getSharedPreferences("MyPREFERENCESOS", Context.MODE_PRIVATE);
+        int  objetos_creados_list  =sharedpreferences.getInt("valor_contador",0) % 5;
+
+        if (objetos_creados_list==0){ //si es multiplo de 5 lo que sigue despues del %
+            valor_sharep_indice=0;
+
+        }
+*/
+
+
    //     ArrayList<String> quiz2 = quizArray2.get(contado_prueba);//
-
-
 
         // ACTUALIZA VALOR DE SHAREPREFRENCES
         SharedPreferences.Editor editor = sharedpreferences.edit();
         editor.putInt("HOLA", valor_sharep_indice);
+        editor.putInt("INDEX_NO_CORRECT", index_question_no_correct);
+
         editor.apply();
 
 
         questionLabel.setText(lista_array.get(0));
+
+        //redimensionamos texto
+        Redimensiona.redimensionatexto(questionLabel, questionLabel.getText().toString(),getApplicationContext());
+
+
+
         questionLabel .startAnimation(animacion);
 
         pregunta=questionLabel.getText().toString();
@@ -345,11 +369,15 @@ String monedica_string;
 
     public void marcaPregunta(View view ){
 
-        selec_sonico.play(selecionar_sonido, 1,1, 1, 0, 0);
+        //reproduce sonido del objeto
+        //  wroung_answer,correct_answer,time_finish,selec_sound,swipe
+
+        reproducir_Sonido(3);
+
+
+
         answerBtn= findViewById(view.getId());
         btnText = answerBtn.getText().toString();
-
-
 
 
             selecbutton=true;
@@ -366,8 +394,6 @@ String monedica_string;
                     answerBtn3.setBackgroundResource(R.drawable.shape_verde);
 
 
-                 //   answerBtn4.setBackgroundResource(R.mipmap.boton_a);
-                 //  answerBtn4.setTextColor(Color.parseColor("#000000"));
                     answerBtn3.setTextColor(Color.parseColor("#000000"));
                     answerBtn2 .setTextColor(Color.parseColor("#000000"));
                     answerBtn1.setTextColor(Color.parseColor("#000000"));
@@ -396,42 +422,52 @@ String monedica_string;
 
 
                     break;
-                case R.id.btn_opcion1:
-                    answerBtn1.setBackgroundResource(R.drawable.shape_lila);
-                    answerBtn1.setTextColor(Color.parseColor("#ffffff"));
+                case R.id.btn_opcion3:
 
+
+                    answerBtn3.setBackgroundResource(R.drawable.shape_lila);
+                    answerBtn3.setTextColor(Color.parseColor("#ffffff"));
+
+
+                    answerBtn1.setBackgroundResource(R.drawable.shape_verde);
+                    answerBtn1.setTextColor(Color.parseColor("#000000"));
 
 
                   //  answerBtn1.setBackgroundResource(R.mipmap.boton_c);
                        answerBtn2.setBackgroundResource(R.drawable.shape_verde);
-                    answerBtn3.setBackgroundResource(R.drawable.shape_verde);
+                    answerBtn2 .setTextColor(Color.parseColor("#000000"));
+
 
 
                     answerBtn4.setBackgroundResource(R.drawable.shape_verde);
                     answerBtn4.setTextColor(Color.parseColor("#000000"));
-                    answerBtn3.setTextColor(Color.parseColor("#000000"));
-                      answerBtn2 .setTextColor(Color.parseColor("#000000"));
                   //  answerBtn1.setTextColor(Color.parseColor("#000000"));
 
 
 
 
                     break;
-                case R.id.btn_opcion3:
-                    answerBtn3.setBackgroundResource(R.drawable.shape_lila);
-                    answerBtn3.setTextColor(Color.parseColor("#ffffff"));
+                case R.id.btn_opcion1:
+
+                    answerBtn1.setBackgroundResource(R.drawable.shape_lila);
+                    answerBtn1.setTextColor(Color.parseColor("#ffffff"));
 
 
 
 
-                    answerBtn1.setBackgroundResource(R.drawable.shape_verde);
-                       answerBtn2.setBackgroundResource(R.drawable.shape_verde);
+
+
+                    answerBtn3.setBackgroundResource(R.drawable.shape_verde);
+                    answerBtn3.setTextColor(Color.parseColor("#000000"));
+
+
+
+                    answerBtn2.setBackgroundResource(R.drawable.shape_verde);
+                    answerBtn2 .setTextColor(Color.parseColor("#000000"));
 
 
                     answerBtn4.setBackgroundResource(R.drawable.shape_verde);
                     answerBtn4.setTextColor(Color.parseColor("#000000"));
-                     answerBtn2 .setTextColor(Color.parseColor("#000000"));
-                    answerBtn1.setTextColor(Color.parseColor("#000000"));
 
 
                     break;
@@ -449,14 +485,18 @@ String monedica_string;
         answerBtn1.clearAnimation();
 
 
-
         if(selecbutton==true)
         {
 
             if (btnText.equals(rightAnswer)) {
 
-                sp_correct.play(sonido_correct, 1,1, 1, 0, 0);
                  //reproduce sonido del objeto
+                //  wroung_answer,correct_answer,time_finish,selec_sound,swipe
+
+                reproducir_Sonido(1);
+
+
+
                 respuestacorrecta=true;
                 texto_respuesta1="Respuesta incorrecta" ;
                 texto_respuesta2="La respuesta correcta es" ;
@@ -483,7 +523,9 @@ String monedica_string;
                 score= score+25;
                 score_local=score_local+25;
 
+                respondiomal=false;
 
+                editor.putBoolean("respondio_mal",respondiomal); //esta reanudar posiblemnte
 
                 //actualizamos  el numero de respuestas correctas..
                 editor.putInt("respuestas_correctas",quizCorrect); //esta reanudar posiblemnte
@@ -510,11 +552,20 @@ String monedica_string;
 
 //comprobamos para desbloquee items
 
+
+                //comprobamos
+
+
                 int resto2=quizCorrect % NUMERO_OK_RESPUESTAS_ITEMS; //VERIFICAMOS EL RESTO
                 if (resto2==0){ //SI EL RESTO ES 0 ES MULTIPLO DE NUMERO_OK...
 
+                    numero_de_items_contador =mysharedpreferences.getInt("numero_item",0);
 
-                   numero_de_items_contador =mysharedpreferences.getInt("numero_item",0);
+
+                    nivel_Juego= numero_de_items_contador;
+                    editor.putInt("NIVEL_NUMERO",nivel_Juego); // esto actualiza el nivel
+
+
 
                     Log.i("itemc", "el numero de items contador es "+numero_de_items_contador);
 
@@ -607,16 +658,28 @@ cierra_autom =true;
                 SharedPreferences preferences = getSharedPreferences("VIDAS", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = preferences.edit();
 
+               SharedPreferences mysharedpreferences2 = getSharedPreferences("MyPREFERENCES", Context.MODE_PRIVATE);
+
+                SharedPreferences.Editor editor2 = mysharedpreferences2.edit();
+                //////////////////////////////////////////////////////////////////
+
+
+
                 // ACTUALIZA VALOR DE SHAREPREFRENCES
+                respondiomal=true;
+                editor2.putBoolean("respondio_mal",respondiomal); //esta reanudar posiblemnte
+                editor2.apply();
+
+
                 editor.putInt("life",lifes);
                 editor.apply();
 
 
+                //reproduce sonido del objeto
+                //  wroung_answer,correct_answer,time_finish,selec_sound,swipe
 
-                sp.play(sonido_de_Reproduccion, 1,1, 1, 0, 0);
+                reproducir_Sonido(0);
 
-
-                answer_incorrect++;
 
 
                 envidata_yhabrefragment();
@@ -630,8 +693,7 @@ cierra_autom =true;
 
        //       getIndex_question_no_correct() ; //asigamos esos valores si reponde mal
 
-                respondiomal=true;
-              
+
        //       isRespondiomal();
           
           
@@ -671,6 +733,22 @@ cierra_autom =true;
         }
 
 
+
+
+
+        int resto2=preguntas_partida_Ads % 6; //VERIFICAMOS EL RESTO
+        if (resto2==0) { //SI EL RESTO ES 0 ES MULTIPLO DE NUMERO_OK...
+
+            showInterstitial(); //mostramos anuncio
+
+            Log.i("mostrarads","yes si");
+
+            //muestra anuncio aqui..
+
+        }
+
+
+
     }
 
 
@@ -702,8 +780,12 @@ cierra_autom =true;
             @Override
             public void onFinish() {
                 timeLeftInMillis = 0;
-                timefinish.play(sonido_timefinish, 1,1, 1, 0, 0);
-                updateCountDownText();
+
+                //  wroung_answer,correct_answer,time_finish,selec_sound,swipe
+                reproducir_Sonido(2);
+
+                isPause=false;
+               updateCountDownText();
                 // checkAnswer(); //noprobado todavia
                  showNextQuiz();
             }
@@ -747,27 +829,26 @@ cierra_autom =true;
 
 
 
+    @Override
+    protected void onPause() {
+        super.onPause();
 
-    public void esperarTime(int milisegundos) {
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            public void run() {
-                // acciones que se ejecutan tras los milisegundos
-                showNextQuiz();
-            }
-        }, milisegundos);
+        if(countDownTimer!=null){
+            countDownTimer.cancel();
+            isPause = true;
+
+              }
     }
 
 
 
-    private void pausetimer(){
-        countDownTimer.cancel();
-
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(isPause){
+        startCountDown();
+        }
     }
-
-
-
 
     //siguiente pregunta y cierra fragment
     public void fragmentol(View vistaotl) {
@@ -841,9 +922,17 @@ cierra_autom =true;
 
 
     public void eviadata_abredialog_item_debloqueado(){
+
+        if(item_desbloqueado_obj.isAdded())
+        {
+            return;
+        }
+
         bundle.putInt("ITEM_INDICE", numero_de_items_contador);
         item_desbloqueado_obj.setArguments(bundle);
         item_desbloqueado_obj.show(getSupportFragmentManager(),"fragmento_item");
+
+
 
     }
 
@@ -861,19 +950,9 @@ cierra_autom =true;
        fragmentsi.setArguments(bundle);
        fragmentsi.show(getSupportFragmentManager(),"Fragmover");
 
-
     }
 
 
-
-    public void compartirf2(View vista) {
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setType("text/plain");
-        intent.putExtra(Intent.EXTRA_TEXT, "El mejor blog de android http://javaheros.blogspot.pe/");
-        intent.setPackage("com.facebook.katana");
-        startActivity(intent);
-
-    }
 
 
     @Override
@@ -885,10 +964,6 @@ cierra_autom =true;
 
 
 
-    public void destruir_soundpool() {
-        if (sp != null)
-            sp.release();
-    }
 
 
 
@@ -898,9 +973,6 @@ public void fianlizaractivity(){
 }
 
 
-    public void AudioSoundPool(){
-        sp.play(sonido_de_Reproduccion, 1,1, 1, 0, 0);
-    }
 
 
 
@@ -912,7 +984,41 @@ public void fianlizaractivity(){
     }
 
 
-public void cincuentay50(View vista){ //mostramos una opcion correcta e incorrecta...
+
+    private void eventos() {
+
+       ImageView imageButn4;
+       imageButn4=findViewById(R.id.imageButn4);
+
+
+        imageButton4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) { onBackPressed(); //reactivar mas tarde
+
+            }
+        });
+
+        imageButn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+               // showInterstitial(); //mostramos anuncio
+
+                onBackPressed();
+
+            }
+        });
+
+
+
+    }
+
+
+
+
+
+
+    public void cincuentay50(View vista){ //mostramos una opcion correcta e incorrecta...
 
 
 if(se_presiono50y50bt){
@@ -986,15 +1092,6 @@ if(se_presiono50y50bt){
 
 
 
-//getter para obtener el valor de la variable y despues recuperarla em copnfiguraciones class
-    public int getIndex_question_no_correct() {
-        return index_question_no_correct;
-    }
-
-
-    public boolean isRespondiomal() {
-        return respondiomal;
-    }
 
 
 
@@ -1036,22 +1133,30 @@ if(se_presiono50y50bt){
 
    public void resetea_Ui(){
 
-        se_presiono50y50bt=true; //volvemos activar esta opcion.
+       try {
+           se_presiono50y50bt=true; //volvemos activar esta opcion.
+           //cambiamos el tamano del texto
+           Redimensiona.reseteatexto(questionLabel,Juego_Partida.this);
 
 
-       //vuelve activar botones
 
-       answerBtn1.setEnabled(true);
-       answerBtn2.setEnabled(true);
-       answerBtn3.setEnabled(true);
-       answerBtn4.setEnabled(true);
+           //vuelve activar botones
+
+           answerBtn1.setEnabled(true);
+           answerBtn2.setEnabled(true);
+           answerBtn3.setEnabled(true);
+           answerBtn4.setEnabled(true);
 
 
-       //muestra nuevmante el drawable en la izquierda..
-       answerBtn1.setCompoundDrawablesWithIntrinsicBounds(R.drawable.dentrodeboton_shape, 0, 0, 0);
-       answerBtn2.setCompoundDrawablesWithIntrinsicBounds(R.drawable.botonesob, 0, 0, 0);
-       answerBtn3.setCompoundDrawablesWithIntrinsicBounds(R.drawable.betunc, 0, 0, 0);
-       answerBtn4.setCompoundDrawablesWithIntrinsicBounds(R.drawable.betund, 0, 0, 0);
+           //muestra nuevmante el drawable en la izquierda..
+           answerBtn1.setCompoundDrawablesWithIntrinsicBounds(R.drawable.dentrodeboton_shape, 0, 0, 0);
+           answerBtn2.setCompoundDrawablesWithIntrinsicBounds(R.drawable.botonesob, 0, 0, 0);
+           answerBtn3.setCompoundDrawablesWithIntrinsicBounds(R.drawable.betunc, 0, 0, 0);
+           answerBtn4.setCompoundDrawablesWithIntrinsicBounds(R.drawable.betund, 0, 0, 0);
+       } catch (Exception e) {
+           e.printStackTrace();
+       }
+
 
 
    }
@@ -1078,8 +1183,6 @@ if(se_presiono50y50bt){
 
         }
     }
-
-
     @Override
     public void cuando_cierra() {
        showNextQuiz();
@@ -1089,10 +1192,97 @@ if(se_presiono50y50bt){
 
 
 
+
+
     }
 
-    ///mostramos el dialog fragment continuar
 
 
+    //  wroung_answer,correct_answer,time_finish,selec_sound
+
+    public void reproducir_Sonido(int valor) {
+    MediaPlayer mp = MediaPlayer.create(getBaseContext(), songs[valor]);
+    mp.start();
+
+        mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                mp.release();
+            }});
+
+}
+
+
+
+    public void loadAd() {
+        AdRequest adRequest = new AdRequest.Builder().build();
+        InterstitialAd.load(
+                this,
+                AD_UNIT_ID,
+                adRequest,
+                new InterstitialAdLoadCallback() {
+                    @Override
+                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+                        // The mInterstitialAd reference will be null until
+                        // an ad is loaded.
+                        Juego_Partida.this.interstitialAd = interstitialAd;
+                        Log.i(TAG, "onAdLoaded");
+                       // Toast.makeText(Juego_Partida.this, "onAdLoaded()", Toast.LENGTH_SHORT).show();
+                        interstitialAd.setFullScreenContentCallback(
+                                new FullScreenContentCallback() {
+                                    @Override
+                                    public void onAdDismissedFullScreenContent() {
+                                        // Called when fullscreen content is dismissed.
+                                        // Make sure to set your reference to null so you don't
+                                        // show it a second time.
+                                        Juego_Partida.this.interstitialAd = null;
+                                        Log.d("TAG", "The ad was dismissed.");
+                                    }
+
+                                    @Override
+                                    public void onAdFailedToShowFullScreenContent(AdError adError) {
+                                        // Called when fullscreen content failed to show.
+                                        // Make sure to set your reference to null so you don't
+                                        // show it a second time.
+                                        Juego_Partida.this.interstitialAd = null;
+                                        Log.d("TAG", "The ad failed to show.");
+                                    }
+
+                                    @Override
+                                    public void onAdShowedFullScreenContent() {
+                                        // Called when fullscreen content is shown.
+                                        Log.d("TAG", "The ad was shown.");
+                                    }
+                                });
+                    }
+
+                    @Override
+                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                        // Handle the error
+                        Log.i(TAG, loadAdError.getMessage());
+                        interstitialAd = null;
+
+                        String error =
+                                String.format("domain: %s, code: %d, message: %s",
+                                        loadAdError.getDomain(), loadAdError.getCode(), loadAdError.getMessage());
+                    //    Toast.makeText(Juego_Partida.this, "onAdFailedToLoad() with error: " + error, Toast.LENGTH_SHORT)
+                      //          .show();
+
+                        Log.i("holazz",error);
+
+                    }
+                });
+    }
+
+
+
+    private void showInterstitial() {
+        // Show the ad if it's ready. Otherwise toast and restart the game.
+        if (interstitialAd != null) {
+            interstitialAd.show(this);
+        } else {
+         //   Toast.makeText(this, "Ad did not load", Toast.LENGTH_SHORT).show();
+        }
+    }
 
 }

@@ -24,6 +24,9 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.play.core.review.ReviewInfo;
@@ -47,7 +50,7 @@ public class MainActivity2dos extends AppCompatActivity {
 
    public SampleCallback callback;
 
-private final int REPUESTAS_OK_1_DIALOG=2; //minimo de respuestas correctas para mostrar el primer dialogo
+private final int REPUESTAS_OK_1_DIALOG=17; //NUMERO de respuestas correctas para mostrar el primer dialogo
 
     Context mcontexto = MainActivity2dos.this;
 
@@ -85,6 +88,17 @@ private final int REPUESTAS_OK_1_DIALOG=2; //minimo de respuestas correctas para
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_dos);
+
+
+
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+
+
 
 
         boton_ok_rate= findViewById(R.id.boton_ok_rate);
@@ -138,12 +152,20 @@ private final int REPUESTAS_OK_1_DIALOG=2; //minimo de respuestas correctas para
 */
     }
 
+
+
+//activa si queremos el menu...
+   /*  //este muestra el menu Settings en la parte superior  derecha
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
+*/
+
+
+
 
     @Override
     public boolean onSupportNavigateUp() {
@@ -237,7 +259,7 @@ public void solicitar_puntuacion3(View vista) {
         } else {
 
 
-            Toast.makeText(this, "Revise su conexion a interente he intente mas tarde", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Revise su conexion a internet o intente mas tarde", Toast.LENGTH_SHORT).show();
             // There was some problem, log or handle the error code.
         }
     });
@@ -269,7 +291,7 @@ public void solicitar_puntuacion3(View vista) {
             } else {
 
 
-                Toast.makeText(context, "Revise su conexion a interente he intente mas tarde", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Revise su conexion a internet o intente mas tarde", Toast.LENGTH_SHORT).show();
                 // There was some problem, log or handle the error code.
             }
         });
@@ -342,7 +364,6 @@ public   void solicitar_puntuacion2(Context mContext, Activity activity  ){  //s
         Log.d("vergaso", "el valor del booleano es "+valorcont );
 
 
-        Toast.makeText(mContext, "getexct", Toast.LENGTH_SHORT).show();
         //prefencia no mopstrar nuevamente
         SharedPreferences prefs = mContext.getSharedPreferences("apprater", 0);
         SharedPreferences.Editor editor = prefs.edit();
@@ -506,12 +527,6 @@ public   void solicitar_puntuacion2(Context mContext, Activity activity  ){  //s
          seabrioventana=true;
 
 
-
-
-
-
-
-
         Log.d("renose", "se cerro despues de 10 segundos");
                 Dialog dialog = new Dialog(mContext); //anterior sirvia mas o menosx
                 //  final Dialog dialog = new Dialog(MainActivity2); //anterior sirvia mas o menosx
@@ -529,7 +544,7 @@ public   void solicitar_puntuacion2(Context mContext, Activity activity  ){  //s
 
 
 
-        Button b1 = dialog.findViewById(R.id.b1);
+        Button b1 = dialog.findViewById(R.id.lo_tengobtn);
                 Button b2 = dialog.findViewById(R.id.b2);
                 Button b3 = dialog.findViewById(R.id.b3);
 
@@ -550,7 +565,6 @@ public   void solicitar_puntuacion2(Context mContext, Activity activity  ){  //s
 
                 b2.setOnClickListener(new View.OnClickListener() { //mas tarde
                     public void onClick(View v) {
-                        Toast.makeText(mContext, "222", Toast.LENGTH_SHORT).show();
 
                         callback.cuando_cierra();
 
@@ -568,7 +582,6 @@ public   void solicitar_puntuacion2(Context mContext, Activity activity  ){  //s
 
                 b3.setOnClickListener(new View.OnClickListener() { //no gracias..
                     public void onClick(View v) {
-                        Toast.makeText(mContext, "3", Toast.LENGTH_SHORT).show();
 
                         if (editor != null) {
                             editor.putBoolean("dontshowagain", true);

@@ -111,7 +111,7 @@ public void actualiza_puntuacion(){
 
     puntaje.setText(puntaje_string);
    // evento_boton();// evento boton
-    nivel  =mysharedpreferences.getInt("NIVEL_NUMERO",0);
+    nivel  =mysharedpreferences.getInt("NIVEL_NUMERO",1);
 
     float monedas_float=scorelab/15;
     int moneditas=Math.round(monedas_float);
