@@ -51,7 +51,7 @@ public class Juego_Partida extends AppCompatActivity  implements SampleCallback 
 
     private static final String AD_UNIT_ID = "ca-app-pub-3117180621986741/3322088409";
     private static final String TAG = "Juego_Partida";
-    private InterstitialAd interstitialAd;
+    private InterstitialAd mInterstitialAd;
 
     private int preguntas_partida_Ads=0;
     boolean isPause =false;
@@ -142,6 +142,7 @@ public class Juego_Partida extends AppCompatActivity  implements SampleCallback 
 
         loadAd(); //cargamo s anuncio
 
+        Log.i("mostrarads","el resto es vbcvbcv ");
 
 
      //   loadAd(); //cargamos anuncio
@@ -735,8 +736,14 @@ cierra_autom =true;
 
 
 
+//mas o menos cada 6 preguntas muestra anuncio
+
 
         int resto2=preguntas_partida_Ads % 6; //VERIFICAMOS EL RESTO
+
+        Log.i("mostrarads","el resto es "+resto2);
+
+
         if (resto2==0) { //SI EL RESTO ES 0 ES MULTIPLO DE NUMERO_OK...
 
             showInterstitial(); //mostramos anuncio
@@ -1225,7 +1232,9 @@ if(se_presiono50y50bt){
                     public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
                         // The mInterstitialAd reference will be null until
                         // an ad is loaded.
-                        Juego_Partida.this.interstitialAd = interstitialAd;
+                        mInterstitialAd = interstitialAd;
+
+                       // Juego_Partida.this.interstitialAd = interstitialAd;
                         Log.i(TAG, "onAdLoaded");
                        // Toast.makeText(Juego_Partida.this, "onAdLoaded()", Toast.LENGTH_SHORT).show();
                         interstitialAd.setFullScreenContentCallback(
@@ -1235,7 +1244,6 @@ if(se_presiono50y50bt){
                                         // Called when fullscreen content is dismissed.
                                         // Make sure to set your reference to null so you don't
                                         // show it a second time.
-                                        Juego_Partida.this.interstitialAd = null;
                                         Log.d("TAG", "The ad was dismissed.");
                                     }
 
@@ -1244,12 +1252,14 @@ if(se_presiono50y50bt){
                                         // Called when fullscreen content failed to show.
                                         // Make sure to set your reference to null so you don't
                                         // show it a second time.
-                                        Juego_Partida.this.interstitialAd = null;
+
                                         Log.d("TAG", "The ad failed to show.");
                                     }
 
                                     @Override
                                     public void onAdShowedFullScreenContent() {
+                                        mInterstitialAd = null;
+
                                         // Called when fullscreen content is shown.
                                         Log.d("TAG", "The ad was shown.");
                                     }
@@ -1260,7 +1270,7 @@ if(se_presiono50y50bt){
                     public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
                         // Handle the error
                         Log.i(TAG, loadAdError.getMessage());
-                        interstitialAd = null;
+                        mInterstitialAd = null;
 
                         String error =
                                 String.format("domain: %s, code: %d, message: %s",
@@ -1278,8 +1288,8 @@ if(se_presiono50y50bt){
 
     private void showInterstitial() {
         // Show the ad if it's ready. Otherwise toast and restart the game.
-        if (interstitialAd != null) {
-            interstitialAd.show(this);
+        if (mInterstitialAd != null) {
+            mInterstitialAd.show(this);
         } else {
          //   Toast.makeText(this, "Ad did not load", Toast.LENGTH_SHORT).show();
         }
