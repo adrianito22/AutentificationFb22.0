@@ -1,4 +1,4 @@
-package com.tiburela.TriviasMedicas;
+package com.tiburela.TriviasMedicas.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.ImageView;
+
+import com.tiburela.TriviasMedicas.R;
 
 public class Items_targetas extends AppCompatActivity {
 static int indice_contador=0;

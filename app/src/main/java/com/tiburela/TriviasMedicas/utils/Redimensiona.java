@@ -1,4 +1,4 @@
-package com.tiburela.TriviasMedicas;
+package com.tiburela.TriviasMedicas.utils;
 
 import android.content.Context;
 import android.util.DisplayMetrics;
@@ -24,7 +24,7 @@ public static void redimensionatexto(TextView textview,String pregunta,Context c
 
 }
 
-static void reseteatexto(TextView textview ,Context context) {
+public static void reseteatexto(TextView textview ,Context context) {
 
     float tamano_screen_width=   determinar_sw(context); //  metodo para dterminar el tamano minimo de la pantalla
 

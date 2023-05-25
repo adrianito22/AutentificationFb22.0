@@ -7,17 +7,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
-import com.airbnb.lottie.LottieAnimationView;
-
-import com.tiburela.TriviasMedicas.Juego_Partida;
+import com.tiburela.TriviasMedicas.Activities.Juego_Partida;
 import com.tiburela.TriviasMedicas.R;
 
 public class NewLevel_dialogFragment extends DialogFragment {

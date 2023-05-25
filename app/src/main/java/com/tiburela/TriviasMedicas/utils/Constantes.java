@@ -1,4 +1,4 @@
-package com.tiburela.TriviasMedicas;
+package com.tiburela.TriviasMedicas.utils;
 
 public class Constantes {
 

@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:minHeight="1000dp"
     android:orientation="vertical"
-    tools:context=".Juego_Partida">
+    tools:context=".Activities.Juego_Partida">
 
     <LinearLayout
         android:id="@+id/df"

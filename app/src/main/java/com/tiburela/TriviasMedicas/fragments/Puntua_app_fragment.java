@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.tiburela.TriviasMedicas.MainActivity2dos;
+import com.tiburela.TriviasMedicas.Activities.MainActivity2dos;
 import com.tiburela.TriviasMedicas.R;
 
 /**

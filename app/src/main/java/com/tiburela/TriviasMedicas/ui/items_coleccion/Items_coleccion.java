@@ -13,7 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.tiburela.TriviasMedicas.Juego_Partida;
+import com.tiburela.TriviasMedicas.Activities.Juego_Partida;
 import com.tiburela.TriviasMedicas.R;
 
 public class Items_coleccion extends Fragment {

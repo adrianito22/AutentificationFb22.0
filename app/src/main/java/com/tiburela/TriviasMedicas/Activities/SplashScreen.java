@@ -1,4 +1,4 @@
-package com.tiburela.TriviasMedicas;
+package com.tiburela.TriviasMedicas.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,13 +11,14 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
-import com.tiburela.TriviasMedicas.control_intro_e_inidcaciones.IntroSlider;
+import com.tiburela.TriviasMedicas.utils.Intro_preferencias2;
+import com.tiburela.TriviasMedicas.R;
 
 public class SplashScreen extends AppCompatActivity {
     ImageView imageView ;
     Animation fadeInAnimation;
  //   private IntroPref introPref;
-   public  Intro_preferencias2 miprefers;
+   public Intro_preferencias2 miprefers;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 

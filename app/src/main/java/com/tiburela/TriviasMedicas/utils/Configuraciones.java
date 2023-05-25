@@ -1,4 +1,4 @@
-package com.tiburela.TriviasMedicas;
+package com.tiburela.TriviasMedicas.utils;
 
 import android.app.Application;
 import android.content.Context;
@@ -8,6 +8,7 @@ import android.util.Log;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
+import com.tiburela.TriviasMedicas.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="20dp">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline6"
@@ -151,7 +152,7 @@
                 android:fontFamily="@font/muli"
                 android:gravity="center_horizontal"
                 android:text="TextView pregunta va por aqui"
-                android:textColor="@color/black"
+                android:textColor="#515151"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -170,7 +171,7 @@
         app:layout_constraintGuide_percent="0.82" />
 
 
-    <Button
+    <LinearLayout
         android:id="@+id/btn_opcion1"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -183,12 +184,37 @@
         android:textAllCaps="false"
         android:textSize="22dp"
         android:visibility="visible"
+        android:weightSum="15"
         app:layout_constraintBottom_toTopOf="@+id/guideline13"
         app:layout_constraintEnd_toStartOf="@+id/guideline11"
         app:layout_constraintStart_toStartOf="@+id/guideline10"
-        app:layout_constraintTop_toTopOf="@+id/guideline8" />
+        app:layout_constraintTop_toTopOf="@+id/guideline8">
 
-    <Button
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginLeft="7dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="2"
+            android:background="@drawable/shape_letra"
+            android:gravity="center"
+            android:text="A" />
+
+        <TextView
+            android:id="@+id/textView38"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="13"
+            android:gravity="center"
+            android:text="TextView" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/btn_opcion2"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -203,13 +229,37 @@
         android:textAllCaps="false"
         android:textSize="22dp"
         android:visibility="visible"
+        android:weightSum="15"
         app:layout_constraintBottom_toTopOf="@+id/guideline15"
         app:layout_constraintEnd_toStartOf="@+id/guideline11"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline10"
-        app:layout_constraintTop_toTopOf="@+id/guideline14" />
+        app:layout_constraintTop_toTopOf="@+id/guideline14">
 
-    <Button
+        <TextView
+            android:id="@+id/textView41"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginLeft="7dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="2"
+            android:background="@drawable/shape_letra"
+            android:gravity="center"
+            android:text="A" />
+
+        <TextView
+            android:id="@+id/textView42"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="13"
+            android:gravity="center"
+            android:text="TextView" />
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/btn_opcion3"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -223,12 +273,36 @@
         android:textSize="22dp"
         android:visibility="visible"
 
+        android:weightSum="15"
         app:layout_constraintBottom_toTopOf="@+id/guideline17"
         app:layout_constraintEnd_toStartOf="@+id/guideline11"
         app:layout_constraintStart_toStartOf="@+id/guideline10"
-        app:layout_constraintTop_toTopOf="@+id/guideline16" />
+        app:layout_constraintTop_toTopOf="@+id/guideline16">
 
-    <Button
+        <TextView
+            android:id="@+id/textView43"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginLeft="7dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="2"
+            android:background="@drawable/shape_letra"
+            android:gravity="center"
+            android:text="A" />
+
+        <TextView
+            android:id="@+id/textView44"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="13"
+            android:gravity="center"
+            android:text="TextView" />
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/btn_opcion4"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -242,11 +316,36 @@
         android:textAllCaps="false"
         android:textSize="22dp"
         android:visibility="visible"
+        android:weightSum="15"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toStartOf="@+id/guideline11"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline10"
-        app:layout_constraintTop_toTopOf="@+id/guideline18" />
+        app:layout_constraintTop_toTopOf="@+id/guideline18">
+
+        <TextView
+            android:id="@+id/textView45"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginLeft="7dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="2"
+            android:background="@drawable/shape_letra"
+            android:gravity="center"
+            android:text="A" />
+
+        <TextView
+            android:id="@+id/textView46"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="13"
+            android:gravity="center"
+            android:text="TextView" />
+
+    </LinearLayout>
 
 
     <androidx.constraintlayout.widget.Guideline
@@ -306,8 +405,8 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.64" />
 
-    <Button
-        android:id="@+id/button5"
+    <LinearLayout
+        android:id="@+id/LinearLayout5"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -323,8 +422,8 @@
         app:layout_constraintTop_toTopOf="@+id/guideline9"
         tools:ignore="TouchTargetSizeCheck" />
 
-    <Button
-        android:id="@+id/button14"
+    <LinearLayout
+        android:id="@+id/LinearLayout14"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_gravity="center_horizontal"
@@ -473,7 +572,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.27" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

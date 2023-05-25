@@ -9,7 +9,7 @@
 
 
     android:allowBackup="true"
-        android:name=".Configuraciones"
+        android:name=".utils.Configuraciones"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/icono2"
         android:label="@string/app_name"
@@ -22,7 +22,7 @@
             android:value="ca-app-pub-3117180621986741~9165327088"/>
 
 
-        <activity android:name=".Items_targetas"
+        <activity android:name=".Activities.Items_targetas"
             android:configChanges="orientation"
             android:screenOrientation="portrait">
         </activity>
@@ -30,17 +30,18 @@
 
 
 
-    <activity android:name=".MainActivity2dos"
+    <activity android:name=".Activities.MainActivity2dos"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:configChanges="orientation"
         android:screenOrientation="portrait">
         </activity>
 
         <activity
-            android:name=".Countdow"
+            android:name=".Activities.Countdow"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".SplashScreen"
+            android:name=".Activities.SplashScreen"
             android:configChanges="orientation"
             android:screenOrientation="portrait"
             android:exported="true">
@@ -57,19 +58,12 @@
             android:screenOrientation="portrait" />
         <activity
 
-            android:name=".Juego_Partida"
+            android:name=".Activities.Juego_Partida"
             android:configChanges="orientation"
             android:screenOrientation="portrait" >
 
         </activity>
 
-        <service
-            android:name=".MyFirebaseMessagingService"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-            </intent-filter>
-        </service>
     </application>
 
 </manifest>

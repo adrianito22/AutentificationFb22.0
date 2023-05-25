@@ -19,8 +19,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import com.tiburela.TriviasMedicas.Countdow;
-import com.tiburela.TriviasMedicas.Intro_preferencias2;
+import com.tiburela.TriviasMedicas.Activities.Countdow;
+import com.tiburela.TriviasMedicas.utils.Intro_preferencias2;
 import com.tiburela.TriviasMedicas.R;
 
 public class IntroSlider extends AppCompatActivity {

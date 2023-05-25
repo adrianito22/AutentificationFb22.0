@@ -1,4 +1,4 @@
-package com.tiburela.TriviasMedicas;
+package com.tiburela.TriviasMedicas.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;

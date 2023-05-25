@@ -1,4 +1,4 @@
-package com.tiburela.TriviasMedicas;
+package com.tiburela.TriviasMedicas.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -34,6 +34,7 @@ import com.google.android.play.core.review.ReviewManager;
 import com.google.android.play.core.review.ReviewManagerFactory;
 import com.google.android.play.core.tasks.Task;
 import com.tiburela.TriviasMedicas.Interface_callbacks.SampleCallback;
+import com.tiburela.TriviasMedicas.R;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -91,6 +92,10 @@ private final int REPUESTAS_OK_1_DIALOG=17; //NUMERO de respuestas correctas par
 
 
 
+       // NavigationView nav_view=findViewById(R.id.nav_view);
+        //nav_view.getMenu().setGroupVisible(2, false);
+
+
 
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
@@ -100,20 +105,20 @@ private final int REPUESTAS_OK_1_DIALOG=17; //NUMERO de respuestas correctas par
 
 
 
-
         boton_ok_rate= findViewById(R.id.boton_ok_rate);
-
-
 
 
 
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        //getSupportActionBar().setTitle("");
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        setSupportActionBar ( toolbar );
-        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled ( true );
-        getSupportActionBar ().setDisplayShowHomeEnabled(true);
+        // setSupportActionBar ( toolbar );
+
+       // Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled ( true );
+     //   getSupportActionBar ().setDisplayShowHomeEnabled(true);
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -129,7 +134,13 @@ private final int REPUESTAS_OK_1_DIALOG=17; //NUMERO de respuestas correctas par
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+
+
+
+
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+
+
         NavigationUI.setupWithNavController(navigationView, navController);
 
 

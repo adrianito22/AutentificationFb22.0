@@ -12,7 +12,6 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.DialogFragment;
 
 import android.util.Log;
@@ -25,7 +24,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.tiburela.TriviasMedicas.Juego_Partida;
+import com.tiburela.TriviasMedicas.Activities.Juego_Partida;
 import com.tiburela.TriviasMedicas.R;
 
 public class DialogFragment3 extends DialogFragment {
@@ -221,7 +220,7 @@ ImageView  whatsapp_b,rate_please;
             txt_primero.setText("ACERCA");
             txt_segundo.setText("Esta es una app educativa ,tiene el fin de ayudar a memorizar conceptos y conocimientos basicos sobre medicina y anatomia humana  .El contenido de nuestra aplicación fue previamente revisado y editado, aun así no podemos decir que el mismo este 100% libre de errores, en caso de encontrar alguno ,pedimos por favor que nos Lo notifiques. Tiburela es una marca joven que busca seriamente desarrollar un espacio importante en la vida académica de estudiantes de diversas partes del mundo. Tiburela esta conformamos todos los que hacemos posible que una nueva app cobre vida ,desde amigos, familares y todos los que an aportado alguna o muchas veces en la creacion de un nuevo producto.");
 
-            txt_segundo.setTextSize(TypedValue.COMPLEX_UNIT_PX, getActivity() .getResources().getDimension(R.dimen.text_little ));
+            txt_segundo.setTextSize(TypedValue.COMPLEX_UNIT_PX, getActivity() .getResources().getDimension(R.dimen.maxsizetEXT ));
             ly_chat_app.setVisibility(LinearLayout.GONE);
 
         }

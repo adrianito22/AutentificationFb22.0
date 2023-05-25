@@ -12,8 +12,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.tiburela.TriviasMedicas.Countdow;
-import com.tiburela.TriviasMedicas.Juego_Partida;
+import com.tiburela.TriviasMedicas.Activities.Countdow;
+import com.tiburela.TriviasMedicas.Activities.Juego_Partida;
 import com.tiburela.TriviasMedicas.R;
 
 public class Game_over_dialog extends DialogFragment {

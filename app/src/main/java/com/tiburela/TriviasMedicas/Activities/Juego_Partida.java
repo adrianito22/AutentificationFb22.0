@@ -1,4 +1,4 @@
-package com.tiburela.TriviasMedicas;
+package com.tiburela.TriviasMedicas.Activities;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,10 +7,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
-import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.media.MediaPlayer;
-import android.media.SoundPool;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
@@ -22,24 +20,25 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.airbnb.lottie.LottieAnimationView;
+
 import com.google.android.gms.ads.AdError;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.FullScreenContentCallback;
 import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.RequestConfiguration;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
+import com.tiburela.TriviasMedicas.utils.Configuraciones;
 import com.tiburela.TriviasMedicas.Interface_callbacks.SampleCallback;
+import com.tiburela.TriviasMedicas.R;
+import com.tiburela.TriviasMedicas.utils.Redimensiona;
 import com.tiburela.TriviasMedicas.ui.items_coleccion.Items_coleccion;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
 import java.util.Locale;
 import dialogos.Dialogo_fragmento;
 import dialogos.Game_over_dialog;
@@ -49,7 +48,10 @@ import dialogos.NewLevel_dialogFragment;
 public class Juego_Partida extends AppCompatActivity  implements SampleCallback  {
     //cada 6 preguntas un anuncio...
 
-    private static final String AD_UNIT_ID = "ca-app-pub-3117180621986741/3322088409";
+   // private static final String AD_UNIT_ID = "ca-app-pub-3117180621986741/3322088409";
+    private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/1033173712"; //test
+
+
     private static final String TAG = "Juego_Partida";
     private InterstitialAd mInterstitialAd;
 
@@ -127,12 +129,6 @@ public class Juego_Partida extends AppCompatActivity  implements SampleCallback 
             @Override
             public void onInitializationComplete(InitializationStatus initializationStatus) {
 
-                /*
-                List<String> testDeviceIds = Arrays.asList("7B467FCEEBB22C374575734D16D49184");
-                RequestConfiguration configuration =
-                        new RequestConfiguration.Builder().setTestDeviceIds(testDeviceIds).build();
-                MobileAds.setRequestConfiguration(configuration);
-               */
 
 
 
@@ -748,7 +744,9 @@ cierra_autom =true;
 
             showInterstitial(); //mostramos anuncio
 
-            Log.i("mostrarads","yes si");
+
+            Log.i("mostrarads","vasmosd a mostrar anuncios aqui");
+
 
             //muestra anuncio aqui..
 
@@ -984,7 +982,7 @@ public void fianlizaractivity(){
 
 
     public void onBackPressed (){
-        Intent inn = new Intent(getApplicationContext(), com.tiburela.TriviasMedicas.MainActivity2dos.class);
+        Intent inn = new Intent(getApplicationContext(), MainActivity2dos.class);
         startActivity(inn);
 
 
@@ -1244,7 +1242,10 @@ if(se_presiono50y50bt){
                                         // Called when fullscreen content is dismissed.
                                         // Make sure to set your reference to null so you don't
                                         // show it a second time.
-                                        Log.d("TAG", "The ad was dismissed.");
+                                        Log.d("TAG", "T");
+
+                                        Log.i("mostrarads","The ad was dismissed.");
+
                                     }
 
                                     @Override
@@ -1253,7 +1254,8 @@ if(se_presiono50y50bt){
                                         // Make sure to set your reference to null so you don't
                                         // show it a second time.
 
-                                        Log.d("TAG", "The ad failed to show.");
+                                        Log.i("mostrarads","Terror show ads y es ."+adError.getMessage());
+
                                     }
 
                                     @Override
@@ -1261,7 +1263,9 @@ if(se_presiono50y50bt){
                                         mInterstitialAd = null;
 
                                         // Called when fullscreen content is shown.
-                                        Log.d("TAG", "The ad was shown.");
+
+                                        Log.i("mostrarads","el anuncio fue mostrado");
+
                                     }
                                 });
                     }

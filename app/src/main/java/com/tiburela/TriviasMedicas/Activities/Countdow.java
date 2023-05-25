@@ -1,4 +1,4 @@
-package com.tiburela.TriviasMedicas;
+package com.tiburela.TriviasMedicas.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,6 +12,8 @@ import android.view.View;
 import android.view.WindowManager;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.tiburela.TriviasMedicas.Activities.Juego_Partida;
+import com.tiburela.TriviasMedicas.R;
 
 public class Countdow extends AppCompatActivity {
     LottieAnimationView anima_countdown;
