@@ -3,6 +3,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
+
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -18,6 +20,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -48,11 +51,11 @@ import dialogos.NewLevel_dialogFragment;
 public class Juego_Partida extends AppCompatActivity  implements SampleCallback  {
     //cada 6 preguntas un anuncio...
 
-   // private static final String AD_UNIT_ID = "ca-app-pub-3117180621986741/3322088409";
-    private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/1033173712"; //test
-
+    private static final String AD_UNIT_ID = "ca-app-pub-3117180621986741/3322088409";
+   // private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/1033173712"; //test
 
     private static final String TAG = "Juego_Partida";
+
     private InterstitialAd mInterstitialAd;
 
     private int preguntas_partida_Ads=0;
@@ -76,11 +79,13 @@ public class Juego_Partida extends AppCompatActivity  implements SampleCallback 
     final  int NUMERO_OK_RESPUESTAS_ITEMS=10 ; //cada 1 pregunta correctas desbloquea un item .//ponerle 10
     public  int index_question_no_correct=0; //aqui guardaermos el index de la pregunta no conestada
     private static final long COUNTDOWN_IN_MILLIS = 30000;
-    Button answerBtn1, answerBtn2, answerBtn3, answerBtn4;
+    LinearLayout answerBtn1, answerBtn2, answerBtn3, answerBtn4;
+    TextView txtOpcion1,txtOpcion2,txtOpcion3,txtOpcion4;
+
     Configuraciones config_obj= new Configuraciones();
     int contado_prueba=0;
     String array_recev_preguntas_opcs[];
-    Button answerBtn;
+    LinearLayout answerBtn;
     private TextView countLabel, questionLabel,lif;
     private String rightAnswer;
     private int quizCount = 1;
@@ -124,6 +129,7 @@ public class Juego_Partida extends AppCompatActivity  implements SampleCallback 
         super.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
        //configuramos la pantalla
      //   getSupportActionBar().hide();
+        findvIEWSid();
 
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
@@ -163,26 +169,10 @@ public class Juego_Partida extends AppCompatActivity  implements SampleCallback 
         animacion = AnimationUtils.loadAnimation( this, R.anim.animacion);
 
 
-        countLabel = findViewById(R.id.textView4);
-        questionLabel = findViewById(R.id.textView3);
 
-
-        imageButton4= findViewById(R.id.backbtn);
-        answerBtn1 = findViewById(R.id.btn_opcion1);
-        answerBtn2 = findViewById(R.id.btn_opcion2);
-        answerBtn3 = findViewById(R.id.btn_opcion3);
-        answerBtn4 = findViewById(R.id.btn_opcion4);
-        lif=findViewById(R.id.lifes);
-        textViewCountDown = findViewById(R.id.text_view_countdown);
-        monedastxt=findViewById(R.id.coin);
         eventos();
 
-   //     lotie_coin_collection=findViewById(R.id.coin_collection_anim);
 
-
-        // SharedPreferences.Editor editor = sharedpreferences.edit();
-
-// Receive quizCategory from StartActivity.
         int quizCategory = getIntent().getIntExtra("QUIZ_CATEGORY", 0);
         Log.v("CATEGORY", quizCategory + "");
 
@@ -190,13 +180,12 @@ public class Juego_Partida extends AppCompatActivity  implements SampleCallback 
         showNextQuiz();
     }
 
+    @SuppressLint("SuspiciousIndentation")
     public void showNextQuiz() {
 
 
         preguntas_partida_Ads++;
 
-
-        //  wroung_answer,correct_answer,time_finish,selec_sound,swipe
 
         reproducir_Sonido(4);
 
@@ -341,25 +330,17 @@ if(movio_pregunta){ //si movio la pregunta restale1;
         resetBackgtound();
 
 
-        //aqui variable de respuesta explicacion.
-
-        //  answer_explain = quiz.get(5);//Explicacion no va ahora
-
-
 
         lista_array.remove(0);
-        // Remove "Country" from quiz and Shuffle choices.///estas son las opciones o boton
-        //quiz.remove(4);  //esta creo que es opcion..
 
         Collections.shuffle(lista_array);
 
         // Set choices.
-        answerBtn1.setText(lista_array.get(0));
-        answerBtn2.setText(lista_array.get(1));
-        answerBtn3.setText(lista_array.get(2));
-        answerBtn4.setText(lista_array.get(3));
+        txtOpcion1.setText(lista_array.get(0));
+        txtOpcion2.setText(lista_array.get(1));
+        txtOpcion3.setText(lista_array.get(2));
+        txtOpcion4.setText(lista_array.get(3));
 
-        // Remove this quiz from quizArray.// quizArray.remove(randomNum);
 
     }
 
@@ -374,7 +355,7 @@ if(movio_pregunta){ //si movio la pregunta restale1;
 
 
         answerBtn= findViewById(view.getId());
-        btnText = answerBtn.getText().toString();
+        btnText = devukveText(answerBtn);
 
 
             selecbutton=true;
@@ -383,17 +364,19 @@ if(movio_pregunta){ //si movio la pregunta restale1;
 
                 case R.id.btn_opcion4:
                     answerBtn4.setBackgroundResource(R.drawable.shape_lila);
-                    answerBtn4.setTextColor(Color.parseColor("#ffffff"));
+                    txtOpcion4.setTextColor(Color.parseColor("#ffffff"));
+
                     // answerBtn4.startAnimation(animation1);
 
                     answerBtn1.setBackgroundResource(R.drawable.shape_verde);
                     answerBtn2.setBackgroundResource(R.drawable.shape_verde);
                     answerBtn3.setBackgroundResource(R.drawable.shape_verde);
 
+                    txtOpcion3.setTextColor(Color.parseColor("#000000"));
+                    txtOpcion2.setTextColor(Color.parseColor("#000000"));
+                    txtOpcion1.setTextColor(Color.parseColor("#000000"));
 
-                    answerBtn3.setTextColor(Color.parseColor("#000000"));
-                    answerBtn2 .setTextColor(Color.parseColor("#000000"));
-                    answerBtn1.setTextColor(Color.parseColor("#000000"));
+
 
 
 
@@ -402,7 +385,7 @@ if(movio_pregunta){ //si movio la pregunta restale1;
                     break;
                 case R.id.btn_opcion2:
                     answerBtn2.setBackgroundResource(R.drawable.shape_lila);
-                    answerBtn2.setTextColor(Color.parseColor("#ffffff"));
+                    txtOpcion2.setTextColor(Color.parseColor("#ffffff"));
 
 
                     answerBtn1.setBackgroundResource(R.drawable.shape_verde);
@@ -411,10 +394,12 @@ if(movio_pregunta){ //si movio la pregunta restale1;
 
 
                     answerBtn4.setBackgroundResource(R.drawable.shape_verde);
-                    answerBtn4.setTextColor(Color.parseColor("#000000"));
-                    answerBtn3.setTextColor(Color.parseColor("#000000"));
-                  //  answerBtn2 .setTextColor(Color.parseColor("#000000"));
-                    answerBtn1.setTextColor(Color.parseColor("#000000"));
+                    txtOpcion4.setTextColor(Color.parseColor("#000000"));
+
+                    txtOpcion3.setTextColor(Color.parseColor("#000000"));
+                    txtOpcion1.setTextColor(Color.parseColor("#000000"));
+
+
 
 
 
@@ -423,23 +408,20 @@ if(movio_pregunta){ //si movio la pregunta restale1;
 
 
                     answerBtn3.setBackgroundResource(R.drawable.shape_lila);
-                    answerBtn3.setTextColor(Color.parseColor("#ffffff"));
 
+                    txtOpcion3.setTextColor(Color.parseColor("#ffffff"));
 
                     answerBtn1.setBackgroundResource(R.drawable.shape_verde);
-                    answerBtn1.setTextColor(Color.parseColor("#000000"));
-
 
                   //  answerBtn1.setBackgroundResource(R.mipmap.boton_c);
                        answerBtn2.setBackgroundResource(R.drawable.shape_verde);
-                    answerBtn2 .setTextColor(Color.parseColor("#000000"));
-
-
 
                     answerBtn4.setBackgroundResource(R.drawable.shape_verde);
-                    answerBtn4.setTextColor(Color.parseColor("#000000"));
-                  //  answerBtn1.setTextColor(Color.parseColor("#000000"));
+                 //  answerBtn1.setTextColor(Color.parseColor("#000000"));
 
+                    txtOpcion1.setTextColor(Color.parseColor("#000000"));
+                    txtOpcion2.setTextColor(Color.parseColor("#000000"));
+                    txtOpcion4.setTextColor(Color.parseColor("#000000"));
 
 
 
@@ -447,24 +429,17 @@ if(movio_pregunta){ //si movio la pregunta restale1;
                 case R.id.btn_opcion1:
 
                     answerBtn1.setBackgroundResource(R.drawable.shape_lila);
-                    answerBtn1.setTextColor(Color.parseColor("#ffffff"));
 
 
-
-
-
-
+                    txtOpcion1.setTextColor(Color.parseColor("#ffffff"));
                     answerBtn3.setBackgroundResource(R.drawable.shape_verde);
-                    answerBtn3.setTextColor(Color.parseColor("#000000"));
-
-
-
                     answerBtn2.setBackgroundResource(R.drawable.shape_verde);
-                    answerBtn2 .setTextColor(Color.parseColor("#000000"));
-
-
                     answerBtn4.setBackgroundResource(R.drawable.shape_verde);
-                    answerBtn4.setTextColor(Color.parseColor("#000000"));
+
+
+                    txtOpcion3.setTextColor(Color.parseColor("#000000"));
+                    txtOpcion2.setTextColor(Color.parseColor("#000000"));
+                    txtOpcion4.setTextColor(Color.parseColor("#000000"));
 
 
                     break;
@@ -762,10 +737,14 @@ cierra_autom =true;
         answerBtn2.setBackgroundResource(R.drawable.shape_verde);
         answerBtn3.setBackgroundResource(R.drawable.shape_verde);
         answerBtn4.setBackgroundResource(R.drawable.shape_verde);
-        answerBtn4.setTextColor(Color.parseColor("#000000"));
-        answerBtn3.setTextColor(Color.parseColor("#000000"));
-        answerBtn2 .setTextColor(Color.parseColor("#000000"));
-        answerBtn1.setTextColor(Color.parseColor("#000000"));
+
+
+        txtOpcion1.setTextColor(Color.parseColor("#000000"));
+        txtOpcion2.setTextColor(Color.parseColor("#000000"));
+        txtOpcion3.setTextColor(Color.parseColor("#000000"));
+        txtOpcion4.setTextColor(Color.parseColor("#000000"));
+
+
 
     }
 
@@ -1030,12 +1009,19 @@ if(se_presiono50y50bt){
 
 
    // Toast.makeText(this, "se pulso comodin", Toast.LENGTH_SHORT).show();
-    ArrayList<Button> buttonlista= new ArrayList<Button>();
+    ArrayList<LinearLayout> listLayouts= new ArrayList<>();
+    listLayouts.add( answerBtn1);
+    listLayouts.add(answerBtn2);
+    listLayouts.add( answerBtn3);
+    listLayouts.add( answerBtn4);
 
-    buttonlista.add( answerBtn1);
-    buttonlista.add(answerBtn2);
-    buttonlista.add( answerBtn3);
-    buttonlista.add( answerBtn4);
+
+    ArrayList<TextView> listTexViews= new ArrayList<>();
+    listTexViews.add( txtOpcion1);
+    listTexViews.add(txtOpcion2);
+    listTexViews.add( txtOpcion3);
+    listTexViews.add( txtOpcion4);
+
 
 
     answerBtn3.clearAnimation();
@@ -1047,10 +1033,10 @@ if(se_presiono50y50bt){
 
     int indice_contrado=-1;
 
-    for(int indice=0; indice<buttonlista.size(); indice++){
+    for(int indice=0; indice<listLayouts.size(); indice++){
 
         indice_contrado++;
-        if( buttonlista.get(indice).getText().toString().equals(rightAnswer)){
+        if( listTexViews.get(indice).getText().toString().equals(rightAnswer)){
 
             break;
         }
@@ -1060,9 +1046,9 @@ if(se_presiono50y50bt){
 
     //generemoa una opcion incorrecta Y OCULTAMOS LAS DEMAS OPCIONES
 
-    buttonlista.remove( indice_contrado);
+    listLayouts.remove( indice_contrado);
 
-    Collections.shuffle(buttonlista);
+    Collections.shuffle(listLayouts);
     //  buttonlista.get(0); // mostramos esta..
 
     // buttonlista.get(1).setVisibility(View.GONE); // ocultamos
@@ -1071,16 +1057,29 @@ if(se_presiono50y50bt){
 
 
     //ocultamos texto
-    buttonlista.get(1).setText(""); // ocultamos
-    buttonlista.get(2).setText("");
 
-    //ocultamos dibujable a la izquierda
-    buttonlista.get(1).setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-    buttonlista.get(2).setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+    TextView txt1x=devukveTexviewHijo( listLayouts.get(1));
+    TextView txt2x=devukveTexviewHijo( listLayouts.get(2));
+
+
+    txt1x.setText(""); // ocultamos
+    txt2x.setText(""); // ocultamos
+
+
+  //  buttonlista.get(1).setText(""); // ocultamos
+   // buttonlista.get(2).setText("");
+
+
+
+
 
     //desabilitamos botones
-    buttonlista.get(1).setEnabled(false);
-    buttonlista.get(2).setEnabled(false);
+    listLayouts.get(1).setEnabled(false);
+    listLayouts.get(2).setEnabled(false);
+
+
+
+
 
     // no puede presionarlo dos veces
 
@@ -1094,11 +1093,47 @@ if(se_presiono50y50bt){
 
 }
 
+private TextView devukveTexviewHijo(LinearLayout layout){
+
+    for(int i=0;i<layout.getChildCount();i++)
+    {
+        //TextView b =  (Button)layout.getChildAt(i);
+        View v =  (View)layout.getChildAt(i);
+
+        if (v instanceof TextView  ) {
+
+            if(v.getTag().toString().equals("option")){
+                TextView b = (TextView) v;
+                return b;
+            }
+        }
+
+    }
+
+    return new TextView(Juego_Partida.this);
+}
 
 
 
+    private String  devukveText(LinearLayout layout){
 
+        for(int i=0;i<layout.getChildCount();i++)
+        {
+            //TextView b =  (Button)layout.getChildAt(i);
+            View v =  (View)layout.getChildAt(i);
 
+            if (v instanceof TextView  ) {
+
+                if(v.getTag().toString().equals("option")){
+                    TextView b = (TextView) v;
+                    return b.getText().toString();
+                }
+            }
+
+        }
+
+        return "";
+    }
 
 
 
@@ -1154,10 +1189,7 @@ if(se_presiono50y50bt){
 
 
            //muestra nuevmante el drawable en la izquierda..
-           answerBtn1.setCompoundDrawablesWithIntrinsicBounds(R.drawable.dentrodeboton_shape, 0, 0, 0);
-           answerBtn2.setCompoundDrawablesWithIntrinsicBounds(R.drawable.botonesob, 0, 0, 0);
-           answerBtn3.setCompoundDrawablesWithIntrinsicBounds(R.drawable.betunc, 0, 0, 0);
-           answerBtn4.setCompoundDrawablesWithIntrinsicBounds(R.drawable.betund, 0, 0, 0);
+
        } catch (Exception e) {
            e.printStackTrace();
        }
@@ -1232,7 +1264,7 @@ if(se_presiono50y50bt){
                         // an ad is loaded.
                         mInterstitialAd = interstitialAd;
 
-                       // Juego_Partida.this.interstitialAd = interstitialAd;
+                       // Juego_Partida.this.interstitialAsd = interstitialAd;
                         Log.i(TAG, "onAdLoaded");
                        // Toast.makeText(Juego_Partida.this, "onAdLoaded()", Toast.LENGTH_SHORT).show();
                         interstitialAd.setFullScreenContentCallback(
@@ -1298,5 +1330,29 @@ if(se_presiono50y50bt){
          //   Toast.makeText(this, "Ad did not load", Toast.LENGTH_SHORT).show();
         }
     }
+
+
+
+  void  findvIEWSid(){
+      countLabel = findViewById(R.id.textView4);
+      questionLabel = findViewById(R.id.textView3);
+      imageButton4= findViewById(R.id.backbtn);
+
+      answerBtn1 = findViewById(R.id.btn_opcion1);
+      answerBtn2 = findViewById(R.id.btn_opcion2);
+      answerBtn3 = findViewById(R.id.btn_opcion3);
+      answerBtn4 = findViewById(R.id.btn_opcion4);
+
+      txtOpcion1 = findViewById(R.id.txtOpcion1);
+      txtOpcion2 = findViewById(R.id.txtOpcion2);
+      txtOpcion3 = findViewById(R.id.txtOpcion3);
+      txtOpcion4 = findViewById(R.id.txtOpcion4);
+
+
+
+      lif=findViewById(R.id.lifes);
+      textViewCountDown = findViewById(R.id.text_view_countdown);
+      monedastxt=findViewById(R.id.coin);
+  }
 
 }
